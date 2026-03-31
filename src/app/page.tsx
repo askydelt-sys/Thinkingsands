@@ -6,8 +6,8 @@ export default function Home() {
       <div className="progress-bar" id="progressBar" style={{ position: 'fixed', top: 0, left: 0, height: '3px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', zIndex: 1000, transition: 'width 0.1s ease', width: '0%' }} />
 
       <nav className="nav-dots" style={{ position: 'fixed', right: '30px', top: '50%', transform: 'translateY(-50%)', zIndex: 1000, display: 'flex', flexDirection: 'column', gap: '15px' }}>
-        {['intro', 'dream', 'embeddings', 'transformer', 'bridge', 'token-game', 'sand', 'agents', 'present', 'future'].map((id, i) => (
-          <div key={id} className="nav-dot" data-section={id} data-label={['', 'The Dream', 'Word Vectors', 'Transformer', 'Bridge', 'Token Game', 'Thinking Sand', 'Agents', 'Present', 'Future'][i]} style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', cursor: 'pointer', transition: 'all 0.3s ease', position: 'relative' }} />
+        {['intro', 'dream', 'embeddings', 'transformer', 'bridge', 'token-game', 'sand', 'agents', 'programming', 'present', 'future'].map((id, i) => (
+          <div key={id} className="nav-dot" data-section={id} data-label={['', 'The Dream', 'Word Vectors', 'Transformer', 'Bridge', 'Token Game', 'Thinking Sand', 'Agents', 'Genius Coder', 'Present', 'Future'][i]} style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', cursor: 'pointer', transition: 'all 0.3s ease', position: 'relative' }} />
         ))}
       </nav>
 
@@ -251,6 +251,61 @@ export default function Home() {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
             Wei et al. - Chain-of-Thought Prompting Elicits Reasoning
           </a>
+        </div>
+      </section>
+
+      {/* AI AS GENIUS PROGRAMMER */}
+      <section id="programming" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, #0a0a0f 0%, #1a1a25 100%)' }}>
+        <div className="section-content slide-left" style={{ maxWidth: '1100px', width: '100%', opacity: 1 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Genius Programmer</h2>
+          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '800px', marginBottom: '30px' }}>Perhaps the most profound demonstration of LLM capability: AI has become a world-class programmer. Code is just another language — and these machines have learned to speak it fluently.</p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px', marginTop: '40px' }}>
+            <div style={{ background: 'linear-gradient(145deg, rgba(0,245,212,0.08), rgba(0,245,212,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(0,245,212,0.2)' }}>
+              <h4 style={{ fontSize: '1.2rem', marginBottom: '15px', color: '#00f5d4' }}>💻 One of Humanity&apos;s Most Complex Activities</h4>
+              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>Programming requires mastering syntax, semantics, algorithms, data structures, architecture, debugging, and abstract reasoning. It demands precision, creativity, and deep logical thought.</p>
+            </div>
+            
+            <div style={{ background: 'linear-gradient(145deg, rgba(155,93,229,0.08), rgba(155,93,229,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(155,93,229,0.2)' }}>
+              <h4 style={{ fontSize: '1.2rem', marginBottom: '15px', color: '#9b5de5' }}>🧠 Surpassing Human Experts</h4>
+              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>AI systems now score in the 99th percentile on programming competitions. They debug complex systems, optimize algorithms, and architect entire applications — often better than humans who spent decades mastering the craft.</p>
+            </div>
+            
+            <div style={{ background: 'linear-gradient(145deg, rgba(241,91,181,0.08), rgba(241,91,181,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(241,91,181,0.2)' }}>
+              <h4 style={{ fontSize: '1.2rem', marginBottom: '15px', color: '#f15bb5' }}>⚡ Exponential Acceleration</h4>
+              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>The rate of software improvement is no longer linear — it&apos;s exponential. AI writes code in seconds that would take humans days or weeks. The feedback loop is closing. AI writes AI.</p>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '50px', padding: '35px', background: 'rgba(0,0,0,0.3)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <h4 style={{ fontSize: '1.3rem', marginBottom: '20px', color: '#fee440' }}>The Self-Improving Loop</h4>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '15px', fontFamily: 'JetBrains Mono, monospace' }}>
+              {[
+                { text: 'AI Writes Code', color: '#00f5d4' },
+                { text: '→', color: '#666' },
+                { text: 'Code Improves AI', color: '#9b5de5' },
+                { text: '→', color: '#666' },
+                { text: 'Better AI Writes Better Code', color: '#f15bb5' },
+                { text: '→', color: '#666' },
+                { text: 'Repeat', color: '#fee440' }
+              ].map((item, i) => (
+                <span key={i} style={{ color: item.color, fontSize: '1rem', padding: '8px 12px', background: `${item.color}15`, borderRadius: '8px' }}>{item.text}</span>
+              ))}
+            </div>
+            <p style={{ fontSize: '1rem', color: '#a0a0b0', marginTop: '20px', textAlign: 'center' }}>We&apos;re witnessing a recursive improvement loop — software building better software building better software. The singularity isn&apos;t science fiction anymore. It&apos;s happening in GitHub repos right now.</p>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '30px' }}>
+            <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(0,245,212,0.15)', border: '1px solid rgba(0,245,212,0.3)', borderRadius: '8px', color: '#00f5d4', textDecoration: 'none', fontSize: '0.9rem' }}>
+              GitHub Copilot
+            </a>
+            <a href="https://claude.ai/code" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(241,91,181,0.15)', border: '1px solid rgba(241,91,181,0.3)', borderRadius: '8px', color: '#f15bb5', textDecoration: 'none', fontSize: '0.9rem' }}>
+              Claude Code
+            </a>
+            <a href="https://openai.com/index/openai-codex/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155,93,229,0.15)', border: '1px solid rgba(155,93,229,0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem' }}>
+              OpenAI Codex
+            </a>
+          </div>
         </div>
       </section>
 
