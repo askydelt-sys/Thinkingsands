@@ -6,8 +6,8 @@ export default function Home() {
       <div className="progress-bar" id="progressBar" style={{ position: 'fixed', top: 0, left: 0, height: '3px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', zIndex: 1000, transition: 'width 0.1s ease', width: '0%' }} />
 
       <nav className="nav-dots" style={{ position: 'fixed', right: '30px', top: '50%', transform: 'translateY(-50%)', zIndex: 1000, display: 'flex', flexDirection: 'column', gap: '15px' }}>
-        {['intro', 'dream', 'neural', 'embeddings', 'transformer', 'token-game', 'sand', 'agents', 'present', 'future'].map((id, i) => (
-          <div key={id} className="nav-dot" data-section={id} data-label={['', 'The Dream', 'Neural Dawn', 'Word Vectors', 'Transformer', 'Token Game', 'Thinking Sand', 'Agents', 'Present', 'Future'][i]} style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', cursor: 'pointer', transition: 'all 0.3s ease', position: 'relative' }} />
+        {['intro', 'dream', 'embeddings', 'transformer', 'bridge', 'token-game', 'sand', 'agents', 'present', 'future'].map((id, i) => (
+          <div key={id} className="nav-dot" data-section={id} data-label={['', 'The Dream', 'Word Vectors', 'Transformer', 'Bridge', 'Token Game', 'Thinking Sand', 'Agents', 'Present', 'Future'][i]} style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', cursor: 'pointer', transition: 'all 0.3s ease', position: 'relative' }} />
         ))}
       </nav>
 
@@ -26,19 +26,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* THE DREAM */}
+      {/* THE DREAM - Early Machine Translation */}
       <section id="dream" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#0a0a0f' }}>
         <div className="section-content slide-left" style={{ maxWidth: '1200px', width: '100%', opacity: 1 }}>
           <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px', position: 'relative' }}>The Dream of Machines That Speak</h2>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>Long before neural networks, computer scientists dreamed of machines that could understand human language. The journey began with a simple question: Can computers translate?</p>
+          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>It all started with a simple question: <em>Can computers translate between languages?</em> From this humble beginning, an entire revolution would emerge.</p>
           
           <div style={{ position: 'relative', paddingLeft: '40px' }}>
             <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '2px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)' }}></div>
             
             {[
-              { year: '1954', title: 'The Georgetown-IBM Experiment', desc: 'The first public demonstration of machine translation. Sixty Russian sentences were automatically translated to English.' },
-              { year: '1966', title: 'ELIZA: The First Conversation', desc: 'Joseph Weizenbaum created ELIZA, mimicking a Rogerian therapist. It was simple pattern matching, but people believed.' },
-              { year: '1980s-1990s', title: 'Rule-Based Systems Fail', desc: 'Decades of attempts to code language rules proved insufficient. The complexity was infinite.' }
+              { year: '1954', title: 'The Georgetown-IBM Experiment', desc: 'The first public demonstration of machine translation. Sixty Russian sentences translated to English. Limited, but revolutionary.' },
+              { year: '1966', title: 'ELIZA: The First Conversation', desc: 'Joseph Weizenbaum created ELIZA, mimicking a Rogerian therapist. Simple pattern matching, but people talked to it for hours.' },
+              { year: '1980s-90s', title: 'Rule-Based Systems Collapse', desc: 'Decades of hand-coded grammar rules proved insufficient. The complexity of language was infinite.' },
+              { year: '2013', title: 'Word2Vec: Words as Vectors', desc: 'Mikolov discovered that word meaning could be captured as numbers in space. king - man + woman ≈ queen.' }
             ].map((item, i) => (
               <div key={i} style={{ position: 'relative', marginBottom: '40px', padding: '25px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', transition: 'all 0.3s ease' }}>
                 <div style={{ position: 'absolute', left: '-46px', top: '30px', width: '14px', height: '14px', borderRadius: '50%', background: '#00f5d4', boxShadow: '0 0 20px #00f5d4' }}></div>
@@ -49,7 +50,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div style={{ background: '#0d0d12', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '25px', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', maxWidth: '400px', marginTop: '40px' }}>
+          <div style={{ background: '#0d0d12', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '25px', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', maxWidth: '450px', marginTop: '40px' }}>
             <div style={{ display: 'flex', gap: '8px', marginBottom: '15px' }}>
               <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></div>
               <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></div>
@@ -60,10 +61,94 @@ export default function Home() {
             <div style={{ color: '#a0a0b0' }}>&gt; ELIZA: Tell me more about your <span style={{ color: '#00f5d4' }}>cat</span></div>
           </div>
 
-          <a href="https://en.wikipedia.org/wiki/ELIZA" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '15px' }}>
+          <a href="https://en.wikipedia.org/wiki/ELIZA" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '20px' }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
             Learn about ELIZA on Wikipedia
           </a>
+        </div>
+      </section>
+
+      {/* THE TRANSFORMER - Attention Is All You Need */}
+      <section id="transformer" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#12121a' }}>
+        <div className="section-content slide-right" style={{ maxWidth: '1200px', width: '100%', opacity: 1 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Attention Is All You Need</h2>
+          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>In June 2017, a paper from Google Brain changed everything. The Transformer architecture abandoned recurrence entirely. Instead, it used &quot;attention&quot; — letting every word look at every other word simultaneously.</p>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginTop: '40px' }}>
+            <div style={{ background: 'linear-gradient(145deg, rgba(0,245,212,0.1), rgba(0,245,212,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(0,245,212,0.2)' }}>
+              <h4 style={{ fontSize: '1.3rem', marginBottom: '15px', color: '#00f5d4' }}>The Key Innovation</h4>
+              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>Self-attention: each token looks at all other tokens to understand context. &quot;The&quot; knows it&apos;s connected to &quot;animal&quot; and &quot;crossed.&quot;</p>
+            </div>
+            <div style={{ background: 'linear-gradient(145deg, rgba(155,93,229,0.1), rgba(155,93,229,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(155,93,229,0.2)' }}>
+              <h4 style={{ fontSize: '1.3rem', marginBottom: '15px', color: '#9b5de5' }}>Parallel Processing</h4>
+              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>Unlike RNNs, Transformers process entire sequences at once. Training became 100x faster. Scale became possible.</p>
+            </div>
+            <div style={{ background: 'linear-gradient(145deg, rgba(241,91,181,0.1), rgba(241,91,181,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(241,91,181,0.2)' }}>
+              <h4 style={{ fontSize: '1.3rem', marginBottom: '15px', color: '#f15bb5' }}>Long-range Dependencies</h4>
+              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>The first word can directly influence the last word. No information decay through time steps.</p>
+            </div>
+          </div>
+
+          <div style={{ background: '#0d0d12', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', padding: '30px', marginTop: '40px', maxWidth: '600px' }}>
+            <h4 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', color: '#fee440', marginBottom: '15px' }}>ATTENTION MECHANISM</h4>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
+              {['The', 'animal', "didn't", 'cross', 'the', 'street', 'because', 'it', 'was', 'tired'].map((word, i) => (
+                <span key={i} style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', padding: '8px 12px', background: 'rgba(155,93,229,0.2)', borderRadius: '6px', color: '#fff' }}>{word}</span>
+              ))}
+            </div>
+            <p style={{ fontSize: '0.9rem', color: '#a0a0b0', marginTop: '15px', textAlign: 'center' }}>Every word attends to every other word. &quot;it&quot; strongly attends to &quot;animal&quot; and &quot;tired&quot;.</p>
+          </div>
+
+          <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '25px' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Vaswani et al. - Attention Is All You Need (2017)
+          </a>
+        </div>
+      </section>
+
+      {/* THE BRIDGE - How a Translator Became a Thinker */}
+      <section id="bridge" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, #0a0a0f 0%, #15151f 100%)' }}>
+        <div className="section-content slide-up" style={{ maxWidth: '900px', width: '100%', textAlign: 'center', opacity: 1 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>How a Translator Became a Thinker</h2>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', marginTop: '50px', textAlign: 'left' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #00f5d4' }}>
+              <span style={{ fontSize: '2rem', flexShrink: 0 }}>🔄</span>
+              <div>
+                <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#00f5d4' }}>From Translation to Prediction</h4>
+                <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>What if instead of translating between languages, you predict the next word in the same language? That&apos;s all GPT does — sophisticated autocomplete. But with enough data and compute, prediction becomes understanding.</p>
+              </div>
+            </div>
+            
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #9b5de5' }}>
+              <span style={{ fontSize: '2rem', flexShrink: 0 }}>📈</span>
+              <div>
+                <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#9b5de5' }}>Scale Changes Everything</h4>
+                <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>GPT-1 (2018): 117M parameters. GPT-2 (2019): 1.5B. GPT-3 (2020): 175B. With scale came emergent abilities — the model started doing things it wasn&apos;t explicitly trained to do.</p>
+              </div>
+            </div>
+            
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #f15bb5' }}>
+              <span style={{ fontSize: '2rem', flexShrink: 0 }}>🧠</span>
+              <div>
+                <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#f15bb5' }}>Emergent Reasoning</h4>
+                <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>At sufficient scale, predicting the next token requires understanding context, causality, and intent. The model learns to reason step-by-step, even though it was never taught to. Chain-of-thought prompting emerged naturally.</p>
+              </div>
+            </div>
+            
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #fee440' }}>
+              <span style={{ fontSize: '2rem', flexShrink: 0 }}>⚡</span>
+              <div>
+                <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#fee440' }}>Thinking Emerges</h4>
+                <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>The leap from translator to thinker wasn&apos;t programmed — it emerged. Billions of parameters organizing themselves to minimize prediction error created something that looks remarkably like understanding. We still don&apos;t fully understand why it works.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: '50px', padding: '30px', background: 'linear-gradient(145deg, rgba(155,93,229,0.15), rgba(0,245,212,0.05))', borderRadius: '16px', border: '1px solid rgba(155,93,229,0.3)' }}>
+            <p style={{ fontSize: '1.3rem', color: '#fff', fontStyle: 'italic', margin: 0 }}>&quot;We present a new simple network architecture, the Transformer, based solely on attention mechanisms...&quot;</p>
+            <p style={{ fontSize: '0.9rem', color: '#a0a0b0', marginTop: '15px' }}>— Vaswani et al., 2017</p>
+          </div>
         </div>
       </section>
 
@@ -71,7 +156,7 @@ export default function Home() {
       <section id="token-game" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#0a0a0f' }}>
         <div className="section-content" style={{ maxWidth: '800px', width: '100%', opacity: 1 }}>
           <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Token Game</h2>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>Large Language Models predict the next token. They&apos;re sophisticated autocomplete engines. Let&apos;s play:</p>
+          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>This is what LLMs do — predict the next token. They&apos;re sophisticated autocomplete engines. Try it yourself:</p>
 
           <div style={{ background: 'linear-gradient(145deg, #1a1a24, #12121a)', borderRadius: '20px', padding: '40px', border: '1px solid rgba(255,255,255,0.1)', marginTop: '30px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
@@ -104,7 +189,7 @@ export default function Home() {
         <div className="section-content slide-left" style={{ maxWidth: '1200px', width: '100%', opacity: 1 }}>
           <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Thinking Sand</h2>
           <h3 style={{ fontSize: '1.5rem', fontWeight: 500, color: '#00f5d4', marginBottom: '15px' }}>175 billion parameters. Silicon as substrate.</h3>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>Inside every modern LLM are billions of numerical values — &quot;weights&quot; — arranged in matrices. Together, they form a computational substrate that processes meaning.</p>
+          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>Inside every modern LLM are billions of numerical values — &quot;weights&quot; — arranged in matrices. Together, they form a computational substrate that processes meaning. Grains of sand that learned to think.</p>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginTop: '40px' }}>
             {[
@@ -131,7 +216,7 @@ export default function Home() {
       <section id="agents" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#0a0a0f' }}>
         <div className="section-content slide-right" style={{ maxWidth: '1200px', width: '100%', opacity: 1 }}>
           <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Agents in the Machine</h2>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>LLMs alone are just text predictors. But give them tools, memory, and the ability to act iteratively — and they become something new: AI agents.</p>
+          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>LLMs alone are just text predictors. But give them tools, memory, and the ability to act iteratively — and they become something new: AI agents that can explore, plan, and execute.</p>
 
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', marginBottom: '40px' }}>
             {[
@@ -334,7 +419,6 @@ export default function Home() {
       `}</style>
 
       <script dangerouslySetInnerHTML={{ __html: `
-        // Progress bar
         window.addEventListener('scroll', () => {
           const scrollTop = window.scrollY;
           const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -342,15 +426,8 @@ export default function Home() {
           document.getElementById('progressBar').style.width = scrollPercent + '%';
         });
 
-        // Navigation dots
         const sections = document.querySelectorAll('section');
         const navDots = document.querySelectorAll('.nav-dot');
-
-        const observerOptions = {
-          root: null,
-          rootMargin: '-50% 0px -50% 0px',
-          threshold: 0
-        };
 
         const sectionObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
@@ -364,7 +441,7 @@ export default function Home() {
               });
             }
           });
-        }, observerOptions);
+        }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
 
         sections.forEach(section => sectionObserver.observe(section));
 
@@ -375,16 +452,15 @@ export default function Home() {
           });
         });
 
-        // Token Game
         const questions = [
-          { sentence: "The cat sat on the ___", options: ["mat", "moon", "happiness", "thinking"], correct: 0, explanation: "The most grammatically and semantically sensible completion." },
+          { sentence: "The cat sat on the ___", options: ["mat", "moon", "happiness", "thinking"], correct: 0, explanation: "The most grammatically sensible completion." },
           { sentence: "After eating, the ___ died", options: ["person", "fish", "restaurant", "happy"], correct: 1, explanation: "Classic Winograd schema! 'The fish' makes sense — it ate the food, then died." },
           { sentence: "I regret to inform you that your ___ has been approved", options: ["application", "rejection", "complaint", "problem"], correct: 0, explanation: "Only 'application' collocates naturally with 'approved'." },
           { sentence: "The trophy would not fit in the suitcase because ___", options: ["it was too big", "it was too small", "it was shiny", "it was heavy"], correct: 0, explanation: "The trophy is too big for the suitcase — another Winograd schema!" },
-          { sentence: "Scientists have discovered that ___ is the key to longevity", options: ["exercise", "sleep", "happiness", "all of the above"], correct: 3, explanation: "Current research suggests all three factors contribute to longevity." },
+          { sentence: "Scientists have discovered that ___ is the key to longevity", options: ["exercise", "sleep", "happiness", "all of the above"], correct: 3, explanation: "All three factors contribute to longevity." },
           { sentence: "The artist painted a picture of the ___ at sunset", options: ["ocean", "keyboard", "telephone", "algorithm"], correct: 0, explanation: "Only 'ocean' creates a coherent scene with 'sunset'." },
-          { sentence: "She put the milk in the ___ to keep it cold", options: ["freezer", "oven", "drawer", "lamp"], correct: 0, explanation: "You keep milk cold in the freezer — not in an oven!" },
-          { sentence: "The programmer wrote code that fixed the bug in ___", options: ["production", "imagination", "dreams", "stories"], correct: 0, explanation: "Code runs in production systems — not in dreams or stories." }
+          { sentence: "She put the milk in the ___ to keep it cold", options: ["freezer", "oven", "drawer", "lamp"], correct: 0, explanation: "You keep milk cold in the freezer!" },
+          { sentence: "The programmer wrote code that fixed the bug in ___", options: ["production", "imagination", "dreams", "stories"], correct: 0, explanation: "Code runs in production systems — not dreams." }
         ];
 
         let currentQuestion = 0;
@@ -415,11 +491,8 @@ export default function Home() {
           
           buttons.forEach((btn, i) => {
             btn.disabled = true;
-            if (i === q.correct) {
-              btn.classList.add('correct');
-            } else if (i === index && index !== q.correct) {
-              btn.classList.add('incorrect');
-            }
+            if (i === q.correct) btn.classList.add('correct');
+            else if (i === index && index !== q.correct) btn.classList.add('incorrect');
           });
 
           if (index === q.correct) {
@@ -428,9 +501,7 @@ export default function Home() {
           }
 
           document.getElementById('total').textContent = currentQuestion + 1;
-          
-          const resultDiv = document.getElementById('gameResult');
-          resultDiv.style.display = 'block';
+          document.getElementById('gameResult').style.display = 'block';
           document.getElementById('resultText').textContent = q.explanation;
         }
 
