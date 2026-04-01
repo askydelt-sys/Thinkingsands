@@ -6,8 +6,8 @@ export default function Home() {
       <div className="progress-bar" id="progressBar" style={{ position: 'fixed', top: 0, left: 0, height: '3px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', zIndex: 1000, transition: 'width 0.1s ease', width: '0%' }} />
 
       <nav className="nav-dots" style={{ position: 'fixed', right: '30px', top: '50%', transform: 'translateY(-50%)', zIndex: 1000, display: 'flex', flexDirection: 'column', gap: '15px' }}>
-        {['intro', 'dream', 'embeddings', 'transformer', 'bridge', 'token-game', 'sand', 'agents', 'programming', 'present', 'future'].map((id, i) => (
-          <div key={id} className="nav-dot" data-section={id} data-label={['', 'The Dream', 'Word Vectors', 'Transformer', 'Bridge', 'Token Game', 'Thinking Sand', 'Agents', 'Genius Coder', 'Present', 'Future'][i]} style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', cursor: 'pointer', transition: 'all 0.3s ease', position: 'relative' }} />
+        {['intro', 'dream', 'embeddings', 'transformer', 'bridge', 'pioneers', 'token-game', 'sand', 'agents', 'programming', 'present', 'future'].map((id, i) => (
+          <div key={id} className="nav-dot" data-section={id} data-label={['', 'The Dream', 'Word Vectors', 'Transformer', 'Bridge', 'Pioneers', 'Token Game', 'Thinking Sand', 'Agents', 'Genius Coder', 'Present', 'Future'][i]} style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', cursor: 'pointer', transition: 'all 0.3s ease', position: 'relative' }} />
         ))}
       </nav>
 
@@ -148,6 +148,46 @@ export default function Home() {
           <div className="animate-on-scroll" style={{ marginTop: '50px', padding: '30px', background: 'linear-gradient(145deg, rgba(155,93,229,0.15), rgba(0,245,212,0.05))', borderRadius: '16px', border: '1px solid rgba(155,93,229,0.3)' }}>
             <p style={{ fontSize: '1.3rem', color: '#fff', fontStyle: 'italic', margin: 0 }}>&quot;We present a new simple network architecture, the Transformer, based solely on attention mechanisms...&quot;</p>
             <p style={{ fontSize: '0.9rem', color: '#a0a0b0', marginTop: '15px' }}>— Vaswani et al., 2017</p>
+          </div>
+        </div>
+      </section>
+
+      {/* THE MINDS BEHIND THE REVOLUTION */}
+      <section id="pioneers" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, #12121a 0%, #0a0a0f 100%)' }}>
+        <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
+          <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '15px' }}>The Minds Behind the Revolution</h2>
+          <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>This transformation wasn&apos;t accidental. It was driven by brilliant humans — many of them women — who dared to imagine machines that could think.</p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px', marginTop: '30px' }}>
+            {[
+              { name: 'Fei-Fei Li', role: 'Computer Vision Pioneer', contribution: 'Led ImageNet, proving that large-scale data drives deep learning breakthroughs.', color: '#00f5d4', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/TechCrunch_Disrupt_2019_%2848834434641%29_%28cropped%29.jpg/440px-TechCrunch_Disrupt_2019_%2848834434641%29_%28cropped%29.jpg' },
+              { name: 'Yoshua Bengio', role: 'Deep Learning Godfather', contribution: 'Co-winner of Turing Award 2018. Pioneered recurrent networks and attention mechanisms.', color: '#9b5de5', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Yoshua_Bengio.jpg/440px-Yoshua_Bengio.jpg' },
+              { name: 'Andrej Karpathy', role: 'Deep Learning Educator', contribution: 'Created Stanford&apos;s CNN course. Made AI education accessible to millions.', color: '#f15bb5', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Andrej_Karpathy.jpg/440px-Andrej_Karpathy.jpg' },
+              { name: 'Frances Haugen', role: 'AI Transparency Advocate', contribution: 'Exposed Meta&apos;s AI practices. Champions responsible AI development.', color: '#fee440', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Frances_Haugen_%28cropped%29.jpg/440px-Frances_Haugen_%28cropped%29.jpg' },
+              { name: 'Demis Hassabis', role: 'DeepMind Founder', contribution: 'Combined neuroscience, AI, and games. Created AlphaFold solving protein folding.', color: '#00f5d4', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Demis_Hassabis.jpg/440px-Demis_Hassabis.jpg' },
+              { name: 'Timnit Gebru', role: 'AI Ethics Pioneer', contribution: 'Founded DAIR Institute. Advocated for diversity and accountability in AI.', color: '#9b5de5', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Timnit_Gebru_%282020%29.jpg/440px-Timnit_Gebru_%282020%29.jpg' },
+              { name: 'Shakir Mohamed', role: 'DeepMind Research Lead', contribution: 'Led Responsible AI at DeepMind. Pioneering work in African AI and fairness.', color: '#f15bb5', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Shakir_Mohamed.jpg/440px-Shakir_Mohamed.jpg' },
+              { name: 'Daphne Koller', role: 'Online Education Pioneer', contribution: 'Co-founded Coursera. Brought AI education to millions worldwide.', color: '#fee440', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Daphne_Koller.jpg/440px-Daphne_Koller.jpg' }
+            ].map((person, i) => (
+              <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '25px', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'center', transition: 'all 0.3s ease' }}>
+                <div style={{ width: '100px', height: '100px', borderRadius: '50%', margin: '0 auto 20px', overflow: 'hidden', border: '3px solid ' + person.color, boxShadow: '0 0 30px ' + person.color + '40' }}>
+                  <img src={person.img} alt={person.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { const target = e.target as HTMLImageElement; const fallback = target.nextElementSibling as HTMLElement; if (target && fallback) { target.style.display = 'none'; fallback.style.display = 'flex'; } }} />
+                  <div style={{ width: '100%', height: '100%', background: person.color + '30', display: 'none', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem' }}>👤</div>
+                </div>
+                <h4 style={{ fontSize: '1.1rem', marginBottom: '5px', color: person.color }}>{person.name}</h4>
+                <p style={{ fontSize: '0.85rem', color: '#a0a0b0', marginBottom: '10px', fontWeight: 500 }}>{person.role}</p>
+                <p style={{ fontSize: '0.85rem', color: '#888', margin: 0 }}>{person.contribution}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="animate-on-scroll" style={{ marginTop: '50px', padding: '30px', background: 'linear-gradient(145deg, rgba(0,245,212,0.1), rgba(155,93,229,0.05))', borderRadius: '16px', border: '1px solid rgba(0,245,212,0.2)' }}>
+            <h4 style={{ fontSize: '1.1rem', marginBottom: '15px', color: '#00f5d4' }}>Honorable Mentions</h4>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
+              {['Geoffrey Hinton', 'Yann LeCun', 'Ilya Sutskever', 'Sam Altman', 'Dario Amodei', 'Jensen Huang', 'Cynthia Dwork', 'David Ha', 'Shannon', 'Turing'].map((name, i) => (
+                <span key={i} style={{ padding: '6px 14px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px', fontSize: '0.85rem', color: '#a0a0b0' }}>{name}</span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
