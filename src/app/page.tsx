@@ -13,14 +13,14 @@ export default function Home() {
 
       {/* INTRO */}
       <section id="intro" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', overflow: 'hidden', background: 'linear-gradient(180deg, #0a0a0f 0%, #12121a 100%)' }}>
-        <div className="section-content" style={{ textAlign: 'center', opacity: 1, transform: 'scale(1)' }}>
-          <p style={{ fontSize: '1.4rem', color: '#a0a0b0', marginBottom: '40px' }}>A Journey Through</p>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '30px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+        <div className="section-content animate-scale visible" style={{ textAlign: 'center' }}>
+          <p className="animate-on-scroll visible delay-1" style={{ fontSize: '1.4rem', color: '#a0a0b0', marginBottom: '40px' }}>A Journey Through</p>
+          <h1 className="animate-on-scroll visible delay-2" style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '30px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
             From Translation Machines<br />to <span style={{ color: '#00f5d4' }}>Thinking Sand</span>
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '600px', margin: '0 auto' }}>The remarkable story of how machines learned to understand, reason, and perhaps even think.</p>
+          <p className="animate-on-scroll visible delay-3" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '600px', margin: '0 auto' }}>The remarkable story of how machines learned to understand, reason, and perhaps even think.</p>
         </div>
-        <div style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', color: '#a0a0b0', fontSize: '14px', animation: 'bounce 2s infinite' }}>
+        <div className="animate-on-scroll visible delay-5" style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', color: '#a0a0b0', fontSize: '14px', animation: 'bounce 2s infinite' }}>
           <span>Scroll to explore</span>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00f5d4" strokeWidth="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
         </div>
@@ -28,9 +28,9 @@ export default function Home() {
 
       {/* THE DREAM - Early Machine Translation */}
       <section id="dream" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#0a0a0f' }}>
-        <div className="section-content slide-left" style={{ maxWidth: '1200px', width: '100%', opacity: 1 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px', position: 'relative' }}>The Dream of Machines That Speak</h2>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>It all started with a simple question: <em>Can computers translate between languages?</em> From this humble beginning, an entire revolution would emerge.</p>
+        <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
+          <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px', position: 'relative' }}>The Dream of Machines That Speak</h2>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>It all started with a simple question: <em>Can computers translate between languages?</em> From this humble beginning, an entire revolution would emerge.</p>
           
           <div style={{ position: 'relative', paddingLeft: '40px' }}>
             <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '2px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)' }}></div>
@@ -41,7 +41,7 @@ export default function Home() {
               { year: '1980s-90s', title: 'Rule-Based Systems Collapse', desc: 'Decades of hand-coded grammar rules proved insufficient. The complexity of language was infinite.' },
               { year: '2013', title: 'Word2Vec: Words as Vectors', desc: 'Mikolov discovered that word meaning could be captured as numbers in space. king - man + woman ≈ queen.' }
             ].map((item, i) => (
-              <div key={i} style={{ position: 'relative', marginBottom: '40px', padding: '25px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', transition: 'all 0.3s ease' }}>
+              <div key={i} className="animate-on-scroll" style={{ position: 'relative', marginBottom: '40px', padding: '25px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', transition: 'all 0.3s ease' }}>
                 <div style={{ position: 'absolute', left: '-46px', top: '30px', width: '14px', height: '14px', borderRadius: '50%', background: '#00f5d4', boxShadow: '0 0 20px #00f5d4' }}></div>
                 <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', color: '#f15bb5', marginBottom: '8px', display: 'block' }}>{item.year}</span>
                 <h4 style={{ fontSize: '1.3rem', marginBottom: '10px' }}>{item.title}</h4>
@@ -50,7 +50,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div style={{ background: '#0d0d12', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '25px', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', maxWidth: '450px', marginTop: '40px' }}>
+          <div className="animate-on-scroll" style={{ background: '#0d0d12', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '25px', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', maxWidth: '450px', marginTop: '40px' }}>
             <div style={{ display: 'flex', gap: '8px', marginBottom: '15px' }}>
               <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></div>
               <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></div>
@@ -61,7 +61,7 @@ export default function Home() {
             <div style={{ color: '#a0a0b0' }}>&gt; ELIZA: Tell me more about your <span style={{ color: '#00f5d4' }}>cat</span></div>
           </div>
 
-          <a href="https://en.wikipedia.org/wiki/ELIZA" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '20px' }}>
+          <a href="https://en.wikipedia.org/wiki/ELIZA" target="_blank" rel="noopener noreferrer" className="animate-on-scroll" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '20px' }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
             Learn about ELIZA on Wikipedia
           </a>
@@ -70,26 +70,26 @@ export default function Home() {
 
       {/* THE TRANSFORMER - Attention Is All You Need */}
       <section id="transformer" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#12121a' }}>
-        <div className="section-content slide-right" style={{ maxWidth: '1200px', width: '100%', opacity: 1 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Attention Is All You Need</h2>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>In June 2017, a paper from Google Brain changed everything. The Transformer architecture abandoned recurrence entirely. Instead, it used &quot;attention&quot; — letting every word look at every other word simultaneously.</p>
+        <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
+          <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Attention Is All You Need</h2>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>In June 2017, a paper from Google Brain changed everything. The Transformer architecture abandoned recurrence entirely. Instead, it used &quot;attention&quot; — letting every word look at every other word simultaneously.</p>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginTop: '40px' }}>
-            <div style={{ background: 'linear-gradient(145deg, rgba(0,245,212,0.1), rgba(0,245,212,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(0,245,212,0.2)' }}>
+            <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(0,245,212,0.1), rgba(0,245,212,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(0,245,212,0.2)' }}>
               <h4 style={{ fontSize: '1.3rem', marginBottom: '15px', color: '#00f5d4' }}>The Key Innovation</h4>
               <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>Self-attention: each token looks at all other tokens to understand context. &quot;The&quot; knows it&apos;s connected to &quot;animal&quot; and &quot;crossed.&quot;</p>
             </div>
-            <div style={{ background: 'linear-gradient(145deg, rgba(155,93,229,0.1), rgba(155,93,229,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(155,93,229,0.2)' }}>
+            <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(155,93,229,0.1), rgba(155,93,229,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(155,93,229,0.2)' }}>
               <h4 style={{ fontSize: '1.3rem', marginBottom: '15px', color: '#9b5de5' }}>Parallel Processing</h4>
               <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>Unlike RNNs, Transformers process entire sequences at once. Training became 100x faster. Scale became possible.</p>
             </div>
-            <div style={{ background: 'linear-gradient(145deg, rgba(241,91,181,0.1), rgba(241,91,181,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(241,91,181,0.2)' }}>
+            <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(241,91,181,0.1), rgba(241,91,181,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(241,91,181,0.2)' }}>
               <h4 style={{ fontSize: '1.3rem', marginBottom: '15px', color: '#f15bb5' }}>Long-range Dependencies</h4>
               <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>The first word can directly influence the last word. No information decay through time steps.</p>
             </div>
           </div>
 
-          <div style={{ background: '#0d0d12', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', padding: '30px', marginTop: '40px', maxWidth: '600px' }}>
+          <div className="animate-on-scroll" style={{ background: '#0d0d12', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', padding: '30px', marginTop: '40px', maxWidth: '600px' }}>
             <h4 style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', color: '#fee440', marginBottom: '15px' }}>ATTENTION MECHANISM</h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
               {['The', 'animal', "didn't", 'cross', 'the', 'street', 'because', 'it', 'was', 'tired'].map((word, i) => (
@@ -99,7 +99,7 @@ export default function Home() {
             <p style={{ fontSize: '0.9rem', color: '#a0a0b0', marginTop: '15px', textAlign: 'center' }}>Every word attends to every other word. &quot;it&quot; strongly attends to &quot;animal&quot; and &quot;tired&quot;.</p>
           </div>
 
-          <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '25px' }}>
+          <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" className="animate-on-scroll" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '25px' }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
             Vaswani et al. - Attention Is All You Need (2017)
           </a>
@@ -108,11 +108,11 @@ export default function Home() {
 
       {/* THE BRIDGE - How a Translator Became a Thinker */}
       <section id="bridge" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, #0a0a0f 0%, #15151f 100%)' }}>
-        <div className="section-content slide-up" style={{ maxWidth: '900px', width: '100%', textAlign: 'center', opacity: 1 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>How a Translator Became a Thinker</h2>
+        <div className="section-content" style={{ maxWidth: '900px', width: '100%', textAlign: 'center' }}>
+          <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>How a Translator Became a Thinker</h2>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', marginTop: '50px', textAlign: 'left' }}>
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #00f5d4' }}>
+            <div className="animate-on-scroll" style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #00f5d4' }}>
               <span style={{ fontSize: '2rem', flexShrink: 0 }}>🔄</span>
               <div>
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#00f5d4' }}>From Translation to Prediction</h4>
@@ -120,7 +120,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #9b5de5' }}>
+            <div className="animate-on-scroll" style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #9b5de5' }}>
               <span style={{ fontSize: '2rem', flexShrink: 0 }}>📈</span>
               <div>
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#9b5de5' }}>Scale Changes Everything</h4>
@@ -128,7 +128,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #f15bb5' }}>
+            <div className="animate-on-scroll" style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #f15bb5' }}>
               <span style={{ fontSize: '2rem', flexShrink: 0 }}>🧠</span>
               <div>
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#f15bb5' }}>Emergent Reasoning</h4>
@@ -136,7 +136,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #fee440' }}>
+            <div className="animate-on-scroll" style={{ display: 'flex', alignItems: 'flex-start', gap: '25px', padding: '30px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', borderLeft: '4px solid #fee440' }}>
               <span style={{ fontSize: '2rem', flexShrink: 0 }}>⚡</span>
               <div>
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#fee440' }}>Thinking Emerges</h4>
@@ -145,7 +145,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div style={{ marginTop: '50px', padding: '30px', background: 'linear-gradient(145deg, rgba(155,93,229,0.15), rgba(0,245,212,0.05))', borderRadius: '16px', border: '1px solid rgba(155,93,229,0.3)' }}>
+          <div className="animate-on-scroll" style={{ marginTop: '50px', padding: '30px', background: 'linear-gradient(145deg, rgba(155,93,229,0.15), rgba(0,245,212,0.05))', borderRadius: '16px', border: '1px solid rgba(155,93,229,0.3)' }}>
             <p style={{ fontSize: '1.3rem', color: '#fff', fontStyle: 'italic', margin: 0 }}>&quot;We present a new simple network architecture, the Transformer, based solely on attention mechanisms...&quot;</p>
             <p style={{ fontSize: '0.9rem', color: '#a0a0b0', marginTop: '15px' }}>— Vaswani et al., 2017</p>
           </div>
@@ -154,11 +154,11 @@ export default function Home() {
 
       {/* TOKEN GAME SECTION */}
       <section id="token-game" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#0a0a0f' }}>
-        <div className="section-content" style={{ maxWidth: '800px', width: '100%', opacity: 1 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Token Game</h2>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>This is what LLMs do — predict the next token. They&apos;re sophisticated autocomplete engines. Try it yourself:</p>
+        <div className="section-content" style={{ maxWidth: '800px', width: '100%' }}>
+          <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Token Game</h2>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>This is what LLMs do — predict the next token. They&apos;re sophisticated autocomplete engines. Try it yourself:</p>
 
-          <div style={{ background: 'linear-gradient(145deg, #1a1a24, #12121a)', borderRadius: '20px', padding: '40px', border: '1px solid rgba(255,255,255,0.1)', marginTop: '30px' }}>
+          <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, #1a1a24, #12121a)', borderRadius: '20px', padding: '40px', border: '1px solid rgba(255,255,255,0.1)', marginTop: '30px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
               <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1rem', color: '#00f5d4', textTransform: 'uppercase', letterSpacing: '2px' }}>Next Token Prediction</span>
               <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1.2rem', color: '#fee440' }}>Score: <span id="score">0</span> / <span id="total">0</span></span>
@@ -180,16 +180,16 @@ export default function Home() {
             </div>
           </div>
 
-          <p style={{ marginTop: '20px', fontSize: '1rem', color: '#f15bb5' }}>This is exactly what GPT, Claude, and every LLM does — just with billions of parameters!</p>
+          <p className="animate-on-scroll" style={{ marginTop: '20px', fontSize: '1rem', color: '#f15bb5' }}>This is exactly what GPT, Claude, and every LLM does — just with billions of parameters!</p>
         </div>
       </section>
 
       {/* THINKING SAND */}
       <section id="sand" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#12121a' }}>
-        <div className="section-content slide-left" style={{ maxWidth: '1200px', width: '100%', opacity: 1 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Thinking Sand</h2>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: 500, color: '#00f5d4', marginBottom: '15px' }}>175 billion parameters. Silicon as substrate.</h3>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>Inside every modern LLM are billions of numerical values — &quot;weights&quot; — arranged in matrices. Together, they form a computational substrate that processes meaning. Grains of sand that learned to think.</p>
+        <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
+          <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Thinking Sand</h2>
+          <h3 className="animate-on-scroll" style={{ fontSize: '1.5rem', fontWeight: 500, color: '#00f5d4', marginBottom: '15px' }}>175 billion parameters. Silicon as substrate.</h3>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>Inside every modern LLM are billions of numerical values — &quot;weights&quot; — arranged in matrices. Together, they form a computational substrate that processes meaning. Grains of sand that learned to think.</p>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginTop: '40px' }}>
             {[
@@ -197,7 +197,7 @@ export default function Home() {
               { icon: '⚡', title: 'The Energy', desc: 'Training GPT-3 consumed about 1 GWh — enough to power 1000 homes for a month.' },
               { icon: '🧮', title: 'The Math', desc: 'Matrix multiplications, softmax functions, residual connections — elegant mathematics producing emergent intelligence.' }
             ].map((card, i) => (
-              <div key={i} style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)', transition: 'all 0.4s ease' }}>
+              <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)', transition: 'all 0.4s ease' }}>
                 <div style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{card.icon}</div>
                 <h4 style={{ fontSize: '1.3rem', marginBottom: '12px' }}>{card.title}</h4>
                 <p style={{ fontSize: '1rem', margin: 0, color: '#a0a0b0' }}>{card.desc}</p>
@@ -205,7 +205,7 @@ export default function Home() {
             ))}
           </div>
 
-          <a href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '25px' }}>
+          <a href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener noreferrer" className="animate-on-scroll" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '25px' }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
             Kaplan et al. - Scaling Laws for Neural Language Models
           </a>
@@ -214,9 +214,9 @@ export default function Home() {
 
       {/* AGENTS */}
       <section id="agents" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#0a0a0f' }}>
-        <div className="section-content slide-right" style={{ maxWidth: '1200px', width: '100%', opacity: 1 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Agents in the Machine</h2>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>LLMs alone are just text predictors. But give them tools, memory, and the ability to act iteratively — and they become something new: AI agents that can explore, plan, and execute.</p>
+        <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
+          <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Agents in the Machine</h2>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>LLMs alone are just text predictors. But give them tools, memory, and the ability to act iteratively — and they become something new: AI agents that can explore, plan, and execute.</p>
 
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', marginBottom: '40px' }}>
             {[
@@ -225,7 +225,7 @@ export default function Home() {
               { step: '3', title: 'Act', desc: 'Use tools — web search, calculators, code execution' },
               { step: '4', title: 'Reflect', desc: 'Evaluate results and adjust approach if needed' }
             ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '20px', padding: '20px 30px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', borderLeft: '4px solid #9b5de5', transition: 'all 0.3s ease', width: '100%', maxWidth: '600px' }}>
+              <div key={i} className="animate-on-scroll" style={{ display: 'flex', alignItems: 'center', gap: '20px', padding: '20px 30px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', borderLeft: '4px solid #9b5de5', transition: 'all 0.3s ease', width: '100%', maxWidth: '600px' }}>
                 <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1.5rem', color: '#9b5de5', fontWeight: 700 }}>{item.step}</span>
                 <div>
                   <strong>{item.title}</strong>
@@ -240,14 +240,14 @@ export default function Home() {
               { title: 'ReAct (2023)', desc: 'Combines reasoning traces with action plans. The model thinks out loud while deciding what to do.' },
               { title: 'Tool Use', desc: 'Modern LLMs can browse the web, run code, use calculators, and interact with APIs.' }
             ].map((card, i) => (
-              <div key={i} style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <h4 style={{ fontSize: '1.3rem', marginBottom: '12px' }}>{card.title}</h4>
                 <p style={{ fontSize: '1rem', margin: 0, color: '#a0a0b0' }}>{card.desc}</p>
               </div>
             ))}
           </div>
 
-          <a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '25px' }}>
+          <a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener noreferrer" className="animate-on-scroll" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '25px' }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
             Wei et al. - Chain-of-Thought Prompting Elicits Reasoning
           </a>
@@ -256,28 +256,28 @@ export default function Home() {
 
       {/* AI AS GENIUS PROGRAMMER */}
       <section id="programming" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, #0a0a0f 0%, #1a1a25 100%)' }}>
-        <div className="section-content slide-left" style={{ maxWidth: '1100px', width: '100%', opacity: 1 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Genius Programmer</h2>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '800px', marginBottom: '30px' }}>Perhaps the most profound demonstration of LLM capability: AI has become a world-class programmer. Code is just another language — and these machines have learned to speak it fluently.</p>
+        <div className="section-content" style={{ maxWidth: '1100px', width: '100%' }}>
+          <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Genius Programmer</h2>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '800px', marginBottom: '30px' }}>Perhaps the most profound demonstration of LLM capability: AI has become a world-class programmer. Code is just another language — and these machines have learned to speak it fluently.</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px', marginTop: '40px' }}>
-            <div style={{ background: 'linear-gradient(145deg, rgba(0,245,212,0.08), rgba(0,245,212,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(0,245,212,0.2)' }}>
+            <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(0,245,212,0.08), rgba(0,245,212,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(0,245,212,0.2)' }}>
               <h4 style={{ fontSize: '1.2rem', marginBottom: '15px', color: '#00f5d4' }}>💻 One of Humanity&apos;s Most Complex Activities</h4>
               <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>Programming requires mastering syntax, semantics, algorithms, data structures, architecture, debugging, and abstract reasoning. It demands precision, creativity, and deep logical thought.</p>
             </div>
             
-            <div style={{ background: 'linear-gradient(145deg, rgba(155,93,229,0.08), rgba(155,93,229,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(155,93,229,0.2)' }}>
+            <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(155,93,229,0.08), rgba(155,93,229,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(155,93,229,0.2)' }}>
               <h4 style={{ fontSize: '1.2rem', marginBottom: '15px', color: '#9b5de5' }}>🧠 Surpassing Human Experts</h4>
               <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>AI systems now score in the 99th percentile on programming competitions. They debug complex systems, optimize algorithms, and architect entire applications — often better than humans who spent decades mastering the craft.</p>
             </div>
             
-            <div style={{ background: 'linear-gradient(145deg, rgba(241,91,181,0.08), rgba(241,91,181,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(241,91,181,0.2)' }}>
+            <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(241,91,181,0.08), rgba(241,91,181,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(241,91,181,0.2)' }}>
               <h4 style={{ fontSize: '1.2rem', marginBottom: '15px', color: '#f15bb5' }}>⚡ Exponential Acceleration</h4>
               <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>The rate of software improvement is no longer linear — it&apos;s exponential. AI writes code in seconds that would take humans days or weeks. The feedback loop is closing. AI writes AI.</p>
             </div>
           </div>
 
-          <div style={{ marginTop: '50px', padding: '35px', background: 'rgba(0,0,0,0.3)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
+          <div className="animate-on-scroll" style={{ marginTop: '50px', padding: '35px', background: 'rgba(0,0,0,0.3)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.1)' }}>
             <h4 style={{ fontSize: '1.3rem', marginBottom: '20px', color: '#fee440' }}>The Self-Improving Loop</h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '15px', fontFamily: 'JetBrains Mono, monospace' }}>
               {[
@@ -295,7 +295,7 @@ export default function Home() {
             <p style={{ fontSize: '1rem', color: '#a0a0b0', marginTop: '20px', textAlign: 'center' }}>We&apos;re witnessing a recursive improvement loop — software building better software building better software. The singularity isn&apos;t science fiction anymore. It&apos;s happening in GitHub repos right now.</p>
           </div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '30px' }}>
+          <div className="animate-on-scroll" style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '30px' }}>
             <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(0,245,212,0.15)', border: '1px solid rgba(0,245,212,0.3)', borderRadius: '8px', color: '#00f5d4', textDecoration: 'none', fontSize: '0.9rem' }}>
               GitHub Copilot
             </a>
@@ -311,9 +311,9 @@ export default function Home() {
 
       {/* THE PRESENT */}
       <section id="present" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#12121a' }}>
-        <div className="section-content slide-up" style={{ maxWidth: '1200px', width: '100%', opacity: 1 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Present & The Frontier</h2>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>We&apos;re living through an extraordinary moment. AI capabilities are advancing at a pace we&apos;ve never seen before.</p>
+        <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
+          <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Present & The Frontier</h2>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>We&apos;re living through an extraordinary moment. AI capabilities are advancing at a pace we&apos;ve never seen before.</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginTop: '40px' }}>
             {[
@@ -322,7 +322,7 @@ export default function Home() {
               { color: '#f15bb5', name: 'Google', desc: 'Gemini family, DeepMind research, integration into Search and Workspace.', link: 'https://deepmind.google' },
               { color: '#fee440', name: 'Meta & Open Source', desc: 'Llama models released openly. Mistral, Falcon, and thousands of fine-tunes.', link: 'https://github.com/meta-llama' }
             ].map((company, i) => (
-              <div key={i} style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <h4 style={{ fontSize: '1.3rem', marginBottom: '12px', color: company.color }}>{company.name}</h4>
                 <p style={{ fontSize: '1rem', margin: 0, color: '#a0a0b0' }}>{company.desc}</p>
                 <a href={company.link} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: `${company.color}33`, border: `1px solid ${company.color}50`, borderRadius: '8px', color: company.color, textDecoration: 'none', fontSize: '0.85rem', marginTop: '15px' }}>
@@ -336,9 +336,9 @@ export default function Home() {
 
       {/* THE FUTURE */}
       <section id="future" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#0a0a0f' }}>
-        <div className="section-content" style={{ maxWidth: '900px', width: '100%', textAlign: 'center', opacity: 1 }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>What Comes Next?</h2>
-          <p style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', margin: '0 auto 40px' }}>The story of AI is far from over. What happens when systems become more capable? More autonomous? More integrated into our lives?</p>
+        <div className="section-content" style={{ maxWidth: '900px', width: '100%', textAlign: 'center' }}>
+          <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>What Comes Next?</h2>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', margin: '0 auto 40px' }}>The story of AI is far from over. What happens when systems become more capable? More autonomous? More integrated into our lives?</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginBottom: '60px' }}>
             {[
@@ -346,7 +346,7 @@ export default function Home() {
               { icon: '⚖️', title: 'Alignment Problem', desc: 'How do we ensure AI systems do what we want? The most important challenge of our time.' },
               { icon: '🌍', title: 'Society & Work', desc: 'Automation of cognitive tasks. New jobs, displaced jobs. The transformation has only begun.' }
             ].map((card, i) => (
-              <div key={i} style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'left' }}>
+              <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'left' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '15px' }}>{card.icon}</div>
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '10px' }}>{card.title}</h4>
                 <p style={{ fontSize: '1rem', margin: 0, color: '#a0a0b0' }}>{card.desc}</p>
@@ -354,8 +354,8 @@ export default function Home() {
             ))}
           </div>
 
-          <h3 style={{ color: '#00f5d4', marginBottom: '20px', fontSize: '1.5rem' }}>Continue Learning</h3>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center', maxWidth: '800px', margin: '0 auto' }}>
+          <h3 className="animate-on-scroll" style={{ color: '#00f5d4', marginBottom: '20px', fontSize: '1.5rem' }}>Continue Learning</h3>
+          <div className="animate-on-scroll" style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center', maxWidth: '800px', margin: '0 auto' }}>
             {[
               { label: 'arXiv cs.AI', url: 'https://arxiv.org/list/cs.AI/recent' },
               { label: 'DeepLearning.AI', url: 'https://learn.deeplearning.ai/' },
@@ -372,10 +372,10 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer style={{ padding: '80px 5%', textAlign: 'center', background: 'linear-gradient(180deg, #12121a 0%, #0a0a0f 100%)' }}>
-        <h2 style={{ fontSize: '2rem', marginBottom: '40px', fontWeight: 600 }}>The Journey Continues</h2>
-        <p style={{ maxWidth: '600px', margin: '0 auto 30px', color: '#a0a0b0' }}>From mechanical translation to silicon thought — and whatever comes next. The story of AI is ultimately the story of human ambition.</p>
+        <h2 className="animate-on-scroll" style={{ fontSize: '2rem', marginBottom: '40px', fontWeight: 600 }}>The Journey Continues</h2>
+        <p className="animate-on-scroll" style={{ maxWidth: '600px', margin: '0 auto 30px', color: '#a0a0b0' }}>From mechanical translation to silicon thought — and whatever comes next. The story of AI is ultimately the story of human ambition.</p>
         
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center', maxWidth: '800px', margin: '0 auto 40px' }}>
+        <div className="animate-on-scroll" style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center', maxWidth: '800px', margin: '0 auto 40px' }}>
           {[
             { label: 'GPT-4 Paper', url: 'https://arxiv.org/abs/2306.12001' },
             { label: 'Llama 2 Paper', url: 'https://arxiv.org/abs/2307.09288' },
@@ -388,7 +388,7 @@ export default function Home() {
           ))}
         </div>
         
-        <p style={{ color: '#a0a0b0', fontSize: '0.9rem' }}>An interactive journey through LLM history. Created with curiosity and admiration for the researchers who made it possible.</p>
+        <p className="animate-on-scroll" style={{ color: '#a0a0b0', fontSize: '0.9rem' }}>An interactive journey through LLM history. Created with curiosity and admiration for the researchers who made it possible.</p>
       </footer>
 
       <style jsx global>{`
@@ -420,9 +420,51 @@ export default function Home() {
         }
         
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
+          from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        
+        @keyframes fadeInLeft {
+          from { opacity: 0; transform: translateX(-50px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes fadeInRight {
+          from { opacity: 0; transform: translateX(50px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes fadeInScale {
+          from { opacity: 0; transform: scale(0.9); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        
+        .animate-on-scroll {
+          opacity: 0;
+        }
+        
+        .animate-on-scroll.visible {
+          animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .animate-left.visible {
+          animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .animate-right.visible {
+          animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .animate-scale.visible {
+          animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s !important; }
+        .delay-2 { animation-delay: 0.2s !important; }
+        .delay-3 { animation-delay: 0.3s !important; }
+        .delay-4 { animation-delay: 0.4s !important; }
+        .delay-5 { animation-delay: 0.5s !important; }
+        .delay-6 { animation-delay: 0.6s !important; }
         
         .nav-dot:hover {
           background: #00f5d4 !important;
@@ -480,6 +522,49 @@ export default function Home() {
           const scrollPercent = (scrollTop / docHeight) * 100;
           document.getElementById('progressBar').style.width = scrollPercent + '%';
         });
+
+        // Observe all elements with animation classes
+        function initElementAnimations() {
+          const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-left, .animate-right, .animate-scale');
+          
+          const elementObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                // Add staggered delay based on sibling order
+                const siblings = Array.from(entry.target.parentElement?.children || []).filter(el => 
+                  el.classList.contains('animate-on-scroll') || 
+                  el.classList.contains('animate-left') || 
+                  el.classList.contains('animate-right') || 
+                  el.classList.contains('animate-scale')
+                );
+                const siblingIndex = siblings.indexOf(entry.target);
+                
+                // Remove any existing delay classes
+                entry.target.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4', 'delay-5', 'delay-6');
+                
+                // Add staggered delay
+                if (siblingIndex < 6) {
+                  entry.target.classList.add('delay-' + (siblingIndex + 1));
+                }
+                
+                entry.target.classList.add('visible');
+                elementObserver.unobserve(entry.target);
+              }
+            });
+          }, { 
+            rootMargin: '0px 0px -100px 0px',
+            threshold: 0.1 
+          });
+
+          animatedElements.forEach(el => elementObserver.observe(el));
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initElementAnimations);
+        } else {
+          initElementAnimations();
+        }
 
         const sections = document.querySelectorAll('section');
         const navDots = document.querySelectorAll('.nav-dot');
