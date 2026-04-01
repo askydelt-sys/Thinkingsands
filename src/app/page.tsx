@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function Home() {
   return (
     <>
@@ -160,18 +162,18 @@ export default function Home() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px', marginTop: '30px' }}>
             {[
-              { name: 'Fei-Fei Li', initials: 'FL', role: 'Computer Vision Pioneer', contribution: 'Led ImageNet, proving that large-scale data drives deep learning breakthroughs.', color: '#00f5d4' },
-              { name: 'Yoshua Bengio', initials: 'YB', role: 'Deep Learning Godfather', contribution: 'Co-winner of Turing Award 2018. Pioneered recurrent networks and attention mechanisms.', color: '#9b5de5' },
-              { name: 'Andrej Karpathy', initials: 'AK', role: 'Deep Learning Educator', contribution: 'Created Stanford&apos;s CNN course. Made AI education accessible to millions.', color: '#f15bb5' },
-              { name: 'Frances Haugen', initials: 'FH', role: 'AI Transparency Advocate', contribution: 'Exposed Meta&apos;s AI practices. Champions responsible AI development.', color: '#fee440' },
-              { name: 'Demis Hassabis', initials: 'DH', role: 'DeepMind Founder', contribution: 'Combined neuroscience, AI, and games. Created AlphaFold solving protein folding.', color: '#00f5d4' },
-              { name: 'Timnit Gebru', initials: 'TG', role: 'AI Ethics Pioneer', contribution: 'Founded DAIR Institute. Advocated for diversity and accountability in AI.', color: '#9b5de5' },
-              { name: 'Shakir Mohamed', initials: 'SM', role: 'DeepMind Research Lead', contribution: 'Led Responsible AI at DeepMind. Pioneering work in African AI and fairness.', color: '#f15bb5' },
-              { name: 'Daphne Koller', initials: 'DK', role: 'Online Education Pioneer', contribution: 'Co-founded Coursera. Brought AI education to millions worldwide.', color: '#fee440' }
+              { name: 'Fei-Fei Li', img: '/images/pioneers/fei-fei-li.svg', role: 'Computer Vision Pioneer', contribution: 'Led ImageNet, proving that large-scale data drives deep learning breakthroughs.', color: '#00f5d4' },
+              { name: 'Yoshua Bengio', img: '/images/pioneers/yoshua-bengio.svg', role: 'Deep Learning Godfather', contribution: 'Co-winner of Turing Award 2018. Pioneered recurrent networks and attention mechanisms.', color: '#9b5de5' },
+              { name: 'Andrej Karpathy', img: '/images/pioneers/andrej-karpathy.svg', role: 'Deep Learning Educator', contribution: 'Created Stanford&apos;s CNN course. Made AI education accessible to millions.', color: '#f15bb5' },
+              { name: 'Frances Haugen', img: '/images/pioneers/frances-haugen.svg', role: 'AI Transparency Advocate', contribution: 'Exposed Meta&apos;s AI practices. Champions responsible AI development.', color: '#fee440' },
+              { name: 'Demis Hassabis', img: '/images/pioneers/demis-hassabis.svg', role: 'DeepMind Founder', contribution: 'Combined neuroscience, AI, and games. Created AlphaFold solving protein folding.', color: '#00f5d4' },
+              { name: 'Timnit Gebru', img: '/images/pioneers/timnit-gebru.svg', role: 'AI Ethics Pioneer', contribution: 'Founded DAIR Institute. Advocated for diversity and accountability in AI.', color: '#9b5de5' },
+              { name: 'Shakir Mohamed', img: '/images/pioneers/shakir-mohamed.svg', role: 'DeepMind Research Lead', contribution: 'Led Responsible AI at DeepMind. Pioneering work in African AI and fairness.', color: '#f15bb5' },
+              { name: 'Daphne Koller', img: '/images/pioneers/daphne-koller.svg', role: 'Online Education Pioneer', contribution: 'Co-founded Coursera. Brought AI education to millions worldwide.', color: '#fee440' }
             ].map((person, i) => (
               <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '25px', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'center', transition: 'all 0.3s ease' }}>
-                <div style={{ width: '100px', height: '100px', borderRadius: '50%', margin: '0 auto 20px', background: `linear-gradient(135deg, ${person.color}40, ${person.color}10)`, border: '3px solid ' + person.color, boxShadow: '0 0 30px ' + person.color + '40', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontSize: '2rem', fontWeight: 700, color: person.color }}>{person.initials}</span>
+                <div style={{ width: '100px', height: '100px', borderRadius: '50%', margin: '0 auto 20px', overflow: 'hidden', border: '3px solid ' + person.color, boxShadow: '0 0 30px ' + person.color + '40' }}>
+                  <Image src={person.img} alt={person.name} width={100} height={100} style={{ objectFit: 'cover' }} />
                 </div>
                 <h4 style={{ fontSize: '1.1rem', marginBottom: '5px', color: person.color }}>{person.name}</h4>
                 <p style={{ fontSize: '0.85rem', color: '#a0a0b0', marginBottom: '10px', fontWeight: 500 }}>{person.role}</p>
