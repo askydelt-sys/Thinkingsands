@@ -644,55 +644,45 @@ export default function Home() {
       `}</style>
 
       <script dangerouslySetInnerHTML={{ __html: `
+        function initAll() {
         window.addEventListener('scroll', () => {
           const scrollTop = window.scrollY;
           const docHeight = document.documentElement.scrollHeight - window.innerHeight;
           const scrollPercent = (scrollTop / docHeight) * 100;
-          document.getElementById('progressBar').style.width = scrollPercent + '%';
+          var bar = document.getElementById('progressBar');
+          if (bar) bar.style.width = scrollPercent + '%';
         });
 
         // Observe all elements with animation classes
-        function initElementAnimations() {
-          const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-left, .animate-right, .animate-scale');
-          
-          const elementObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-              if (entry.isIntersecting) {
-                // Add staggered delay based on sibling order
-                const siblings = Array.from(entry.target.parentElement?.children || []).filter(el => 
-                  el.classList.contains('animate-on-scroll') || 
-                  el.classList.contains('animate-left') || 
-                  el.classList.contains('animate-right') || 
-                  el.classList.contains('animate-scale')
-                );
-                const siblingIndex = siblings.indexOf(entry.target);
-                
-                // Remove any existing delay classes
-                entry.target.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4', 'delay-5', 'delay-6');
-                
-                // Add staggered delay
-                if (siblingIndex < 6) {
-                  entry.target.classList.add('delay-' + (siblingIndex + 1));
-                }
-                
-                entry.target.classList.add('visible');
-                elementObserver.unobserve(entry.target);
+        const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-left, .animate-right, .animate-scale');
+        
+        const elementObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              const siblings = Array.from(entry.target.parentElement?.children || []).filter(el => 
+                el.classList.contains('animate-on-scroll') || 
+                el.classList.contains('animate-left') || 
+                el.classList.contains('animate-right') || 
+                el.classList.contains('animate-scale')
+              );
+              const siblingIndex = siblings.indexOf(entry.target);
+              
+              entry.target.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4', 'delay-5', 'delay-6');
+              
+              if (siblingIndex < 6) {
+                entry.target.classList.add('delay-' + (siblingIndex + 1));
               }
-            });
-          }, { 
-            rootMargin: '0px 0px -100px 0px',
-            threshold: 0.1 
+              
+              entry.target.classList.add('visible');
+              elementObserver.unobserve(entry.target);
+            }
           });
+        }, { 
+          rootMargin: '0px 0px -100px 0px',
+          threshold: 0.1 
+        });
 
-          animatedElements.forEach(el => elementObserver.observe(el));
-        }
-
-        // Initialize when DOM is ready
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', initElementAnimations);
-        } else {
-          initElementAnimations();
-        }
+        animatedElements.forEach(el => elementObserver.observe(el));
 
         const sections = document.querySelectorAll('section');
         const navDots = document.querySelectorAll('.nav-dot');
@@ -782,6 +772,7 @@ export default function Home() {
         loadQuestion();
 
         // ===== TRANSFORMER GAME =====
+        try {
         var tgStep = 0;
         var tgWords = ['The', 'cat', 'sat', 'on', 'the', 'warm', 'mat', 'because', 'it', 'was', 'tired'];
         var tgTokenIds = [1996, 5309, 4862, 382, 1996, 6107, 13874, 780, 340, 411, 9867];
@@ -1009,6 +1000,15 @@ export default function Home() {
         });
 
         tgRender();
+        } catch(e) { console.error('Transformer game error:', e); }
+
+        } // end initAll
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initAll);
+        } else {
+          initAll();
+        }
       `}} />
     </>
   );
