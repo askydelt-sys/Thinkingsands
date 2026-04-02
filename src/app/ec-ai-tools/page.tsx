@@ -21,7 +21,7 @@ export default function ECAITools() {
       </Link>
 
       {/* HERO */}
-      <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', overflow: 'hidden', background: 'linear-gradient(180deg, #05050f 0%, #0a0a1a 100%)' }}>
+      <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', overflow: 'hidden', background: 'linear-gradient(180deg, rgba(5,5,15,0.92) 0%, rgba(10,10,26,0.92) 100%)' }}>
         {/* EU flag stars decoration */}
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', opacity: 0.04, pointerEvents: 'none' }}>
           {[...Array(12)].map((_, i) => (
@@ -53,7 +53,7 @@ export default function ECAITools() {
       </section>
 
       {/* GPT@EC */}
-      <section id="gpt-ec" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: '#0a0a0f' }}>
+      <section id="gpt-ec" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
             <span style={{ fontSize: '2.5rem' }}>🤖</span>
@@ -139,7 +139,7 @@ export default function ECAITools() {
       </section>
 
       {/* LANGUAGE TOOLS */}
-      <section id="language-tools" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: '#12121a' }}>
+      <section id="language-tools" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: 'rgba(18,18,26,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
             <span style={{ fontSize: '2.5rem' }}>🌐</span>
@@ -266,7 +266,7 @@ export default function ECAITools() {
       </section>
 
       {/* SPEECH TO TEXT */}
-      <section id="speech" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: '#0a0a0f' }}>
+      <section id="speech" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1100px', width: '100%' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '25px' }}>
             <span style={{ fontSize: '2.5rem' }}>🎙️</span>
@@ -334,7 +334,7 @@ export default function ECAITools() {
       </section>
 
       {/* RESEARCH TOOLS */}
-      <section id="research" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: '#12121a' }}>
+      <section id="research" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: 'rgba(18,18,26,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1100px', width: '100%' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '25px' }}>
             <span style={{ fontSize: '2.5rem' }}>📚</span>
@@ -403,7 +403,7 @@ export default function ECAITools() {
       </section>
 
       {/* AI ACT EXPLORER */}
-      <section id="ai-act" style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: 'linear-gradient(180deg, #0a0a0f 0%, #10101c 100%)' }}>
+      <section id="ai-act" style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: 'linear-gradient(180deg, rgba(10,10,15,0.92) 0%, rgba(16,16,28,0.92) 100%)' }}>
         <div className="section-content" style={{ maxWidth: '1100px', width: '100%' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '25px' }}>
             <span style={{ fontSize: '2.5rem' }}>⚖️</span>
@@ -460,7 +460,7 @@ export default function ECAITools() {
       </section>
 
       {/* ACCESS */}
-      <section id="access" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: '#12121a' }}>
+      <section id="access" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: 'rgba(18,18,26,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '900px', width: '100%' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '30px' }}>
             <span style={{ fontSize: '2.5rem' }}>🔑</span>
@@ -509,7 +509,7 @@ export default function ECAITools() {
       </section>
 
       {/* TIPS */}
-      <section id="tips" style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: '#0a0a0f' }}>
+      <section id="tips" style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '900px', width: '100%', textAlign: 'center' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 600, marginBottom: '15px' }}>Tips for Responsible Use</h2>
           <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#a0a0b0', marginBottom: '40px' }}>The Commission&apos;s AI@EC Communication sets out the principles. Here&apos;s what matters in practice.</p>
@@ -554,7 +554,7 @@ export default function ECAITools() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ padding: '60px 5%', textAlign: 'center', background: 'linear-gradient(180deg, #12121a 0%, #0a0a0f 100%)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <footer style={{ padding: '60px 5%', textAlign: 'center', background: 'linear-gradient(180deg, rgba(18,18,26,0.92) 0%, rgba(10,10,15,0.92) 100%)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px', marginBottom: '20px' }}>
           <span style={{ fontSize: '2rem' }}>🇪🇺</span>
           <p className="animate-on-scroll" style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>European Commission AI Tools Guide · Not an official Commission publication</p>

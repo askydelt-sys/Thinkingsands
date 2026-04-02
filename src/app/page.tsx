@@ -14,7 +14,7 @@ export default function Home() {
       </nav>
 
       {/* INTRO */}
-      <section id="intro" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', overflow: 'hidden', background: 'linear-gradient(180deg, #0a0a0f 0%, #12121a 100%)' }}>
+      <section id="intro" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', overflow: 'hidden', background: 'linear-gradient(180deg, rgba(10,10,15,0.92) 0%, rgba(18,18,26,0.92) 100%)' }}>
         <div className="section-content animate-scale visible" style={{ textAlign: 'center' }}>
           <p className="animate-on-scroll visible delay-1" style={{ fontSize: '1.4rem', color: '#a0a0b0', marginBottom: '40px' }}>A Journey Through</p>
           <h1 className="animate-on-scroll visible delay-2" style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '30px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
@@ -29,7 +29,7 @@ export default function Home() {
       </section>
 
       {/* THE DREAM - Early Machine Translation */}
-      <section id="dream" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#0a0a0f' }}>
+      <section id="dream" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px', position: 'relative' }}>The Dream of Machines That Speak</h2>
           <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>It all started with a simple question: <em>Can computers translate between languages?</em> From this humble beginning, an entire revolution would emerge.</p>
@@ -71,7 +71,7 @@ export default function Home() {
       </section>
 
       {/* THE TRANSFORMER - Attention Is All You Need */}
-      <section id="transformer" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#12121a' }}>
+      <section id="transformer" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(18,18,26,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Attention Is All You Need</h2>
           <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>In June 2017, a paper from Google Brain changed everything. The Transformer architecture abandoned recurrence entirely. Instead, it used &quot;attention&quot; — letting every word look at every other word simultaneously.</p>
@@ -109,7 +109,7 @@ export default function Home() {
       </section>
 
       {/* THE BRIDGE - How a Translator Became a Thinker */}
-      <section id="bridge" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, #0a0a0f 0%, #15151f 100%)' }}>
+      <section id="bridge" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, rgba(10,10,15,0.92) 0%, rgba(21,21,31,0.92) 100%)' }}>
         <div className="section-content" style={{ maxWidth: '900px', width: '100%', textAlign: 'center' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>How a Translator Became a Thinker</h2>
           
@@ -155,7 +155,7 @@ export default function Home() {
       </section>
 
       {/* THE MINDS BEHIND THE REVOLUTION */}
-      <section id="pioneers" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, #12121a 0%, #0a0a0f 100%)' }}>
+      <section id="pioneers" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, rgba(18,18,26,0.92) 0%, rgba(10,10,15,0.92) 100%)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '15px' }}>The Minds Behind the Revolution</h2>
           <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>This transformation wasn&apos;t accidental. It was driven by brilliant humans — many of them women — who dared to imagine machines that could think.</p>
@@ -194,7 +194,7 @@ export default function Home() {
       </section>
 
       {/* TOKEN GAME SECTION */}
-      <section id="token-game" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#0a0a0f' }}>
+      <section id="token-game" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '800px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Token Game</h2>
           <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>This is what LLMs do — predict the next token. They&apos;re sophisticated autocomplete engines. Try it yourself:</p>
@@ -226,7 +226,7 @@ export default function Home() {
       </section>
 
       {/* THINKING SAND */}
-      <section id="sand" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#12121a' }}>
+      <section id="sand" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(18,18,26,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Thinking Sand</h2>
           <h3 className="animate-on-scroll" style={{ fontSize: '1.5rem', fontWeight: 500, color: '#00f5d4', marginBottom: '15px' }}>175 billion parameters. Silicon as substrate.</h3>
@@ -254,7 +254,7 @@ export default function Home() {
       </section>
 
       {/* AGENTS */}
-      <section id="agents" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#0a0a0f' }}>
+      <section id="agents" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Agents in the Machine</h2>
           <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>LLMs alone are just text predictors. But give them tools, memory, and the ability to act iteratively — and they become something new: AI agents that can explore, plan, and execute.</p>
@@ -296,7 +296,7 @@ export default function Home() {
       </section>
 
       {/* AI AS GENIUS PROGRAMMER */}
-      <section id="programming" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, #0a0a0f 0%, #1a1a25 100%)' }}>
+      <section id="programming" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, rgba(10,10,15,0.92) 0%, rgba(26,26,37,0.92) 100%)' }}>
         <div className="section-content" style={{ maxWidth: '1100px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Genius Programmer</h2>
           <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '800px', marginBottom: '30px' }}>Perhaps the most profound demonstration of LLM capability: AI has become a world-class programmer. Code is just another language — and these machines have learned to speak it fluently.</p>
@@ -351,7 +351,7 @@ export default function Home() {
       </section>
 
       {/* THE PRESENT */}
-      <section id="present" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#12121a' }}>
+      <section id="present" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(18,18,26,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Present & The Frontier</h2>
           <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>We&apos;re living through an extraordinary moment. AI capabilities are advancing at a pace we&apos;ve never seen before.</p>
@@ -376,7 +376,7 @@ export default function Home() {
       </section>
 
       {/* THE FUTURE */}
-      <section id="future" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: '#0a0a0f' }}>
+      <section id="future" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '900px', width: '100%', textAlign: 'center' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>What Comes Next?</h2>
           <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', margin: '0 auto 40px' }}>The story of AI is far from over. What happens when systems become more capable? More autonomous? More integrated into our lives?</p>
@@ -412,7 +412,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ padding: '80px 5%', textAlign: 'center', background: 'linear-gradient(180deg, #12121a 0%, #0a0a0f 100%)' }}>
+      <footer style={{ padding: '80px 5%', textAlign: 'center', background: 'linear-gradient(180deg, rgba(18,18,26,0.92) 0%, rgba(10,10,15,0.92) 100%)' }}>
         <h2 className="animate-on-scroll" style={{ fontSize: '2rem', marginBottom: '40px', fontWeight: 600 }}>The Journey Continues</h2>
         <p className="animate-on-scroll" style={{ maxWidth: '600px', margin: '0 auto 30px', color: '#a0a0b0' }}>From mechanical translation to silicon thought — and whatever comes next. The story of AI is ultimately the story of human ambition.</p>
         
