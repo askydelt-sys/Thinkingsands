@@ -181,17 +181,17 @@ export default function NeuralBackground() {
       for (const [i, j, dist] of conns) {
         const n1 = nodes[i];
         const n2 = nodes[j];
-        const opacity = (1 - dist / CONNECTION_DIST) * 0.08;
+        const opacity = (1 - dist / CONNECTION_DIST) * 0.1;
         const activation = Math.max(n1.activation, n2.activation);
-        const activatedOpacity = opacity + activation * 0.15;
+        const activatedOpacity = opacity + activation * 0.18;
 
         // Depth-based brightness
         const avgZ = (n1.z + n2.z) / 2;
-        const depthFactor = 0.4 + 0.6 * ((avgZ + 300) / 600);
+        const depthFactor = 0.45 + 0.55 * ((avgZ + 300) / 600);
 
-        const r = 60 + activation * 40;
-        const g = 60 + activation * 30;
-        const b = 70 + activation * 20;
+        const r = 75 + activation * 45;
+        const g = 75 + activation * 35;
+        const b = 85 + activation * 25;
 
         ctx!.beginPath();
         ctx!.moveTo(n1.x, n1.y);
@@ -240,36 +240,36 @@ export default function NeuralBackground() {
         const to = nodes[sig.toIdx];
         const px = from.x + (to.x - from.x) * sig.progress;
         const py = from.y + (to.y - from.y) * sig.progress;
-        const signalAlpha = sig.life * sig.strength * 0.6;
+        const signalAlpha = sig.life * sig.strength * 0.7;
 
         // Glow
-        const grad = ctx!.createRadialGradient(px, py, 0, px, py, 6 + sig.strength * 4);
-        grad.addColorStop(0, `rgba(140, 140, 160, ${signalAlpha})`);
-        grad.addColorStop(0.5, `rgba(100, 100, 120, ${signalAlpha * 0.3})`);
-        grad.addColorStop(1, 'rgba(80, 80, 100, 0)');
+        const grad = ctx!.createRadialGradient(px, py, 0, px, py, 7 + sig.strength * 5);
+        grad.addColorStop(0, `rgba(160, 160, 185, ${signalAlpha})`);
+        grad.addColorStop(0.5, `rgba(120, 120, 140, ${signalAlpha * 0.35})`);
+        grad.addColorStop(1, 'rgba(95, 95, 115, 0)');
         ctx!.beginPath();
-        ctx!.arc(px, py, 6 + sig.strength * 4, 0, Math.PI * 2);
+        ctx!.arc(px, py, 7 + sig.strength * 5, 0, Math.PI * 2);
         ctx!.fillStyle = grad;
         ctx!.fill();
 
         // Core dot
         ctx!.beginPath();
-        ctx!.arc(px, py, 1.5, 0, Math.PI * 2);
-        ctx!.fillStyle = `rgba(180, 180, 200, ${signalAlpha})`;
+        ctx!.arc(px, py, 1.8, 0, Math.PI * 2);
+        ctx!.fillStyle = `rgba(200, 200, 220, ${signalAlpha})`;
         ctx!.fill();
       }
 
       // Draw nodes (neurons)
       for (const node of nodes) {
-        const depthFactor = 0.3 + 0.7 * ((node.z + 300) / 600);
+        const depthFactor = 0.35 + 0.65 * ((node.z + 300) / 600);
         const act = node.activation;
 
         // Outer glow when activated
         if (act > 0.05) {
-          const glowR = node.radius * (3 + act * 6);
+          const glowR = node.radius * (3.5 + act * 7);
           const grad = ctx!.createRadialGradient(node.x, node.y, 0, node.x, node.y, glowR);
-          grad.addColorStop(0, `rgba(120, 120, 145, ${act * 0.15 * depthFactor})`);
-          grad.addColorStop(1, 'rgba(80, 80, 100, 0)');
+          grad.addColorStop(0, `rgba(140, 140, 168, ${act * 0.18 * depthFactor})`);
+          grad.addColorStop(1, 'rgba(95, 95, 115, 0)');
           ctx!.beginPath();
           ctx!.arc(node.x, node.y, glowR, 0, Math.PI * 2);
           ctx!.fillStyle = grad;
@@ -277,10 +277,10 @@ export default function NeuralBackground() {
         }
 
         // Node body
-        const r = 50 + act * 60;
-        const g = 50 + act * 50;
-        const b = 58 + act * 40;
-        const alpha = (0.25 + act * 0.5) * depthFactor;
+        const r = 65 + act * 65;
+        const g = 65 + act * 55;
+        const b = 73 + act * 45;
+        const alpha = (0.3 + act * 0.55) * depthFactor;
 
         ctx!.beginPath();
         ctx!.arc(node.x, node.y, node.radius * depthFactor, 0, Math.PI * 2);
@@ -291,7 +291,7 @@ export default function NeuralBackground() {
         if (act > 0.2) {
           ctx!.beginPath();
           ctx!.arc(node.x, node.y, node.radius * 0.4 * depthFactor, 0, Math.PI * 2);
-          ctx!.fillStyle = `rgba(160, 160, 180, ${act * 0.4 * depthFactor})`;
+          ctx!.fillStyle = `rgba(185, 185, 205, ${act * 0.45 * depthFactor})`;
           ctx!.fill();
         }
       }
