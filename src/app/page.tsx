@@ -168,7 +168,7 @@ export default function Home() {
               { name: 'Frances Haugen', img: '/images/pioneers/frances-haugen.jpg', role: 'AI Transparency Advocate', contribution: 'Exposed Meta\'s AI practices. Champions responsible AI development.', color: '#fee440' },
               { name: 'Demis Hassabis', img: '/images/pioneers/demis-hassabis.jpg', role: 'DeepMind Founder', contribution: 'Combined neuroscience, AI, and games. Created AlphaFold solving protein folding.', color: '#00f5d4' },
               { name: 'Timnit Gebru', img: '/images/pioneers/timnit-gebru.jpg', role: 'AI Ethics Pioneer', contribution: 'Founded DAIR Institute. Advocated for diversity and accountability in AI.', color: '#9b5de5' },
-              { name: 'Shakir Mohamed', img: '/images/pioneers/shakir-mohamed.svg', role: 'DeepMind Research Lead', contribution: 'Led Responsible AI at DeepMind. Pioneering work in African AI and fairness.', color: '#f15bb5' },
+              { name: 'Shakir Mohamed', img: '/images/pioneers/shakir-mohamed.jpg', role: 'DeepMind Research Lead', contribution: 'Led Responsible AI at DeepMind. Pioneering work in African AI and fairness.', color: '#f15bb5' },
               { name: 'Daphne Koller', img: '/images/pioneers/daphne-koller.jpg', role: 'Online Education Pioneer', contribution: 'Co-founded Coursera. Brought AI education to millions worldwide.', color: '#fee440' }
             ].map((person, i) => (
               <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '25px', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'center', transition: 'all 0.3s ease' }}>
