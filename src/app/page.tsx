@@ -164,7 +164,7 @@ export default function Home() {
             {[
               { name: 'Fei-Fei Li', img: '/images/pioneers/fei-fei-li.jpg', role: 'Computer Vision Pioneer', contribution: 'Led ImageNet, proving that large-scale data drives deep learning breakthroughs.', color: '#00f5d4' },
               { name: 'Yoshua Bengio', img: '/images/pioneers/yoshua-bengio.jpg', role: 'Deep Learning Godfather', contribution: 'Co-winner of Turing Award 2018. Pioneered recurrent networks and attention mechanisms.', color: '#9b5de5' },
-              { name: 'Andrej Karpathy', img: '/images/pioneers/andrej-karpathy.jpg', role: 'Deep Learning Educator', contribution: 'Created Stanford\'s CNN course. Made AI education accessible to millions.', color: '#f15bb5' },
+              { name: 'Andrej Karpathy', img: '/images/pioneers/andrej-karpathy.png', role: 'Deep Learning Educator', contribution: 'Created Stanford\'s CNN course. Made AI education accessible to millions.', color: '#f15bb5' },
               { name: 'Frances Haugen', img: '/images/pioneers/frances-haugen.jpg', role: 'AI Transparency Advocate', contribution: 'Exposed Meta\'s AI practices. Champions responsible AI development.', color: '#fee440' },
               { name: 'Demis Hassabis', img: '/images/pioneers/demis-hassabis.jpg', role: 'DeepMind Founder', contribution: 'Combined neuroscience, AI, and games. Created AlphaFold solving protein folding.', color: '#00f5d4' },
               { name: 'Timnit Gebru', img: '/images/pioneers/timnit-gebru.jpg', role: 'AI Ethics Pioneer', contribution: 'Founded DAIR Institute. Advocated for diversity and accountability in AI.', color: '#9b5de5' },
