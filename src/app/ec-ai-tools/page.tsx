@@ -67,6 +67,33 @@ export default function ECAITools() {
             GPT@EC is the Commission&apos;s own large language model assistant. Unlike using external tools like ChatGPT or Copilot, your prompts and documents <strong style={{ color: '#fff' }}>never leave Commission servers</strong>. Built on top of GPT@JRC (the Joint Research Centre&apos;s earlier pilot), it supports multiple LLMs — each suited to different sensitivity levels.
           </p>
 
+          {/* SNC CALLOUT */}
+          <div className="animate-on-scroll" style={{ marginBottom: '35px', padding: '25px 30px', background: 'linear-gradient(135deg, rgba(255,59,48,0.08) 0%, rgba(255,204,0,0.06) 100%)', borderRadius: '16px', border: '1px solid rgba(255,59,48,0.25)', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: '12px', right: '15px', background: 'rgba(255,59,48,0.2)', border: '1px solid rgba(255,59,48,0.4)', borderRadius: '6px', padding: '3px 10px', fontSize: '0.7rem', fontFamily: 'JetBrains Mono, monospace', color: '#ff3b30', textTransform: 'uppercase', letterSpacing: '1.5px' }}>SNC compatible</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+              <span style={{ fontSize: '1.5rem' }}>🔐</span>
+              <h4 style={{ color: '#ff3b30', margin: 0, fontSize: '1.1rem' }}>Works with Sensitive Non-Classified (SNC) documents</h4>
+            </div>
+            <p style={{ fontSize: '0.92rem', color: '#a0a0b0', margin: '0 0 15px', maxWidth: '700px' }}>
+              GPT@EC is the <strong style={{ color: '#fff' }}>only EC AI tool approved for processing SNC-marked information</strong>. It is hosted on the Commission&apos;s own data centre and offers multiple LLMs matched to different sensitivity levels. Staff can select the appropriate model depending on whether they are working with public, Commission-internal or SNC documents.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px' }}>
+              {[
+                { level: 'Public', color: '#4dff91', desc: 'Any LLM available — full model selection' },
+                { level: 'Commission Use', color: '#FFCC00', desc: 'Internal LLMs hosted on EC servers — data never shared externally' },
+                { level: 'SNC', color: '#ff3b30', desc: 'Restricted models on isolated infrastructure — highest internal security tier' },
+              ].map((tier, i) => (
+                <div key={i} style={{ padding: '12px 15px', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', borderLeft: `3px solid ${tier.color}` }}>
+                  <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem', color: tier.color, marginBottom: '4px', fontWeight: 600 }}>{tier.level}</div>
+                  <p style={{ fontSize: '0.8rem', color: '#888', margin: 0 }}>{tier.desc}</p>
+                </div>
+              ))}
+            </div>
+            <p style={{ fontSize: '0.78rem', color: '#666', marginTop: '12px', fontStyle: 'italic', margin: '12px 0 0' }}>
+              Note: External tools (ChatGPT, Copilot, Gemini, etc.) must <strong style={{ color: '#999' }}>never</strong> be used with any non-public Commission information — including SNC. The EC&apos;s 2023 Guidelines for Staff on Generative AI explicitly prohibit this.
+            </p>
+          </div>
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px', marginBottom: '40px' }}>
             {[
               { icon: '✍️', title: 'Draft & Edit', desc: 'Generate first drafts of emails, notes, speeches, policy briefs and internal communications. Iterate with follow-up prompts to refine tone or structure.', color: '#4d79ff' },
