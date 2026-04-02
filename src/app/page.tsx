@@ -429,7 +429,15 @@ export default function Home() {
           ))}
         </div>
         
-        <p className="animate-on-scroll" style={{ color: '#a0a0b0', fontSize: '0.9rem' }}>An interactive journey through LLM history. Created with curiosity and admiration for the researchers who made it possible.</p>
+        <p className="animate-on-scroll" style={{ color: '#a0a0b0', fontSize: '0.9rem', marginBottom: '30px' }}>An interactive journey through LLM history. Created with curiosity and admiration for the researchers who made it possible.</p>
+
+        <div className="animate-on-scroll" style={{ marginTop: '10px', paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+          <p style={{ color: '#666', fontSize: '0.85rem', marginBottom: '15px' }}>Also on this site</p>
+          <a href="/ec-ai-tools" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', background: 'linear-gradient(135deg, rgba(0,51,153,0.3) 0%, rgba(255,204,0,0.1) 100%)', border: '1px solid rgba(0,51,153,0.4)', borderRadius: '12px', color: '#6699ff', textDecoration: 'none', fontSize: '1rem', transition: 'all 0.3s ease' }}>
+            <span style={{ fontSize: '1.3rem' }}>🇪🇺</span>
+            AI Tools for European Commission Staff →
+          </a>
+        </div>
       </footer>
 
       <style jsx global>{`
