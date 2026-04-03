@@ -2,12 +2,13 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
-import { usePageAnalytics, AnalyticsOverlay, AnalyticsButton, formatTime } from '@/components/Analytics';
+import { usePageAnalytics, formatTime } from '@/components/Analytics';
+import Link from 'next/link';
 
 export default function Home() {
   const sectionIds = ['intro', 'dream', 'embeddings', 'transformer', 'transformer-game', 'bridge', 'pioneers', 'token-game', 'sand', 'agents', 'programming', 'present', 'future'];
   const sectionLabels = ['Intro', 'The Dream', 'Word Vectors', 'Transformer', 'Transformer Game', 'Bridge', 'Pioneers', 'Token Game', 'Thinking Sand', 'Agents', 'Genius Coder', 'Present', 'Future'];
-  const { analytics, isAnalyticsVisible, toggleAnalytics } = usePageAnalytics(sectionIds, sectionLabels, 'home');
+  const { analytics } = usePageAnalytics(sectionIds, sectionLabels, 'home');
   const hasWindow = typeof window !== 'undefined';
   
   useEffect(() => {
@@ -418,13 +419,42 @@ export default function Home() {
 
   return (
     <>
-      <AnalyticsOverlay 
-        analytics={analytics} 
-        isVisible={isAnalyticsVisible} 
-        onClose={toggleAnalytics}
-        accentColor="#00f5d4"
-      />
-      <AnalyticsButton onClick={toggleAnalytics} accentColor="#00f5d4" />
+      {/* Page Navigation */}
+      <div style={{ position: 'fixed', top: '20px', right: '20px', zIndex: 1000, display: 'flex', gap: '10px' }}>
+        <Link href="/ec-ai-tools" style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(0,51,153,0.3)', border: '1px solid rgba(0,51,153,0.5)', borderRadius: '8px', color: '#6699ff', textDecoration: 'none', fontSize: '0.85rem', backdropFilter: 'blur(10px)' }}>
+          EC Tools
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </Link>
+      </div>
+
+      {/* Static Analytics Section */}
+      <section style={{ padding: '60px 5%', background: 'linear-gradient(180deg, rgba(10,10,15,0.95) 0%, rgba(18,18,26,0.95) 100%)', borderTop: '1px solid rgba(0,245,212,0.2)' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <h3 style={{ fontSize: '1.5rem', color: '#00f5d4', marginBottom: '30px', textAlign: 'center' }}>Page Analytics</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
+            <div style={{ background: 'rgba(0,245,212,0.1)', border: '1px solid rgba(0,245,212,0.3)', borderRadius: '12px', padding: '20px', textAlign: 'center' }}>
+              <div style={{ fontSize: '2rem', fontWeight: 700, color: '#00f5d4', fontFamily: 'JetBrains Mono, monospace' }}>{analytics.totalVisitors}</div>
+              <div style={{ fontSize: '0.8rem', color: '#888', marginTop: '5px' }}>Total Visitors</div>
+            </div>
+            {analytics.sections.slice(0, 4).map((section, index) => {
+              const maxTime = Math.max(...analytics.sections.map(s => s.timeSpent), 1);
+              const percentage = (section.timeSpent / maxTime) * 100;
+              return (
+                <div key={section.id} style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '12px', padding: '20px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                    <span style={{ fontSize: '0.85rem', color: '#ccc' }}>{section.label}</span>
+                    <span style={{ fontSize: '0.75rem', color: '#00f5d4', fontFamily: 'JetBrains Mono, monospace' }}>{formatTime(section.timeSpent)}</span>
+                  </div>
+                  <div style={{ height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '3px', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', width: `${percentage}%`, background: '#00f5d4', borderRadius: '3px' }} />
+                  </div>
+                  <div style={{ fontSize: '0.7rem', color: '#555', marginTop: '5px' }}>{section.visits} visits</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <div className="progress-bar" id="progressBar" style={{ position: 'fixed', top: 0, left: 0, height: '3px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', zIndex: 1000, transition: 'width 0.1s ease', width: '0%' }} />
 
