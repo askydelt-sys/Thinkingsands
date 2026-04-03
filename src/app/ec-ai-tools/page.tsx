@@ -642,9 +642,14 @@ export default function ECAITools() {
         <p className="animate-on-scroll" style={{ color: '#555', fontSize: '0.85rem', maxWidth: '600px', margin: '0 auto 25px' }}>
           Information compiled from official EC sources. Always check the Commission intranet (MyIntraComm) and your DG&apos;s IT guidelines for the most current access and usage policies.
         </p>
-        <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 20px', background: 'rgba(77,121,255,0.15)', border: '1px solid rgba(77,121,255,0.3)', borderRadius: '8px', color: '#4d79ff', textDecoration: 'none', fontSize: '0.9rem' }}>
-          ← Back to LLM History: From Translation Machines to Thinking Sand
-        </Link>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
+          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 20px', background: 'rgba(77,121,255,0.15)', border: '1px solid rgba(77,121,255,0.3)', borderRadius: '8px', color: '#4d79ff', textDecoration: 'none', fontSize: '0.9rem' }}>
+            ← LLM History
+          </Link>
+          <Link href="/european-ai" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 20px', background: 'rgba(255,215,0,0.1)', border: '1px solid rgba(255,215,0,0.3)', borderRadius: '8px', color: '#ffd700', textDecoration: 'none', fontSize: '0.9rem' }}>
+            🔬 European Leaders in AI →
+          </Link>
+        </div>
       </footer>
 
       <style jsx global>{`
