@@ -1,8 +1,412 @@
 'use client';
 
+import { useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Home() {
+  useEffect(() => {
+    // Progress bar on scroll
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      const bar = document.getElementById('progressBar');
+      if (bar) bar.style.width = scrollPercent + '%';
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    // Observe all elements with animation classes
+    const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-left, .animate-right, .animate-scale');
+
+    const elementObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const siblings = Array.from(el.parentElement?.children || []).filter(child =>
+            child.classList.contains('animate-on-scroll') ||
+            child.classList.contains('animate-left') ||
+            child.classList.contains('animate-right') ||
+            child.classList.contains('animate-scale')
+          );
+          const siblingIndex = siblings.indexOf(el);
+
+          el.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4', 'delay-5', 'delay-6');
+
+          if (siblingIndex < 6) {
+            el.classList.add('delay-' + (siblingIndex + 1));
+          }
+
+          el.classList.add('visible');
+          elementObserver.unobserve(el);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -100px 0px',
+      threshold: 0.1
+    });
+
+    animatedElements.forEach(el => elementObserver.observe(el));
+
+    // Nav dots section tracking
+    const sections = document.querySelectorAll('section');
+    const navDots = document.querySelectorAll('.nav-dot') as NodeListOf<HTMLElement>;
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          navDots.forEach(dot => {
+            dot.style.background = 'rgba(255,255,255,0.2)';
+            if (dot.dataset.section === sectionId) {
+              dot.style.background = '#00f5d4';
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    navDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const section = document.getElementById(dot.dataset.section || '');
+        if (section) section.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // ===== TOKEN PREDICTION GAME =====
+    const questions = [
+      { sentence: "The cat sat on the ___", options: ["mat", "moon", "happiness", "thinking"], correct: 0, explanation: "The most grammatically sensible completion." },
+      { sentence: "After eating, the ___ died", options: ["person", "fish", "restaurant", "happy"], correct: 1, explanation: "Classic Winograd schema! 'The fish' makes sense — it ate the food, then died." },
+      { sentence: "I regret to inform you that your ___ has been approved", options: ["application", "rejection", "complaint", "problem"], correct: 0, explanation: "Only 'application' collocates naturally with 'approved'." },
+      { sentence: "The trophy would not fit in the suitcase because ___", options: ["it was too big", "it was too small", "it was shiny", "it was heavy"], correct: 0, explanation: "The trophy is too big for the suitcase — another Winograd schema!" },
+      { sentence: "Scientists have discovered that ___ is the key to longevity", options: ["exercise", "sleep", "happiness", "all of the above"], correct: 3, explanation: "All three factors contribute to longevity." },
+      { sentence: "The artist painted a picture of the ___ at sunset", options: ["ocean", "keyboard", "telephone", "algorithm"], correct: 0, explanation: "Only 'ocean' creates a coherent scene with 'sunset'." },
+      { sentence: "She put the milk in the ___ to keep it cold", options: ["freezer", "oven", "drawer", "lamp"], correct: 0, explanation: "You keep milk cold in the freezer!" },
+      { sentence: "The programmer wrote code that fixed the bug in ___", options: ["production", "imagination", "dreams", "stories"], correct: 0, explanation: "Code runs in production systems — not dreams." }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      const sentenceDisplay = document.getElementById('sentenceDisplay');
+      if (sentenceDisplay) {
+        sentenceDisplay.innerHTML = q.sentence.replace('___', '<span style="display:inline-block;min-width:120px;padding:5px 15px;background:linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%);border-radius:6px;margin:0 5px;animation:pulse 1.5s infinite"></span>');
+      }
+
+      const optionsContainer = document.getElementById('tokenOptions');
+      if (optionsContainer) {
+        optionsContainer.innerHTML = '';
+        q.options.forEach((opt, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'token-btn';
+          btn.textContent = opt;
+          btn.style.cssText = 'font-family:JetBrains Mono,monospace;font-size:1.1rem;padding:20px;background:rgba(255,255,255,0.05);border:2px solid rgba(255,255,255,0.1);border-radius:12px;color:#fff;cursor:pointer;transition:all 0.3s ease';
+          btn.onclick = () => checkAnswer(i);
+          optionsContainer.appendChild(btn);
+        });
+      }
+
+      const gameResult = document.getElementById('gameResult');
+      if (gameResult) gameResult.style.display = 'none';
+      const scoreEl = document.getElementById('score');
+      if (scoreEl) scoreEl.textContent = String(score);
+      const totalEl = document.getElementById('total');
+      if (totalEl) totalEl.textContent = String(currentQuestion);
+    }
+
+    function checkAnswer(index: number) {
+      const q = questions[currentQuestion];
+      const buttons = document.querySelectorAll('.token-btn') as NodeListOf<HTMLButtonElement>;
+
+      buttons.forEach((btn, i) => {
+        btn.disabled = true;
+        if (i === q.correct) btn.classList.add('correct');
+        else if (i === index && index !== q.correct) btn.classList.add('incorrect');
+      });
+
+      if (index === q.correct) {
+        score++;
+        const scoreEl = document.getElementById('score');
+        if (scoreEl) scoreEl.textContent = String(score);
+      }
+
+      const totalEl = document.getElementById('total');
+      if (totalEl) totalEl.textContent = String(currentQuestion + 1);
+      const gameResult = document.getElementById('gameResult');
+      if (gameResult) gameResult.style.display = 'block';
+      const resultText = document.getElementById('resultText');
+      if (resultText) resultText.textContent = q.explanation;
+    }
+
+    function nextQuestion() {
+      currentQuestion = (currentQuestion + 1) % questions.length;
+      loadQuestion();
+    }
+
+    const nextBtn = document.getElementById('nextBtn');
+    if (nextBtn) nextBtn.addEventListener('click', nextQuestion);
+    loadQuestion();
+
+    // ===== TRANSFORMER GAME =====
+    try {
+      let tgStep = 0;
+      const tgWords = ['The', 'cat', 'sat', 'on', 'the', 'warm', 'mat', 'because', 'it', 'was', 'tired'];
+      const tgTokenIds = [1996, 5309, 4862, 382, 1996, 6107, 13874, 780, 340, 411, 9867];
+      const tgColors = ['#00f5d4', '#9b5de5', '#f15bb5', '#fee440', '#00f5d4', '#9b5de5', '#f15bb5'];
+
+      type WordStyle = { bg: string; border: string; color: string; cursor?: string };
+
+      interface TgStep {
+        title: string;
+        desc: string;
+        detail: string;
+        wordStyle: (i: number) => WordStyle;
+        visual: () => string;
+      }
+
+      const tgSteps: TgStep[] = [
+        {
+          title: 'Step 1: Tokenization',
+          desc: 'The sentence is broken into tokens. Each word (or subword) becomes a discrete unit with a unique ID from the model\'s vocabulary (typically ~50,000 tokens). The same word always gets the same ID.',
+          detail: 'Notice: "the" always maps to token 1996 — the same word gets the same ID every time.',
+          wordStyle: () => ({ bg: 'rgba(0,245,212,0.15)', border: '1px solid rgba(0,245,212,0.3)', color: '#00f5d4' }),
+          visual: () => tgWords.map((w, i) =>
+            '<span style="font-family:JetBrains Mono,monospace;font-size:0.75rem;padding:5px 10px;background:rgba(0,245,212,0.1);border:1px solid rgba(0,245,212,0.3);border-radius:6px;color:#00f5d4">' + w + '→' + tgTokenIds[i] + '</span>'
+          ).join(' ')
+        },
+        {
+          title: 'Step 2: Embedding',
+          desc: 'Each token ID is converted into a dense vector — a list of hundreds of numbers (e.g., 768 dimensions in BERT). These vectors capture semantic meaning: similar words end up with similar vectors.',
+          detail: '"cat" and "mat" are closer in vector space than "cat" and "because" — the model learns meaning from data.',
+          wordStyle: () => ({ bg: 'rgba(155,93,229,0.15)', border: '1px solid rgba(155,93,229,0.3)', color: '#9b5de5' }),
+          visual: () => {
+            const vecs = ['[0.23, -0.81, 0.42, ...]', '[0.67, 0.12, -0.55, ...]', '[-0.34, 0.91, 0.18, ...]', '[0.01, -0.22, 0.73, ...]', '[0.23, -0.81, 0.42, ...]', '[0.88, 0.33, -0.12, ...]', '[0.71, 0.14, -0.49, ...]', '[-0.65, 0.44, 0.27, ...]', '[0.11, -0.55, 0.80, ...]', '[-0.33, 0.62, 0.15, ...]', '[0.77, -0.21, 0.38, ...]'];
+            return '<div style="display:flex;flex-direction:column;gap:4px;align-items:center">' + tgWords.map((w, i) =>
+              '<div style="display:flex;align-items:center;gap:8px"><span style="font-family:JetBrains Mono,monospace;font-size:0.8rem;color:#9b5de5;width:70px;text-align:right">' + w + '</span><span style="font-family:JetBrains Mono,monospace;font-size:0.7rem;padding:3px 10px;background:rgba(155,93,229,0.1);border-radius:4px;color:#888">→ ' + vecs[i] + '</span></div>'
+            ).join('') + '</div>';
+          }
+        },
+        {
+          title: 'Step 3: Positional Encoding',
+          desc: 'Transformers process all tokens in parallel — so they don\'t inherently know word order. Positional encodings are added to tell the model WHERE each token sits in the sequence. Without this, "cat sat on mat" = "mat on sat cat".',
+          detail: 'Each position gets a unique sine/cosine pattern added to its embedding vector. Position 0 ≠ Position 5.',
+          wordStyle: () => ({ bg: 'rgba(241,91,181,0.15)', border: '1px solid rgba(241,91,181,0.3)', color: '#f15bb5' }),
+          visual: () => '<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center">' + tgWords.map((w, i) => {
+            const h = Math.sin(i * 0.5) * 30 + 30;
+            return '<div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font-size:0.8rem;color:#f15bb5">' + w + '</span><div style="width:40px;height:' + h + 'px;background:linear-gradient(180deg,rgba(241,91,181,0.5),rgba(241,91,181,0.1));border-radius:4px"></div><span style="font-family:JetBrains Mono,monospace;font-size:0.65rem;color:#666">pos ' + i + '</span></div>';
+          }).join('') + '</div>'
+        },
+        {
+          title: 'Step 4: Self-Attention',
+          desc: 'The magic step! Each token creates three vectors: Query (what am I looking for?), Key (what do I contain?), and Value (what information do I carry?). Each token\'s Query is compared against all Keys to compute attention scores.',
+          detail: 'Click on a word above to see what it "attends to" — which words it considers most important for understanding context.',
+          wordStyle: () => ({ bg: 'rgba(254,228,64,0.15)', border: '1px solid rgba(254,228,64,0.3)', color: '#fee440', cursor: 'pointer' }),
+          visual: () => '<div id="tg-attn-grid" style="width:100%;max-width:500px;margin:0 auto">' +
+            '<p style="text-align:center;font-size:0.85rem;color:#fee440;margin-bottom:10px">👆 Click a word above to see its attention pattern</p>' +
+            '<div id="tg-attn-result" style="min-height:80px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center"></div>' +
+            '</div>'
+        },
+        {
+          title: 'Step 5: Multi-Head Attention',
+          desc: 'One attention pattern isn\'t enough. The Transformer runs 8-16 attention "heads" in parallel, each learning different relationships: one head might focus on syntax, another on coreference, another on semantic similarity.',
+          detail: 'Multiple heads capture different linguistic relationships simultaneously — like having 12 experts each reading the sentence differently.',
+          wordStyle: (i: number) => {
+            const colors = ['#00f5d4', '#9b5de5', '#f15bb5', '#fee440'];
+            return { bg: 'rgba(255,255,255,0.08)', border: '2px solid ' + colors[i % 4], color: colors[i % 4] };
+          },
+          visual: () => {
+            const heads = [
+              { name: 'Head 1: Syntax', color: '#00f5d4', focus: 'sat→cat (subject-verb)' },
+              { name: 'Head 2: Coreference', color: '#9b5de5', focus: 'it→cat (pronoun resolution)' },
+              { name: 'Head 3: Modifier', color: '#f15bb5', focus: 'warm→mat (adjective-noun)' },
+              { name: 'Head 4: Causal', color: '#fee440', focus: 'because→tired (reason)' },
+            ];
+            return '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">' + heads.map(h =>
+              '<div style="padding:15px;background:' + h.color + '10;border:1px solid ' + h.color + '40;border-radius:10px"><div style="font-size:0.85rem;color:' + h.color + ';font-weight:600;margin-bottom:6px">' + h.name + '</div><div style="font-family:JetBrains Mono,monospace;font-size:0.75rem;color:#888">' + h.focus + '</div></div>'
+            ).join('') + '</div>';
+          }
+        },
+        {
+          title: 'Step 6: Feed-Forward Network',
+          desc: 'After attention, each token passes through a feed-forward neural network (2 layers, typically expanding to 4x the size then back). This is where the model "thinks" — transforming the attention-enriched representations into richer features.',
+          detail: 'This is repeated for every layer (BERT has 12, GPT-3 has 96). Each layer builds more abstract understanding.',
+          wordStyle: () => ({ bg: 'rgba(0,245,212,0.1)', border: '1px solid rgba(0,245,212,0.2)', color: '#00f5d4' }),
+          visual: () => '<div style="display:flex;flex-direction:column;align-items:center;gap:15px;max-width:400px;margin:0 auto">' +
+            '<div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center">' + tgWords.map(w => '<div style="width:30px;height:30px;border-radius:6px;background:rgba(0,245,212,0.3);display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#00f5d4">' + w.charAt(0) + '</div>').join('') + '</div>' +
+            '<div style="color:#666;font-size:1.5rem">↓</div>' +
+            '<div style="padding:15px 25px;background:linear-gradient(135deg,rgba(155,93,229,0.2),rgba(0,245,212,0.2));border-radius:10px;border:1px solid rgba(155,93,229,0.3);text-align:center"><span style="font-size:0.85rem;color:#9b5de5;font-weight:600">FFN: 768 → 3072 → 768</span><br/><span style="font-size:0.75rem;color:#666">ReLU activation + residual connection</span></div>' +
+            '<div style="color:#666;font-size:1.5rem">↓</div>' +
+            '<div style="padding:15px 25px;background:rgba(241,91,181,0.1);border-radius:10px;border:1px solid rgba(241,91,181,0.3);text-align:center"><span style="font-size:0.85rem;color:#f15bb5;font-weight:600">Layer Norm + Add & Norm</span><br/><span style="font-size:0.75rem;color:#666">Stabilizes training, prevents gradient explosion</span></div>' +
+            '<div style="color:#666;font-size:1.5rem">↓</div>' +
+            '<div style="padding:10px;background:rgba(254,228,64,0.1);border:1px solid rgba(254,228,64,0.3);border-radius:8px;text-align:center;font-size:0.8rem;color:#fee440">Repeat × 12 layers (BERT) / × 96 layers (GPT-3)</div>' +
+            '</div>'
+        },
+        {
+          title: 'Step 7: Output — Predicting the Next Token',
+          desc: 'The final layer\'s output goes through a linear projection + softmax to produce a probability distribution over the entire vocabulary. The model picks the most probable next token — and that\'s how language generation works!',
+          detail: 'For our sentence ending with "tired", the model might predict "." (74%), "and" (8%), "," (6%) — essentially completing the thought.',
+          wordStyle: (i: number) => {
+            const opacity = i === tgWords.length - 1 ? 1 : 0.4;
+            return { bg: 'rgba(0,245,212,' + (opacity * 0.2) + ')', border: '1px solid rgba(0,245,212,' + (opacity * 0.4) + ')', color: 'rgba(255,255,255,' + opacity + ')' };
+          },
+          visual: () => {
+            const preds = [
+              { token: '.', prob: 74, color: '#00f5d4' },
+              { token: 'and', prob: 8, color: '#9b5de5' },
+              { token: ',', prob: 6, color: '#f15bb5' },
+              { token: 'so', prob: 4, color: '#fee440' },
+              { token: 'but', prob: 3, color: '#a0a0b0' },
+              { token: '...', prob: 5, color: '#666' },
+            ];
+            return '<div style="display:flex;flex-direction:column;gap:8px;max-width:400px;margin:0 auto">' +
+              '<div style="font-family:JetBrains Mono,monospace;font-size:0.75rem;color:#666;margin-bottom:5px;text-align:center">Next token probability distribution:</div>' +
+              preds.map(p =>
+                '<div style="display:flex;align-items:center;gap:10px"><span style="font-family:JetBrains Mono,monospace;font-size:0.9rem;color:' + p.color + ';width:40px;text-align:right">' + p.token + '</span><div style="flex:1;height:24px;background:rgba(255,255,255,0.05);border-radius:6px;overflow:hidden;position:relative"><div style="height:100%;width:' + p.prob + '%;background:' + p.color + '30;border-radius:6px;transition:width 0.5s ease"></div></div><span style="font-family:JetBrains Mono,monospace;font-size:0.8rem;color:#888;width:35px">' + p.prob + '%</span></div>'
+              ).join('') +
+              '</div>';
+          }
+        }
+      ];
+
+      const attentionMap: Record<number, number[]> = {
+        0: [0.05, 0.15, 0.10, 0.10, 0.05, 0.10, 0.10, 0.10, 0.10, 0.10, 0.05],
+        1: [0.15, 0.10, 0.25, 0.05, 0.03, 0.12, 0.05, 0.05, 0.05, 0.05, 0.10],
+        2: [0.05, 0.30, 0.05, 0.15, 0.03, 0.05, 0.15, 0.05, 0.05, 0.07, 0.05],
+        3: [0.03, 0.05, 0.15, 0.05, 0.10, 0.05, 0.35, 0.05, 0.05, 0.07, 0.05],
+        4: [0.03, 0.05, 0.05, 0.05, 0.05, 0.20, 0.40, 0.05, 0.03, 0.05, 0.04],
+        5: [0.03, 0.05, 0.05, 0.03, 0.10, 0.05, 0.45, 0.05, 0.05, 0.07, 0.07],
+        6: [0.03, 0.05, 0.15, 0.15, 0.10, 0.25, 0.05, 0.05, 0.03, 0.07, 0.07],
+        7: [0.05, 0.08, 0.05, 0.05, 0.03, 0.04, 0.05, 0.05, 0.15, 0.15, 0.30],
+        8: [0.05, 0.45, 0.05, 0.03, 0.03, 0.04, 0.05, 0.10, 0.05, 0.05, 0.10],
+        9: [0.03, 0.05, 0.05, 0.03, 0.03, 0.04, 0.05, 0.10, 0.20, 0.05, 0.37],
+        10: [0.03, 0.10, 0.03, 0.03, 0.03, 0.04, 0.05, 0.20, 0.10, 0.12, 0.27],
+      };
+
+      function tgShowAttention(wordIdx: number) {
+        const scores = attentionMap[wordIdx];
+        const maxScore = Math.max(...scores);
+
+        (document.querySelectorAll('.tg-word') as NodeListOf<HTMLElement>).forEach((el, i) => {
+          const attnScore = scores[i];
+          const intensity = attnScore / maxScore;
+          const r = Math.round(254 * intensity);
+          const g = Math.round(228 * intensity);
+          const b = Math.round(64 * intensity);
+          el.style.background = 'rgba(' + r + ',' + g + ',' + b + ',' + (0.1 + intensity * 0.4) + ')';
+          el.style.borderColor = 'rgba(' + r + ',' + g + ',' + b + ',' + (0.3 + intensity * 0.7) + ')';
+          el.style.transform = 'scale(' + (0.95 + intensity * 0.15) + ')';
+          if (i === wordIdx) {
+            el.style.background = 'rgba(254,228,64,0.5)';
+            el.style.borderColor = '#fee440';
+            el.style.boxShadow = '0 0 15px rgba(254,228,64,0.3)';
+          } else {
+            el.style.boxShadow = 'none';
+          }
+        });
+
+        const result = document.getElementById('tg-attn-result');
+        if (result) {
+          result.innerHTML = '<div style="width:100%;font-size:0.8rem;color:#fee440;margin-bottom:8px;text-align:center">"' + tgWords[wordIdx] + '" attends to:</div>' +
+            tgWords.map((w, i) => {
+              const attnScore = scores[i];
+              const pct = Math.round(attnScore * 100);
+              const barColor = i === wordIdx ? '#fee440' : (attnScore > 0.15 ? '#00f5d4' : '#444');
+              return '<div style="display:flex;align-items:center;gap:6px;width:100%"><span style="font-family:JetBrains Mono,monospace;font-size:0.75rem;width:60px;text-align:right;color:' + (attnScore > 0.15 ? '#fff' : '#666') + '">' + w + '</span><div style="flex:1;height:16px;background:rgba(255,255,255,0.03);border-radius:4px;overflow:hidden"><div style="height:100%;width:' + pct + '%;background:' + barColor + ';border-radius:4px;transition:width 0.4s ease"></div></div><span style="font-family:JetBrains Mono,monospace;font-size:0.7rem;color:#888;width:30px">' + pct + '%</span></div>';
+            }).join('');
+        }
+      }
+
+      function tgRender() {
+        const step = tgSteps[tgStep];
+
+        (document.querySelectorAll('.tg-step-dot') as NodeListOf<HTMLElement>).forEach((dot, i) => {
+          const isActive = i === tgStep;
+          const isPast = i < tgStep;
+          dot.style.background = isActive ? tgColors[tgStep] + '30' : isPast ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.03)';
+          dot.style.borderColor = isActive ? tgColors[tgStep] + '80' : isPast ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)';
+          const firstSpan = dot.querySelector('span:first-child') as HTMLElement;
+          const lastSpan = dot.querySelector('span:last-child') as HTMLElement;
+          if (firstSpan) {
+            firstSpan.style.background = isActive ? tgColors[tgStep] : isPast ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)';
+            firstSpan.style.color = isActive ? '#0a0a0f' : isPast ? '#999' : '#555';
+          }
+          if (lastSpan) {
+            lastSpan.style.color = isActive ? tgColors[tgStep] : isPast ? '#888' : '#555';
+          }
+        });
+
+        (document.querySelectorAll('.tg-word') as NodeListOf<HTMLElement>).forEach((el, i) => {
+          const s = step.wordStyle(i);
+          el.style.background = s.bg;
+          el.style.borderColor = s.border.replace('1px solid ', '').replace('2px solid ', '');
+          el.style.color = s.color;
+          el.style.cursor = s.cursor || 'default';
+          el.style.transform = 'scale(1)';
+        });
+
+        const tgTitle = document.getElementById('tg-title');
+        if (tgTitle) {
+          tgTitle.textContent = step.title;
+          tgTitle.style.color = tgColors[tgStep];
+        }
+        const tgDesc = document.getElementById('tg-desc');
+        if (tgDesc) tgDesc.innerHTML = step.desc;
+        const tgVisual = document.getElementById('tg-visual');
+        if (tgVisual) tgVisual.innerHTML = step.visual();
+        const tgDetail = document.getElementById('tg-detail');
+        if (tgDetail) tgDetail.textContent = step.detail;
+
+        const prevBtn = document.getElementById('tg-prev') as HTMLElement;
+        if (prevBtn) {
+          prevBtn.style.opacity = tgStep === 0 ? '0.3' : '1';
+          prevBtn.style.pointerEvents = tgStep === 0 ? 'none' : 'auto';
+        }
+        const nextStepBtn = document.getElementById('tg-next');
+        if (nextStepBtn) {
+          nextStepBtn.textContent = tgStep === tgSteps.length - 1 ? 'Restart →' : 'Next Step →';
+        }
+
+        if (tgStep === 3) {
+          (document.querySelectorAll('.tg-word') as NodeListOf<HTMLElement>).forEach((el, i) => {
+            el.onclick = () => tgShowAttention(i);
+          });
+        } else {
+          (document.querySelectorAll('.tg-word') as NodeListOf<HTMLElement>).forEach(el => {
+            el.onclick = null;
+          });
+        }
+      }
+
+      const tgNextBtn = document.getElementById('tg-next');
+      if (tgNextBtn) {
+        tgNextBtn.addEventListener('click', () => {
+          tgStep = (tgStep + 1) % tgSteps.length;
+          tgRender();
+        });
+      }
+      const tgPrevBtn = document.getElementById('tg-prev');
+      if (tgPrevBtn) {
+        tgPrevBtn.addEventListener('click', () => {
+          if (tgStep > 0) { tgStep--; tgRender(); }
+        });
+      }
+      (document.querySelectorAll('.tg-step-dot') as NodeListOf<HTMLElement>).forEach((dot, i) => {
+        dot.addEventListener('click', () => { tgStep = i; tgRender(); });
+      });
+
+      tgRender();
+    } catch (e) {
+      console.error('Transformer game error:', e);
+    }
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <>
       <div className="progress-bar" id="progressBar" style={{ position: 'fixed', top: 0, left: 0, height: '3px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', zIndex: 1000, transition: 'width 0.1s ease', width: '0%' }} />
@@ -643,373 +1047,7 @@ export default function Home() {
         }
       `}</style>
 
-      <script dangerouslySetInnerHTML={{ __html: `
-        function initAll() {
-        window.addEventListener('scroll', () => {
-          const scrollTop = window.scrollY;
-          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const scrollPercent = (scrollTop / docHeight) * 100;
-          var bar = document.getElementById('progressBar');
-          if (bar) bar.style.width = scrollPercent + '%';
-        });
 
-        // Observe all elements with animation classes
-        const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-left, .animate-right, .animate-scale');
-        
-        const elementObserver = new IntersectionObserver((entries) => {
-          entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-              const siblings = Array.from(entry.target.parentElement?.children || []).filter(el => 
-                el.classList.contains('animate-on-scroll') || 
-                el.classList.contains('animate-left') || 
-                el.classList.contains('animate-right') || 
-                el.classList.contains('animate-scale')
-              );
-              const siblingIndex = siblings.indexOf(entry.target);
-              
-              entry.target.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4', 'delay-5', 'delay-6');
-              
-              if (siblingIndex < 6) {
-                entry.target.classList.add('delay-' + (siblingIndex + 1));
-              }
-              
-              entry.target.classList.add('visible');
-              elementObserver.unobserve(entry.target);
-            }
-          });
-        }, { 
-          rootMargin: '0px 0px -100px 0px',
-          threshold: 0.1 
-        });
-
-        animatedElements.forEach(el => elementObserver.observe(el));
-
-        const sections = document.querySelectorAll('section');
-        const navDots = document.querySelectorAll('.nav-dot');
-
-        const sectionObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const sectionId = entry.target.id;
-              navDots.forEach(dot => {
-                dot.style.background = 'rgba(255,255,255,0.2)';
-                if (dot.dataset.section === sectionId) {
-                  dot.style.background = '#00f5d4';
-                }
-              });
-            }
-          });
-        }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
-
-        sections.forEach(section => sectionObserver.observe(section));
-
-        navDots.forEach(dot => {
-          dot.addEventListener('click', () => {
-            const section = document.getElementById(dot.dataset.section);
-            section.scrollIntoView({ behavior: 'smooth' });
-          });
-        });
-
-        const questions = [
-          { sentence: "The cat sat on the ___", options: ["mat", "moon", "happiness", "thinking"], correct: 0, explanation: "The most grammatically sensible completion." },
-          { sentence: "After eating, the ___ died", options: ["person", "fish", "restaurant", "happy"], correct: 1, explanation: "Classic Winograd schema! 'The fish' makes sense — it ate the food, then died." },
-          { sentence: "I regret to inform you that your ___ has been approved", options: ["application", "rejection", "complaint", "problem"], correct: 0, explanation: "Only 'application' collocates naturally with 'approved'." },
-          { sentence: "The trophy would not fit in the suitcase because ___", options: ["it was too big", "it was too small", "it was shiny", "it was heavy"], correct: 0, explanation: "The trophy is too big for the suitcase — another Winograd schema!" },
-          { sentence: "Scientists have discovered that ___ is the key to longevity", options: ["exercise", "sleep", "happiness", "all of the above"], correct: 3, explanation: "All three factors contribute to longevity." },
-          { sentence: "The artist painted a picture of the ___ at sunset", options: ["ocean", "keyboard", "telephone", "algorithm"], correct: 0, explanation: "Only 'ocean' creates a coherent scene with 'sunset'." },
-          { sentence: "She put the milk in the ___ to keep it cold", options: ["freezer", "oven", "drawer", "lamp"], correct: 0, explanation: "You keep milk cold in the freezer!" },
-          { sentence: "The programmer wrote code that fixed the bug in ___", options: ["production", "imagination", "dreams", "stories"], correct: 0, explanation: "Code runs in production systems — not dreams." }
-        ];
-
-        let currentQuestion = 0;
-        let score = 0;
-
-        function loadQuestion() {
-          const q = questions[currentQuestion];
-          document.getElementById('sentenceDisplay').innerHTML = q.sentence.replace('___', '<span style="display:inline-block;min-width:120px;padding:5px 15px;background:linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%);border-radius:6px;margin:0 5px;animation:pulse 1.5s infinite"></span>');
-          
-          const optionsContainer = document.getElementById('tokenOptions');
-          optionsContainer.innerHTML = '';
-          q.options.forEach((opt, i) => {
-            const btn = document.createElement('button');
-            btn.className = 'token-btn';
-            btn.textContent = opt;
-            btn.onclick = () => checkAnswer(i);
-            optionsContainer.appendChild(btn);
-          });
-
-          document.getElementById('gameResult').style.display = 'none';
-          document.getElementById('score').textContent = score;
-          document.getElementById('total').textContent = currentQuestion;
-        }
-
-        function checkAnswer(index) {
-          const q = questions[currentQuestion];
-          const buttons = document.querySelectorAll('.token-btn');
-          
-          buttons.forEach((btn, i) => {
-            btn.disabled = true;
-            if (i === q.correct) btn.classList.add('correct');
-            else if (i === index && index !== q.correct) btn.classList.add('incorrect');
-          });
-
-          if (index === q.correct) {
-            score++;
-            document.getElementById('score').textContent = score;
-          }
-
-          document.getElementById('total').textContent = currentQuestion + 1;
-          document.getElementById('gameResult').style.display = 'block';
-          document.getElementById('resultText').textContent = q.explanation;
-        }
-
-        function nextQuestion() {
-          currentQuestion = (currentQuestion + 1) % questions.length;
-          loadQuestion();
-        }
-
-        document.getElementById('nextBtn').addEventListener('click', nextQuestion);
-        loadQuestion();
-
-        // ===== TRANSFORMER GAME =====
-        try {
-        var tgStep = 0;
-        var tgWords = ['The', 'cat', 'sat', 'on', 'the', 'warm', 'mat', 'because', 'it', 'was', 'tired'];
-        var tgTokenIds = [1996, 5309, 4862, 382, 1996, 6107, 13874, 780, 340, 411, 9867];
-        var tgColors = ['#00f5d4', '#9b5de5', '#f15bb5', '#fee440', '#00f5d4', '#9b5de5', '#f15bb5'];
-
-        var tgSteps = [
-          {
-            title: 'Step 1: Tokenization',
-            desc: 'The sentence is broken into tokens. Each word (or subword) becomes a discrete unit with a unique ID from the model\\'s vocabulary (typically ~50,000 tokens). The same word always gets the same ID.',
-            detail: 'Notice: "the" always maps to token 1996 — the same word gets the same ID every time.',
-            wordStyle: function(i) { return { bg: 'rgba(0,245,212,0.15)', border: '1px solid rgba(0,245,212,0.3)', color: '#00f5d4' }; },
-            visual: function() {
-              return tgWords.map(function(w, i) {
-                return '<span style="font-family:JetBrains Mono,monospace;font-size:0.75rem;padding:5px 10px;background:rgba(0,245,212,0.1);border:1px solid rgba(0,245,212,0.3);border-radius:6px;color:#00f5d4">' + w + '→' + tgTokenIds[i] + '</span>';
-              }).join(' ');
-            }
-          },
-          {
-            title: 'Step 2: Embedding',
-            desc: 'Each token ID is converted into a dense vector — a list of hundreds of numbers (e.g., 768 dimensions in BERT). These vectors capture semantic meaning: similar words end up with similar vectors.',
-            detail: '"cat" and "mat" are closer in vector space than "cat" and "because" — the model learns meaning from data.',
-            wordStyle: function(i) { return { bg: 'rgba(155,93,229,0.15)', border: '1px solid rgba(155,93,229,0.3)', color: '#9b5de5' }; },
-            visual: function() {
-              var vecs = ['[0.23, -0.81, 0.42, ...]', '[0.67, 0.12, -0.55, ...]', '[-0.34, 0.91, 0.18, ...]', '[0.01, -0.22, 0.73, ...]', '[0.23, -0.81, 0.42, ...]', '[0.88, 0.33, -0.12, ...]', '[0.71, 0.14, -0.49, ...]', '[-0.65, 0.44, 0.27, ...]', '[0.11, -0.55, 0.80, ...]', '[-0.33, 0.62, 0.15, ...]', '[0.77, -0.21, 0.38, ...]'];
-              return '<div style="display:flex;flex-direction:column;gap:4px;align-items:center">' + tgWords.map(function(w, i) {
-                return '<div style="display:flex;align-items:center;gap:8px"><span style="font-family:JetBrains Mono,monospace;font-size:0.8rem;color:#9b5de5;width:70px;text-align:right">' + w + '</span><span style="font-family:JetBrains Mono,monospace;font-size:0.7rem;padding:3px 10px;background:rgba(155,93,229,0.1);border-radius:4px;color:#888">→ ' + vecs[i] + '</span></div>';
-              }).join('') + '</div>';
-            }
-          },
-          {
-            title: 'Step 3: Positional Encoding',
-            desc: 'Transformers process all tokens in parallel — so they don\\'t inherently know word order. Positional encodings are added to tell the model WHERE each token sits in the sequence. Without this, "cat sat on mat" = "mat on sat cat".',
-            detail: 'Each position gets a unique sine/cosine pattern added to its embedding vector. Position 0 ≠ Position 5.',
-            wordStyle: function(i) { return { bg: 'rgba(241,91,181,0.15)', border: '1px solid rgba(241,91,181,0.3)', color: '#f15bb5' }; },
-            visual: function() {
-              return '<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center">' + tgWords.map(function(w, i) {
-                var h = Math.sin(i * 0.5) * 30 + 30;
-                return '<div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span style="font-size:0.8rem;color:#f15bb5">' + w + '</span><div style="width:40px;height:' + h + 'px;background:linear-gradient(180deg,rgba(241,91,181,0.5),rgba(241,91,181,0.1));border-radius:4px"></div><span style="font-family:JetBrains Mono,monospace;font-size:0.65rem;color:#666">pos ' + i + '</span></div>';
-              }).join('') + '</div>';
-            }
-          },
-          {
-            title: 'Step 4: Self-Attention',
-            desc: 'The magic step! Each token creates three vectors: Query (what am I looking for?), Key (what do I contain?), and Value (what information do I carry?). Each token\\'s Query is compared against all Keys to compute attention scores.',
-            detail: 'Click on a word above to see what it "attends to" — which words it considers most important for understanding context.',
-            wordStyle: function(i) { return { bg: 'rgba(254,228,64,0.15)', border: '1px solid rgba(254,228,64,0.3)', color: '#fee440', cursor: 'pointer' }; },
-            visual: function() {
-              return '<div id="tg-attn-grid" style="width:100%;max-width:500px;margin:0 auto">' +
-                '<p style="text-align:center;font-size:0.85rem;color:#fee440;margin-bottom:10px">👆 Click a word above to see its attention pattern</p>' +
-                '<div id="tg-attn-result" style="min-height:80px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center"></div>' +
-              '</div>';
-            }
-          },
-          {
-            title: 'Step 5: Multi-Head Attention',
-            desc: 'One attention pattern isn\\'t enough. The Transformer runs 8-16 attention "heads" in parallel, each learning different relationships: one head might focus on syntax, another on coreference, another on semantic similarity.',
-            detail: 'Multiple heads capture different linguistic relationships simultaneously — like having 12 experts each reading the sentence differently.',
-            wordStyle: function(i) {
-              var colors = ['#00f5d4', '#9b5de5', '#f15bb5', '#fee440'];
-              return { bg: 'rgba(255,255,255,0.08)', border: '2px solid ' + colors[i % 4], color: colors[i % 4] };
-            },
-            visual: function() {
-              var heads = [
-                { name: 'Head 1: Syntax', color: '#00f5d4', focus: 'sat→cat (subject-verb)' },
-                { name: 'Head 2: Coreference', color: '#9b5de5', focus: 'it→cat (pronoun resolution)' },
-                { name: 'Head 3: Modifier', color: '#f15bb5', focus: 'warm→mat (adjective-noun)' },
-                { name: 'Head 4: Causal', color: '#fee440', focus: 'because→tired (reason)' },
-              ];
-              return '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">' + heads.map(function(h) {
-                return '<div style="padding:15px;background:' + h.color + '10;border:1px solid ' + h.color + '40;border-radius:10px"><div style="font-size:0.85rem;color:' + h.color + ';font-weight:600;margin-bottom:6px">' + h.name + '</div><div style="font-family:JetBrains Mono,monospace;font-size:0.75rem;color:#888">' + h.focus + '</div></div>';
-              }).join('') + '</div>';
-            }
-          },
-          {
-            title: 'Step 6: Feed-Forward Network',
-            desc: 'After attention, each token passes through a feed-forward neural network (2 layers, typically expanding to 4x the size then back). This is where the model "thinks" — transforming the attention-enriched representations into richer features.',
-            detail: 'This is repeated for every layer (BERT has 12, GPT-3 has 96). Each layer builds more abstract understanding.',
-            wordStyle: function(i) { return { bg: 'rgba(0,245,212,0.1)', border: '1px solid rgba(0,245,212,0.2)', color: '#00f5d4' }; },
-            visual: function() {
-              return '<div style="display:flex;flex-direction:column;align-items:center;gap:15px;max-width:400px;margin:0 auto">' +
-                '<div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center">' + tgWords.map(function(w) { return '<div style="width:30px;height:30px;border-radius:6px;background:rgba(0,245,212,0.3);display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#00f5d4">' + w.charAt(0) + '</div>'; }).join('') + '</div>' +
-                '<div style="color:#666;font-size:1.5rem">↓</div>' +
-                '<div style="padding:15px 25px;background:linear-gradient(135deg,rgba(155,93,229,0.2),rgba(0,245,212,0.2));border-radius:10px;border:1px solid rgba(155,93,229,0.3);text-align:center"><span style="font-size:0.85rem;color:#9b5de5;font-weight:600">FFN: 768 → 3072 → 768</span><br/><span style="font-size:0.75rem;color:#666">ReLU activation + residual connection</span></div>' +
-                '<div style="color:#666;font-size:1.5rem">↓</div>' +
-                '<div style="padding:15px 25px;background:rgba(241,91,181,0.1);border-radius:10px;border:1px solid rgba(241,91,181,0.3);text-align:center"><span style="font-size:0.85rem;color:#f15bb5;font-weight:600">Layer Norm + Add & Norm</span><br/><span style="font-size:0.75rem;color:#666">Stabilizes training, prevents gradient explosion</span></div>' +
-                '<div style="color:#666;font-size:1.5rem">↓</div>' +
-                '<div style="padding:10px;background:rgba(254,228,64,0.1);border:1px solid rgba(254,228,64,0.3);border-radius:8px;text-align:center;font-size:0.8rem;color:#fee440">Repeat × 12 layers (BERT) / × 96 layers (GPT-3)</div>' +
-              '</div>';
-            }
-          },
-          {
-            title: 'Step 7: Output — Predicting the Next Token',
-            desc: 'The final layer\\'s output goes through a linear projection + softmax to produce a probability distribution over the entire vocabulary. The model picks the most probable next token — and that\\'s how language generation works!',
-            detail: 'For our sentence ending with "tired", the model might predict "." (74%), "and" (8%), "," (6%) — essentially completing the thought.',
-            wordStyle: function(i) {
-              var opacity = i === tgWords.length - 1 ? 1 : 0.4;
-              return { bg: 'rgba(0,245,212,' + (opacity * 0.2) + ')', border: '1px solid rgba(0,245,212,' + (opacity * 0.4) + ')', color: 'rgba(255,255,255,' + opacity + ')' };
-            },
-            visual: function() {
-              var preds = [
-                { token: '.', prob: 74, color: '#00f5d4' },
-                { token: 'and', prob: 8, color: '#9b5de5' },
-                { token: ',', prob: 6, color: '#f15bb5' },
-                { token: 'so', prob: 4, color: '#fee440' },
-                { token: 'but', prob: 3, color: '#a0a0b0' },
-                { token: '...', prob: 5, color: '#666' },
-              ];
-              return '<div style="display:flex;flex-direction:column;gap:8px;max-width:400px;margin:0 auto">' +
-                '<div style="font-family:JetBrains Mono,monospace;font-size:0.75rem;color:#666;margin-bottom:5px;text-align:center">Next token probability distribution:</div>' +
-                preds.map(function(p) {
-                  return '<div style="display:flex;align-items:center;gap:10px"><span style="font-family:JetBrains Mono,monospace;font-size:0.9rem;color:' + p.color + ';width:40px;text-align:right">' + p.token + '</span><div style="flex:1;height:24px;background:rgba(255,255,255,0.05);border-radius:6px;overflow:hidden;position:relative"><div style="height:100%;width:' + p.prob + '%;background:' + p.color + '30;border-radius:6px;transition:width 0.5s ease"></div></div><span style="font-family:JetBrains Mono,monospace;font-size:0.8rem;color:#888;width:35px">' + p.prob + '%</span></div>';
-                }).join('') +
-              '</div>';
-            }
-          }
-        ];
-
-        // Attention scores for self-attention demo (step 4)
-        var attentionMap = {
-          0: [0.05, 0.15, 0.10, 0.10, 0.05, 0.10, 0.10, 0.10, 0.10, 0.10, 0.05],  // The
-          1: [0.15, 0.10, 0.25, 0.05, 0.03, 0.12, 0.05, 0.05, 0.05, 0.05, 0.10],    // cat
-          2: [0.05, 0.30, 0.05, 0.15, 0.03, 0.05, 0.15, 0.05, 0.05, 0.07, 0.05],    // sat
-          3: [0.03, 0.05, 0.15, 0.05, 0.10, 0.05, 0.35, 0.05, 0.05, 0.07, 0.05],    // on
-          4: [0.03, 0.05, 0.05, 0.05, 0.05, 0.20, 0.40, 0.05, 0.03, 0.05, 0.04],    // the
-          5: [0.03, 0.05, 0.05, 0.03, 0.10, 0.05, 0.45, 0.05, 0.05, 0.07, 0.07],    // warm
-          6: [0.03, 0.05, 0.15, 0.15, 0.10, 0.25, 0.05, 0.05, 0.03, 0.07, 0.07],    // mat
-          7: [0.05, 0.08, 0.05, 0.05, 0.03, 0.04, 0.05, 0.05, 0.15, 0.15, 0.30],    // because
-          8: [0.05, 0.45, 0.05, 0.03, 0.03, 0.04, 0.05, 0.10, 0.05, 0.05, 0.10],    // it (→ cat!)
-          9: [0.03, 0.05, 0.05, 0.03, 0.03, 0.04, 0.05, 0.10, 0.20, 0.05, 0.37],    // was
-          10:[0.03, 0.10, 0.03, 0.03, 0.03, 0.04, 0.05, 0.20, 0.10, 0.12, 0.27],    // tired
-        };
-
-        function tgRender() {
-          var step = tgSteps[tgStep];
-          // Update step dots
-          document.querySelectorAll('.tg-step-dot').forEach(function(dot, i) {
-            var isActive = i === tgStep;
-            var isPast = i < tgStep;
-            dot.style.background = isActive ? tgColors[tgStep] + '30' : isPast ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.03)';
-            dot.style.borderColor = isActive ? tgColors[tgStep] + '80' : isPast ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)';
-            dot.querySelector('span:first-child').style.background = isActive ? tgColors[tgStep] : isPast ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)';
-            dot.querySelector('span:first-child').style.color = isActive ? '#0a0a0f' : isPast ? '#999' : '#555';
-            dot.querySelector('span:last-child').style.color = isActive ? tgColors[tgStep] : isPast ? '#888' : '#555';
-          });
-
-          // Update words
-          document.querySelectorAll('.tg-word').forEach(function(el, i) {
-            var s = step.wordStyle(i);
-            el.style.background = s.bg;
-            el.style.borderColor = s.border.replace('1px solid ', '').replace('2px solid ', '');
-            el.style.color = s.color;
-            el.style.cursor = s.cursor || 'default';
-            el.style.transform = 'scale(1)';
-          });
-
-          // Update explanation
-          document.getElementById('tg-title').textContent = step.title;
-          document.getElementById('tg-title').style.color = tgColors[tgStep];
-          document.getElementById('tg-desc').innerHTML = step.desc;
-          document.getElementById('tg-visual').innerHTML = step.visual();
-          document.getElementById('tg-detail').textContent = step.detail;
-
-          // Button states
-          document.getElementById('tg-prev').style.opacity = tgStep === 0 ? '0.3' : '1';
-          document.getElementById('tg-prev').style.pointerEvents = tgStep === 0 ? 'none' : 'auto';
-          document.getElementById('tg-next').textContent = tgStep === tgSteps.length - 1 ? 'Restart →' : 'Next Step →';
-
-          // Set up attention click handlers for step 4
-          if (tgStep === 3) {
-            document.querySelectorAll('.tg-word').forEach(function(el, i) {
-              el.onclick = function() { tgShowAttention(i); };
-            });
-          } else {
-            document.querySelectorAll('.tg-word').forEach(function(el) {
-              el.onclick = null;
-            });
-          }
-        }
-
-        function tgShowAttention(wordIdx) {
-          var scores = attentionMap[wordIdx];
-          var maxScore = Math.max.apply(null, scores);
-
-          // Highlight words by attention score
-          document.querySelectorAll('.tg-word').forEach(function(el, i) {
-            var score = scores[i];
-            var intensity = score / maxScore;
-            var r = Math.round(254 * intensity);
-            var g = Math.round(228 * intensity);
-            var b = Math.round(64 * intensity);
-            el.style.background = 'rgba(' + r + ',' + g + ',' + b + ',' + (0.1 + intensity * 0.4) + ')';
-            el.style.borderColor = 'rgba(' + r + ',' + g + ',' + b + ',' + (0.3 + intensity * 0.7) + ')';
-            el.style.transform = 'scale(' + (0.95 + intensity * 0.15) + ')';
-            if (i === wordIdx) {
-              el.style.background = 'rgba(254,228,64,0.5)';
-              el.style.borderColor = '#fee440';
-              el.style.boxShadow = '0 0 15px rgba(254,228,64,0.3)';
-            } else {
-              el.style.boxShadow = 'none';
-            }
-          });
-
-          // Show attention bars
-          var result = document.getElementById('tg-attn-result');
-          if (result) {
-            result.innerHTML = '<div style="width:100%;font-size:0.8rem;color:#fee440;margin-bottom:8px;text-align:center">"' + tgWords[wordIdx] + '" attends to:</div>' +
-              tgWords.map(function(w, i) {
-                var score = scores[i];
-                var pct = Math.round(score * 100);
-                var barColor = i === wordIdx ? '#fee440' : (score > 0.15 ? '#00f5d4' : '#444');
-                return '<div style="display:flex;align-items:center;gap:6px;width:100%"><span style="font-family:JetBrains Mono,monospace;font-size:0.75rem;width:60px;text-align:right;color:' + (score > 0.15 ? '#fff' : '#666') + '">' + w + '</span><div style="flex:1;height:16px;background:rgba(255,255,255,0.03);border-radius:4px;overflow:hidden"><div style="height:100%;width:' + pct + '%;background:' + barColor + ';border-radius:4px;transition:width 0.4s ease"></div></div><span style="font-family:JetBrains Mono,monospace;font-size:0.7rem;color:#888;width:30px">' + pct + '%</span></div>';
-              }).join('');
-          }
-        }
-
-        document.getElementById('tg-next').addEventListener('click', function() {
-          tgStep = (tgStep + 1) % tgSteps.length;
-          tgRender();
-        });
-        document.getElementById('tg-prev').addEventListener('click', function() {
-          if (tgStep > 0) { tgStep--; tgRender(); }
-        });
-        document.querySelectorAll('.tg-step-dot').forEach(function(dot, i) {
-          dot.addEventListener('click', function() { tgStep = i; tgRender(); });
-        });
-
-        tgRender();
-        } catch(e) { console.error('Transformer game error:', e); }
-
-        } // end initAll
-
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', initAll);
-        } else {
-          initAll();
-        }
-      `}} />
     </>
   );
 }

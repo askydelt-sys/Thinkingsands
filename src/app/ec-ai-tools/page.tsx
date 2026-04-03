@@ -1,8 +1,88 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 
 export default function ECAITools() {
+  useEffect(() => {
+    // Progress bar on scroll
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      const bar = document.getElementById('progressBar');
+      if (bar) bar.style.width = scrollPercent + '%';
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    // Scroll animation observer
+    const els = document.querySelectorAll('.animate-on-scroll, .animate-scale');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const siblings = Array.from(el.parentElement?.children || []).filter(child =>
+            child.classList.contains('animate-on-scroll') || child.classList.contains('animate-scale')
+          );
+          const si = siblings.indexOf(el);
+          el.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4', 'delay-5');
+          if (si < 5) el.classList.add('delay-' + (si + 1));
+          el.classList.add('visible');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin: '0px 0px -80px 0px', threshold: 0.05 });
+    els.forEach(el => obs.observe(el));
+
+    // Nav dots section tracking
+    const sections = document.querySelectorAll('section');
+    const navDots = document.querySelectorAll('.nav-dot') as NodeListOf<HTMLElement>;
+    const sectionObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navDots.forEach(dot => {
+            dot.style.background = 'rgba(255,255,255,0.2)';
+            dot.style.width = '12px';
+            dot.style.height = '12px';
+            dot.style.boxShadow = 'none';
+            if (dot.dataset.section === id) {
+              dot.style.background = '#FFCC00';
+              dot.style.width = '14px';
+              dot.style.height = '14px';
+              dot.style.boxShadow = '0 0 10px #FFCC0080';
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    sections.forEach(s => sectionObs.observe(s));
+
+    navDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const target = document.getElementById(dot.dataset.section || '');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+      dot.addEventListener('mouseenter', () => {
+        const label = dot.dataset.label;
+        if (label) {
+          const tooltip = document.createElement('div');
+          tooltip.textContent = label;
+          tooltip.style.cssText = 'position:absolute;right:25px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.8);color:#fff;padding:4px 10px;border-radius:6px;font-size:12px;white-space:nowrap;pointer-events:none;font-family:Space Grotesk,sans-serif;';
+          tooltip.className = 'dot-tooltip';
+          dot.appendChild(tooltip);
+        }
+      });
+      dot.addEventListener('mouseleave', () => {
+        const t = dot.querySelector('.dot-tooltip');
+        if (t) t.remove();
+      });
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <>
       <div className="progress-bar" id="progressBar" style={{ position: 'fixed', top: 0, left: 0, height: '3px', background: 'linear-gradient(135deg, #003399 0%, #FFCC00 100%)', zIndex: 1000, transition: 'width 0.1s ease', width: '0%' }} />
@@ -598,83 +678,7 @@ export default function ECAITools() {
         @media (max-width: 768px) { .nav-dots { display: none !important; } }
       `}</style>
 
-      <script dangerouslySetInnerHTML={{ __html: `
-        window.addEventListener('scroll', () => {
-          const scrollTop = window.scrollY;
-          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const scrollPercent = (scrollTop / docHeight) * 100;
-          const bar = document.getElementById('progressBar');
-          if (bar) bar.style.width = scrollPercent + '%';
-        });
 
-        function initAnimations() {
-          const els = document.querySelectorAll('.animate-on-scroll, .animate-scale');
-          const obs = new IntersectionObserver((entries) => {
-            entries.forEach((entry, idx) => {
-              if (entry.isIntersecting) {
-                const siblings = Array.from(entry.target.parentElement?.children || []).filter(el =>
-                  el.classList.contains('animate-on-scroll') || el.classList.contains('animate-scale')
-                );
-                const si = siblings.indexOf(entry.target);
-                entry.target.classList.remove('delay-1','delay-2','delay-3','delay-4','delay-5');
-                if (si < 5) entry.target.classList.add('delay-' + (si + 1));
-                entry.target.classList.add('visible');
-                obs.unobserve(entry.target);
-              }
-            });
-          }, { rootMargin: '0px 0px -80px 0px', threshold: 0.05 });
-          els.forEach(el => obs.observe(el));
-        }
-
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', initAnimations);
-        } else {
-          initAnimations();
-        }
-
-        const sections = document.querySelectorAll('section');
-        const navDots = document.querySelectorAll('.nav-dot');
-        const sectionObs = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const id = entry.target.id;
-              navDots.forEach(dot => {
-                dot.style.background = 'rgba(255,255,255,0.2)';
-                dot.style.width = '12px';
-                dot.style.height = '12px';
-                if (dot.dataset.section === id) {
-                  dot.style.background = '#FFCC00';
-                  dot.style.width = '14px';
-                  dot.style.height = '14px';
-                  dot.style.boxShadow = '0 0 10px #FFCC0080';
-                }
-              });
-            }
-          });
-        }, { threshold: 0.3 });
-        sections.forEach(s => sectionObs.observe(s));
-
-        navDots.forEach(dot => {
-          dot.addEventListener('click', () => {
-            const target = document.getElementById(dot.dataset.section);
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
-          });
-          dot.addEventListener('mouseenter', () => {
-            const label = dot.dataset.label;
-            if (label) {
-              const tooltip = document.createElement('div');
-              tooltip.textContent = label;
-              tooltip.style.cssText = 'position:absolute;right:25px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.8);color:#fff;padding:4px 10px;border-radius:6px;font-size:12px;white-space:nowrap;pointer-events:none;font-family:Space Grotesk,sans-serif;';
-              tooltip.className = 'dot-tooltip';
-              dot.appendChild(tooltip);
-            }
-          });
-          dot.addEventListener('mouseleave', () => {
-            const t = dot.querySelector('.dot-tooltip');
-            if (t) t.remove();
-          });
-        });
-      `}} />
     </>
   );
 }
