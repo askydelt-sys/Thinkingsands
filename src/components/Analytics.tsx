@@ -178,7 +178,11 @@ export function usePageAnalytics(sectionIds: string[], sectionLabels: string[], 
     };
   }, [sectionIds, persistAndUpdate]);
 
-  return { analytics };
+  const toggleAnalytics = useCallback(() => {
+    setIsVisible(prev => !prev);
+  }, []);
+
+  return { analytics, isAnalyticsVisible: isVisible, toggleAnalytics };
 }
 
 export function formatTime(ms: number): string {
