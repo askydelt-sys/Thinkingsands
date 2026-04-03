@@ -2,8 +2,14 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
+import { usePageAnalytics, AnalyticsOverlay, AnalyticsButton, formatTime } from '@/components/Analytics';
 
 export default function Home() {
+  const sectionIds = ['intro', 'dream', 'embeddings', 'transformer', 'transformer-game', 'bridge', 'pioneers', 'token-game', 'sand', 'agents', 'programming', 'present', 'future'];
+  const sectionLabels = ['Intro', 'The Dream', 'Word Vectors', 'Transformer', 'Transformer Game', 'Bridge', 'Pioneers', 'Token Game', 'Thinking Sand', 'Agents', 'Genius Coder', 'Present', 'Future'];
+  const { analytics, isAnalyticsVisible, toggleAnalytics } = usePageAnalytics(sectionIds, sectionLabels, 'home');
+  const hasWindow = typeof window !== 'undefined';
+  
   useEffect(() => {
     // Progress bar on scroll
     const handleScroll = () => {
@@ -407,8 +413,19 @@ export default function Home() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  if (!hasWindow) return null;
+
   return (
     <>
+      <AnalyticsOverlay 
+        analytics={analytics} 
+        isVisible={isAnalyticsVisible} 
+        onClose={toggleAnalytics}
+        accentColor="#00f5d4"
+      />
+      <AnalyticsButton onClick={toggleAnalytics} accentColor="#00f5d4" />
+
       <div className="progress-bar" id="progressBar" style={{ position: 'fixed', top: 0, left: 0, height: '3px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', zIndex: 1000, transition: 'width 0.1s ease', width: '0%' }} />
 
       <nav className="nav-dots" style={{ position: 'fixed', right: '30px', top: '50%', transform: 'translateY(-50%)', zIndex: 1000, display: 'flex', flexDirection: 'column', gap: '15px' }}>

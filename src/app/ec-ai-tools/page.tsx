@@ -2,8 +2,14 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { usePageAnalytics, AnalyticsOverlay, AnalyticsButton } from '@/components/Analytics';
 
 export default function ECAITools() {
+  const sectionIds = ['hero', 'gpt-ec', 'language-tools', 'speech', 'research', 'ai-act', 'access', 'tips'];
+  const sectionLabels = ['Overview', 'GPT@EC', 'Language Tools', 'Speech & Text', 'Research', 'AI Act', 'Access', 'Tips'];
+  const { analytics, isAnalyticsVisible, toggleAnalytics } = usePageAnalytics(sectionIds, sectionLabels, 'ec-ai-tools');
+  const hasWindow = typeof window !== 'undefined';
+
   useEffect(() => {
     // Progress bar on scroll
     const handleScroll = () => {
@@ -83,8 +89,19 @@ export default function ECAITools() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  if (!hasWindow) return null;
+
   return (
     <>
+      <AnalyticsOverlay 
+        analytics={analytics} 
+        isVisible={isAnalyticsVisible} 
+        onClose={toggleAnalytics}
+        accentColor="#FFCC00"
+      />
+      <AnalyticsButton onClick={toggleAnalytics} accentColor="#FFCC00" />
+
       <div className="progress-bar" id="progressBar" style={{ position: 'fixed', top: 0, left: 0, height: '3px', background: 'linear-gradient(135deg, #003399 0%, #FFCC00 100%)', zIndex: 1000, transition: 'width 0.1s ease', width: '0%' }} />
 
       {/* NAV DOTS */}

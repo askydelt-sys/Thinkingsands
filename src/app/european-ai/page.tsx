@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { usePageAnalytics, AnalyticsOverlay, AnalyticsButton } from '@/components/Analytics';
 
 function EUBadge({ programme, color = '#003399' }: { programme: string; color?: string }) {
   return (
@@ -22,6 +23,11 @@ function ExtLink({ href, children }: { href: string; children: React.ReactNode }
 }
 
 export default function EuropeanAI() {
+  const sectionIds = ['hero', 'silicon', 'models', 'voice-vision', 'robotics', 'defence', 'space', 'people', 'ukraine', 'future'];
+  const sectionLabels = ['Overview', 'Silicon Foundation', 'AI Models', 'Voice & Vision', 'Robotics', 'Defence', 'Space', 'Key People', 'Ukraine', 'Future'];
+  const { analytics, isAnalyticsVisible, toggleAnalytics } = usePageAnalytics(sectionIds, sectionLabels, 'european-ai');
+  const hasWindow = typeof window !== 'undefined';
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -97,8 +103,18 @@ export default function EuropeanAI() {
     return () => { window.removeEventListener('scroll', handleScroll); };
   }, []);
 
+  if (!hasWindow) return null;
+
   return (
     <>
+      <AnalyticsOverlay 
+        analytics={analytics} 
+        isVisible={isAnalyticsVisible} 
+        onClose={toggleAnalytics}
+        accentColor="#ffd700"
+      />
+      <AnalyticsButton onClick={toggleAnalytics} accentColor="#ffd700" />
+
       <div className="progress-bar" id="progressBar" style={{ position: 'fixed', top: 0, left: 0, height: '3px', background: 'linear-gradient(135deg, #003399 0%, #ffd700 50%, #00f5d4 100%)', zIndex: 1000, transition: 'width 0.1s ease', width: '0%' }} />
 
       <nav className="nav-dots" style={{ position: 'fixed', right: '30px', top: '50%', transform: 'translateY(-50%)', zIndex: 1000, display: 'flex', flexDirection: 'column', gap: '15px' }}>
