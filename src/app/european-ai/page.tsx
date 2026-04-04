@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePageAnalytics, AnalyticsOverlay, formatTime } from '@/components/Analytics';
 
@@ -23,9 +23,10 @@ function ExtLink({ href, children }: { href: string; children: React.ReactNode }
 }
 
 export default function EuropeanAI() {
+  const [showAnalytics, setShowAnalytics] = useState(false);
   const sectionIds = ['hero', 'silicon', 'models', 'voice-vision', 'robotics', 'defence', 'space', 'people', 'ukraine', 'future'];
   const sectionLabels = ['Overview', 'Silicon Foundation', 'AI Models', 'Voice & Vision', 'Robotics', 'Defence', 'Space', 'Key People', 'Ukraine', 'Future'];
-  const { analytics, isAnalyticsVisible, toggleAnalytics } = usePageAnalytics(sectionIds, sectionLabels, 'european-ai');
+  const { analytics } = usePageAnalytics(sectionIds, sectionLabels, 'european-ai');
   const hasWindow = typeof window !== 'undefined';
 
   useEffect(() => {
@@ -109,10 +110,36 @@ export default function EuropeanAI() {
     <>
       <AnalyticsOverlay 
         analytics={analytics} 
-        isVisible={isAnalyticsVisible} 
-        onClose={toggleAnalytics}
+        isVisible={showAnalytics} 
+        onClose={() => setShowAnalytics(false)}
         accentColor="#ffd700"
       />
+
+      {/* Analytics Button */}
+      <button
+        onClick={() => setShowAnalytics(true)}
+        style={{
+          position: 'fixed',
+          bottom: '30px',
+          right: '30px',
+          width: '50px',
+          height: '50px',
+          borderRadius: '50%',
+          background: 'rgba(255,215,0,0.2)',
+          border: '1px solid rgba(255,215,0,0.4)',
+          color: '#ffd700',
+          fontSize: '1.2rem',
+          cursor: 'pointer',
+          zIndex: 1500,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 4px 20px rgba(255,215,0,0.3)',
+          transition: 'all 0.3s ease',
+        }}
+      >
+        📊
+      </button>
 
       <div className="progress-bar" id="progressBar" style={{ position: 'fixed', top: 0, left: 0, height: '3px', background: 'linear-gradient(135deg, #003399 0%, #ffd700 50%, #00f5d4 100%)', zIndex: 1000, transition: 'width 0.1s ease', width: '0%' }} />
 

@@ -1,14 +1,15 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { usePageAnalytics, AnalyticsOverlay, AnalyticsButton, formatTime } from '@/components/Analytics';
+import { usePageAnalytics, AnalyticsOverlay, formatTime } from '@/components/Analytics';
 import Link from 'next/link';
 
 export default function Home() {
+  const [showAnalytics, setShowAnalytics] = useState(false);
   const sectionIds = ['intro', 'dream', 'embeddings', 'transformer', 'transformer-game', 'bridge', 'pioneers', 'token-game', 'sand', 'agents', 'programming', 'present', 'future'];
   const sectionLabels = ['Intro', 'The Dream', 'Word Vectors', 'Transformer', 'Transformer Game', 'Bridge', 'Pioneers', 'Token Game', 'Thinking Sand', 'Agents', 'Genius Coder', 'Present', 'Future'];
-  const { analytics, isAnalyticsVisible, toggleAnalytics } = usePageAnalytics(sectionIds, sectionLabels, 'home');
+  const { analytics } = usePageAnalytics(sectionIds, sectionLabels, 'home');
   const hasWindow = typeof window !== 'undefined';
   
   useEffect(() => {
@@ -429,10 +430,36 @@ export default function Home() {
 
       <AnalyticsOverlay 
         analytics={analytics} 
-        isVisible={isAnalyticsVisible} 
-        onClose={toggleAnalytics}
+        isVisible={showAnalytics} 
+        onClose={() => setShowAnalytics(false)}
         accentColor="#00f5d4"
       />
+
+      {/* Analytics Button */}
+      <button
+        onClick={() => setShowAnalytics(true)}
+        style={{
+          position: 'fixed',
+          bottom: '30px',
+          right: '30px',
+          width: '50px',
+          height: '50px',
+          borderRadius: '50%',
+          background: 'rgba(0,245,212,0.2)',
+          border: '1px solid rgba(0,245,212,0.4)',
+          color: '#00f5d4',
+          fontSize: '1.2rem',
+          cursor: 'pointer',
+          zIndex: 1500,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 4px 20px rgba(0,245,212,0.3)',
+          transition: 'all 0.3s ease',
+        }}
+      >
+        📊
+      </button>
 
       <div className="progress-bar" id="progressBar" style={{ position: 'fixed', top: 0, left: 0, height: '3px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', zIndex: 1000, transition: 'width 0.1s ease', width: '0%' }} />
 
