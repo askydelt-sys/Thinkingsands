@@ -642,31 +642,37 @@ export default function EuropeanAI() {
             </div>
           </div>
 
-          <div className="animate-on-scroll" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px', marginTop: '30px' }}>
+          <div className="animate-on-scroll" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px', marginTop: '30px' }}>
             {[
-              { name: 'Arthur Mensch', role: 'CEO & Co-founder, Mistral AI', origin: '🇫🇷', desc: 'Ex-Google DeepMind. Built Europe\'s most valuable AI company in under 2 years. Champions open-weight models and European sovereignty.', color: '#ff6b35', url: 'https://en.wikipedia.org/wiki/Arthur_Mensch' },
-              { name: 'Clément Delangue', role: 'CEO & Co-founder, Hugging Face', origin: '🇫🇷', desc: 'Built the "GitHub of AI" — the world\'s largest open-source AI platform with 1M+ models.', color: '#ffd700', url: 'https://huggingface.co/clem' },
-              { name: 'Yann LeCun', role: 'Chief AI Scientist, Meta', origin: '🇫🇷', desc: 'Turing Award winner (2018). Born in Paris, pioneer of convolutional neural networks. Outspoken advocate for open-source AI.', color: '#4d79ff', url: 'https://en.wikipedia.org/wiki/Yann_LeCun' },
-              { name: 'Demis Hassabis', role: 'CEO, Google DeepMind', origin: '🇬🇧', desc: 'Nobel Prize winner (Chemistry, 2024) for AlphaFold. Built DeepMind from a London startup into the world\'s most prestigious AI lab.', color: '#00f5d4', url: 'https://en.wikipedia.org/wiki/Demis_Hassabis' },
-              { name: 'Mati Staniszewski', role: 'CEO & Co-founder, ElevenLabs', origin: '🇵🇱', desc: 'Built the world\'s leading voice AI company to $11B in under 3 years — one of the fastest-growing AI startups ever.', color: '#f15bb5', url: 'https://elevenlabs.io/blog/series-d' },
-              { name: 'Roberto Cingolani', role: 'CEO, Leonardo', origin: '🇮🇹', desc: 'Physicist turned defence CEO. Architect of Michelangelo Dome. Former Italian Minister of Ecological Transition.', color: '#ff3b30', url: 'https://www.leonardo.com' },
-              { name: 'Cédric O', role: 'Co-founder, Mistral AI', origin: '🇫🇷', desc: 'Former French Secretary of State for Digital. Bridges AI policy and entrepreneurship. Key figure in France\'s AI sovereignty push.', color: '#9b5de5', url: 'https://mistral.ai' },
-              { name: 'Jürgen Schmidhuber', role: 'LSTM Pioneer', origin: '🇩🇪🇨🇭', desc: 'Created LSTM networks (1997) that powered speech recognition and translation for decades. Pioneer at IDSIA in Switzerland.', color: '#ff6b35', url: 'https://en.wikipedia.org/wiki/J%C3%BCrgen_Schmidhuber' },
-              { name: 'Guillaume Lample', role: 'Co-founder & Chief Scientist, Mistral', origin: '🇫🇷', desc: 'Ex-Meta FAIR researcher. Co-developed key techniques behind modern LLMs. Leads Mistral\'s model development.', color: '#ffd700', url: 'https://mistral.ai' },
-              { name: 'Luc Julia', role: 'CTO, Renault', origin: '🇫🇷', desc: 'Co-creator of Apple\'s Siri. Now leading AI at Renault — conversational AI, autonomous driving, and predictive maintenance for European automotive.', color: '#00f5d4', url: 'https://en.wikipedia.org/wiki/Luc_Julia' },
-              { name: 'Dario Amodei', role: 'CEO, Anthropic', origin: '🇮🇹 heritage', desc: 'Italian-American co-founder of Anthropic (Claude). Former VP Research at OpenAI. Pioneer of AI safety research.', color: '#4d79ff', url: 'https://en.wikipedia.org/wiki/Dario_Amodei' },
-              { name: 'Gesa Miczaika', role: 'Investor & AI Advocate', origin: '🇩🇪', desc: 'Co-founder of Auxxo, Europe\'s first female-founded VC. Funds AI startups and champions diversity in European AI.', color: '#f15bb5', url: 'https://www.auxxo.com' },
+              { name: 'Arthur Mensch', role: 'CEO & Co-founder, Mistral AI', origin: '🇫🇷', desc: 'Ex-Google DeepMind. Built Europe\'s most valuable AI company in under 2 years. Champions open-weight models and European sovereignty.', color: '#ff6b35', url: 'https://en.wikipedia.org/wiki/Arthur_Mensch', image: '/images/leaders/arthur-mensch.png' },
+              { name: 'Clément Delangue', role: 'CEO & Co-founder, Hugging Face', origin: '🇫🇷', desc: 'Built the "GitHub of AI" — the world\'s largest open-source AI platform with 1M+ models.', color: '#ffd700', url: 'https://huggingface.co/clem', image: '/images/leaders/clement-delangue.png' },
+              { name: 'Yann LeCun', role: 'Chief AI Scientist, Meta', origin: '🇫🇷', desc: 'Turing Award winner (2018). Born in Paris, pioneer of convolutional neural networks. Outspoken advocate for open-source AI.', color: '#4d79ff', url: 'https://en.wikipedia.org/wiki/Yann_LeCun', image: '/images/leaders/yann-lecun.png' },
+              { name: 'Demis Hassabis', role: 'CEO, Google DeepMind', origin: '🇬🇧', desc: 'Nobel Prize winner (Chemistry, 2024) for AlphaFold. Built DeepMind from a London startup into the world\'s most prestigious AI lab.', color: '#00f5d4', url: 'https://en.wikipedia.org/wiki/Demis_Hassabis', image: '/images/leaders/demis-hassabis.png' },
+              { name: 'Mati Staniszewski', role: 'CEO & Co-founder, ElevenLabs', origin: '🇵🇱', desc: 'Built the world\'s leading voice AI company to $11B in under 3 years — one of the fastest-growing AI startups ever.', color: '#f15bb5', url: 'https://elevenlabs.io/blog/series-d', image: '/images/leaders/mati-staniszewski.png' },
+              { name: 'Roberto Cingolani', role: 'CEO, Leonardo', origin: '🇮🇹', desc: 'Physicist turned defence CEO. Architect of Michelangelo Dome. Former Italian Minister of Ecological Transition.', color: '#ff3b30', url: 'https://www.leonardo.com', image: '/images/leaders/roberto-cingolani.png' },
+              { name: 'Cédric O', role: 'Co-founder, Mistral AI', origin: '🇫🇷', desc: 'Former French Secretary of State for Digital. Bridges AI policy and entrepreneurship. Key figure in France\'s AI sovereignty push.', color: '#9b5de5', url: 'https://mistral.ai', image: '/images/leaders/cedric-o.png' },
+              { name: 'Jürgen Schmidhuber', role: 'LSTM Pioneer', origin: '🇩🇪🇨🇭', desc: 'Created LSTM networks (1997) that powered speech recognition and translation for decades. Pioneer at IDSIA in Switzerland.', color: '#ff6b35', url: 'https://en.wikipedia.org/wiki/J%C3%BCrgen_Schmidhuber', image: '/images/leaders/jurgen-schmidhuber.png' },
+              { name: 'Guillaume Lample', role: 'Co-founder & Chief Scientist, Mistral', origin: '🇫🇷', desc: 'Ex-Meta FAIR researcher. Co-developed key techniques behind modern LLMs. Leads Mistral\'s model development.', color: '#ffd700', url: 'https://mistral.ai', image: '/images/leaders/guillaume-lample.png' },
+              { name: 'Luc Julia', role: 'CTO, Renault', origin: '🇫🇷', desc: 'Co-creator of Apple\'s Siri. Now leading AI at Renault — conversational AI, autonomous driving, and predictive maintenance for European automotive.', color: '#00f5d4', url: 'https://en.wikipedia.org/wiki/Luc_Julia', image: '/images/leaders/luc-julia.png' },
+              { name: 'Dario Amodei', role: 'CEO, Anthropic', origin: '🇮🇹 heritage', desc: 'Italian-American co-founder of Anthropic (Claude). Former VP Research at OpenAI. Pioneer of AI safety research.', color: '#4d79ff', url: 'https://en.wikipedia.org/wiki/Dario_Amodei', image: '/images/leaders/dario-amodei.png' },
+              { name: 'Gesa Miczaika', role: 'Investor & AI Advocate', origin: '🇩🇪', desc: 'Co-founder of Auxxo, Europe\'s first female-founded VC. Funds AI startups and champions diversity in European AI.', color: '#f15bb5', url: 'https://www.auxxo.com', image: '/images/leaders/gesa-miczaika.png' },
             ].map((person, i) => (
-              <div key={i} style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '25px', border: `1px solid ${person.color}20` }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                  <div>
-                    <h4 style={{ fontSize: '1.1rem', color: person.color, marginBottom: '4px' }}>{person.name}</h4>
-                    <p style={{ fontSize: '0.82rem', color: '#c0c0d3', margin: 0, fontWeight: 500 }}>{person.role}</p>
-                  </div>
-                  <span style={{ fontSize: '1.1rem' }}>{person.origin}</span>
+              <div key={i} style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '25px', border: `1px solid ${person.color}20`, display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+                <div style={{ flexShrink: 0, position: 'relative' }}>
+                  <div style={{ position: 'absolute', inset: '-2px', background: person.color, borderRadius: '50%', opacity: 0.3, filter: 'blur(4px)' }} />
+                  <img src={person.image} alt={person.name} style={{ width: '65px', height: '65px', borderRadius: '50%', objectFit: 'cover', border: `2px solid ${person.color}`, position: 'relative', background: '#000' }} />
                 </div>
-                <p style={{ fontSize: '0.85rem', color: '#a0a0b0', margin: '12px 0 10px' }}>{person.desc}</p>
-                <ExtLink href={person.url}>{person.name}</ExtLink>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                    <div>
+                      <h4 style={{ fontSize: '1.1rem', color: person.color, marginBottom: '4px' }}>{person.name}</h4>
+                      <p style={{ fontSize: '0.82rem', color: '#c0c0d3', margin: 0, fontWeight: 500 }}>{person.role}</p>
+                    </div>
+                    <span style={{ fontSize: '1.1rem' }}>{person.origin}</span>
+                  </div>
+                  <p style={{ fontSize: '0.85rem', color: '#a0a0b0', margin: '12px 0 10px' }}>{person.desc}</p>
+                  <ExtLink href={person.url}>{person.name}</ExtLink>
+                </div>
               </div>
             ))}
           </div>
