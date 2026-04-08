@@ -582,6 +582,29 @@ export default function EuropeanAI() {
             </div>
           </div>
 
+          {/* European Space Shield */}
+          <div className="animate-on-scroll" style={{ marginBottom: '35px', padding: '30px', background: 'linear-gradient(145deg, rgba(77,121,255,0.1), rgba(77,121,255,0.02))', borderRadius: '16px', border: '1px solid rgba(77,121,255,0.3)', position: 'relative' }}>
+            <div style={{ position: 'absolute', top: '12px', right: '15px', background: 'rgba(77,121,255,0.2)', border: '1px solid rgba(77,121,255,0.4)', borderRadius: '6px', padding: '3px 10px', fontSize: '0.7rem', fontFamily: 'JetBrains Mono, monospace', color: '#4d79ff', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Strategic Initiative 🛡️</div>
+            <h3 style={{ fontSize: '1.5rem', color: '#4d79ff', marginBottom: '10px' }}>European Space Shield (ESS)</h3>
+            <p style={{ fontSize: '1rem', color: '#c0c0d3', marginBottom: '15px', maxWidth: '750px' }}>
+              Part of the <strong style={{ color: '#fff' }}>Defence Readiness Roadmap 2030</strong>, the ESS leverages AI-powered **Space Domain Awareness (SDA)** to protect European assets like Galileo and IRIS² from jamming, cyber-attacks, and kinetic threats.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px', marginBottom: '15px' }}>
+              <div style={{ padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '10px' }}>
+                <h5 style={{ fontSize: '0.9rem', color: '#00f5d4', marginBottom: '4px' }}>Autonomous Defence</h5>
+                <p style={{ fontSize: '0.82rem', color: '#a0a0b0', margin: 0 }}>AI-driven threat attribution and automated intrusion response.</p>
+              </div>
+              <div style={{ padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '10px' }}>
+                <h5 style={{ fontSize: '0.9rem', color: '#ffbd2e', marginBottom: '4px' }}>Project MYRIAD</h5>
+                <p style={{ fontSize: '0.82rem', color: '#a0a0b0', margin: 0 }}>Processing multi-sensor satellite data 10x faster using neural networks.</p>
+              </div>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
+              <EUBadge programme="Defence Readiness Roadmap 2030" color="#4d79ff" />
+              <EUBadge programme="EU Space Strategy for Security & Defence" color="#00f5d4" />
+            </div>
+            <p style={{ fontSize: '0.85rem', color: '#7a7a7a', fontStyle: 'italic' }}>Rollout scheduled for Q2 2026</p>
+          </div>
 
           <div className="animate-on-scroll" style={{ marginBottom: '30px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
             {[
