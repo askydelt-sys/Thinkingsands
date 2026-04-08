@@ -156,7 +156,7 @@ export default function EuropeanAI() {
 
       {/* ===== EU FUNDING KEY ===== */}
       <div style={{ position: 'fixed', bottom: '20px', left: '30px', zIndex: 1000, display: 'flex', flexDirection: 'column', gap: '4px', background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(10px)', borderRadius: '10px', padding: '10px 14px', border: '1px solid rgba(255,255,255,0.08)', maxWidth: '220px' }}>
-        <span style={{ fontSize: '0.65rem', color: '#888', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '2px' }}>EU Funding Key</span>
+        <span style={{ fontSize: '0.65rem', color: '#a0a0b0', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '2px' }}>EU Funding Key</span>
         <span style={{ fontSize: '0.68rem', color: '#4d79ff' }}>🇪🇺 = EU co-funded or sponsored</span>
       </div>
 
@@ -168,23 +168,19 @@ export default function EuropeanAI() {
           ))}
         </div>
         <div className="section-content animate-scale visible" style={{ textAlign: 'center', maxWidth: '950px' }}>
-          <div className="animate-on-scroll visible delay-1" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '8px 20px', background: 'rgba(255,215,0,0.1)', border: '1px solid rgba(255,215,0,0.3)', borderRadius: '30px', marginBottom: '30px' }}>
-            <span style={{ fontSize: '1.2rem' }}>🇪🇺</span>
-            <span style={{ fontSize: '0.9rem', color: '#ffd700', letterSpacing: '1px', textTransform: 'uppercase' }}>Europe &middot; UK &middot; Ukraine</span>
-          </div>
           <h1 className="animate-on-scroll visible delay-2" style={{ fontSize: 'clamp(2.5rem, 7vw, 4.5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '30px', background: 'linear-gradient(135deg, #003399 0%, #ffd700 50%, #00f5d4 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
             European Leaders<br />in AI
           </h1>
-          <p className="animate-on-scroll visible delay-3" style={{ fontSize: '1.25rem', color: '#a0a0b8', maxWidth: '700px', margin: '0 auto 40px' }}>
+          <p className="animate-on-scroll visible delay-3" style={{ fontSize: '1.25rem', color: '#c0c0dc', maxWidth: '700px', margin: '0 auto 40px' }}>
             From the machines that make AI chips to the models that rival Silicon Valley &mdash; Europe&apos;s AI ecosystem spans lithography monopolies, open-source pioneers, defence shields, and space intelligence.
           </p>
           <div className="animate-on-scroll visible delay-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
             {['🔬 Chip Infrastructure', '🧠 Foundation Models', '🎙️ Voice & Vision', '🤖 Robotics', '🛡️ Defence AI', '🚀 Space AI'].map((badge, i) => (
-              <span key={i} style={{ padding: '6px 16px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', fontSize: '0.85rem', color: '#a0a0b8' }}>{badge}</span>
+              <span key={i} style={{ padding: '6px 16px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', fontSize: '0.85rem', color: '#c0c0dc' }}>{badge}</span>
             ))}
           </div>
         </div>
-        <div className="animate-on-scroll visible delay-5" style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', color: '#a0a0b0', fontSize: '14px', animation: 'bounce 2s infinite' }}>
+        <div className="animate-on-scroll visible delay-5" style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', color: '#c0c0d3', fontSize: '14px', animation: 'bounce 2s infinite' }}>
           <span>Scroll to explore</span>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffd700" strokeWidth="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
         </div>
@@ -200,7 +196,7 @@ export default function EuropeanAI() {
               <p style={{ color: '#ffd700', fontSize: '1rem', margin: 0 }}>Without European lithography, no AI chip exists</p>
             </div>
           </div>
-          <p className="animate-on-scroll" style={{ fontSize: '1.15rem', color: '#a0a0b0', maxWidth: '800px', marginBottom: '40px' }}>
+          <p className="animate-on-scroll" style={{ fontSize: '1.15rem', color: '#c0c0d3', maxWidth: '800px', marginBottom: '40px' }}>
             Every NVIDIA H100, every Apple M4, every AI accelerator on Earth is manufactured using machines built by one company in Veldhoven, Netherlands. Europe doesn&apos;t just participate in the AI revolution &mdash; it enables it at the atomic level.
           </p>
 
@@ -208,7 +204,7 @@ export default function EuropeanAI() {
           <div className="animate-on-scroll" style={{ marginBottom: '35px', padding: '30px', background: 'linear-gradient(145deg, rgba(0,51,153,0.12), rgba(0,51,153,0.03))', borderRadius: '16px', border: '1px solid rgba(0,51,153,0.3)', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '12px', right: '15px', background: 'rgba(0,51,153,0.3)', border: '1px solid rgba(0,51,153,0.5)', borderRadius: '6px', padding: '3px 10px', fontSize: '0.7rem', fontFamily: 'JetBrains Mono, monospace', color: '#4d79ff', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Netherlands 🇳🇱</div>
             <h3 style={{ fontSize: '1.6rem', color: '#4d79ff', marginBottom: '10px' }}>ASML &mdash; The $350B Monopoly</h3>
-            <p style={{ fontSize: '1rem', color: '#a0a0b0', marginBottom: '20px', maxWidth: '750px' }}>
+            <p style={{ fontSize: '1rem', color: '#c0c0d3', marginBottom: '20px', maxWidth: '750px' }}>
               ASML is the <strong style={{ color: '#fff' }}>sole manufacturer of EUV lithography machines</strong> on the planet. Each machine costs ~€350M, weighs 180 tonnes, and uses tin droplets hit by lasers 50,000 times per second to create patterns smaller than a virus. Their new High-NA EUV systems push to 2nm and below.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '15px' }}>
@@ -220,7 +216,7 @@ export default function EuropeanAI() {
               ].map((item, i) => (
                 <div key={i} style={{ padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '10px', textAlign: 'center' }}>
                   <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1.5rem', color: item.color, fontWeight: 700 }}>{item.stat}</div>
-                  <div style={{ fontSize: '0.8rem', color: '#888', marginTop: '4px' }}>{item.label}</div>
+                  <div style={{ fontSize: '0.8rem', color: '#a0a0b0', marginTop: '4px' }}>{item.label}</div>
                 </div>
               ))}
             </div>
@@ -235,7 +231,7 @@ export default function EuropeanAI() {
           <div className="animate-on-scroll" style={{ padding: '30px', background: 'linear-gradient(145deg, rgba(0,245,212,0.08), rgba(0,245,212,0.02))', borderRadius: '16px', border: '1px solid rgba(0,245,212,0.2)', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '12px', right: '15px', background: 'rgba(0,245,212,0.15)', border: '1px solid rgba(0,245,212,0.3)', borderRadius: '6px', padding: '3px 10px', fontSize: '0.7rem', fontFamily: 'JetBrains Mono, monospace', color: '#00f5d4', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Belgium 🇧🇪</div>
             <h3 style={{ fontSize: '1.6rem', color: '#00f5d4', marginBottom: '10px' }}>imec &mdash; The World&apos;s Chip Lab</h3>
-            <p style={{ fontSize: '1rem', color: '#a0a0b0', marginBottom: '20px', maxWidth: '750px' }}>
+            <p style={{ fontSize: '1rem', color: '#c0c0d3', marginBottom: '20px', maxWidth: '750px' }}>
               Based in Leuven, imec is the <strong style={{ color: '#fff' }}>world&apos;s leading semiconductor R&D centre</strong>. Every major chipmaker &mdash; TSMC, Samsung, Intel &mdash; develops next-generation processes here. In February 2026, imec opened the <strong style={{ color: '#fff' }}>€2.5 billion NanoIC pilot line</strong> &mdash; the largest EU Chips Act facility to date, with €700M in direct EU investment.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '15px' }}>
@@ -247,7 +243,7 @@ export default function EuropeanAI() {
               ].map((item, i) => (
                 <div key={i} style={{ padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '10px', textAlign: 'center' }}>
                   <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1.5rem', color: item.color, fontWeight: 700 }}>{item.stat}</div>
-                  <div style={{ fontSize: '0.8rem', color: '#888', marginTop: '4px' }}>{item.label}</div>
+                  <div style={{ fontSize: '0.8rem', color: '#a0a0b0', marginTop: '4px' }}>{item.label}</div>
                 </div>
               ))}
             </div>
@@ -270,7 +266,7 @@ export default function EuropeanAI() {
                   <h4 style={{ color: company.color, fontSize: '1.1rem', margin: 0 }}>{company.name}</h4>
                   <span style={{ fontSize: '1.2rem' }}>{company.country}</span>
                 </div>
-                <p style={{ fontSize: '0.9rem', color: '#888', margin: '0 0 12px' }}>{company.desc}</p>
+                <p style={{ fontSize: '0.9rem', color: '#a0a0b0', margin: '0 0 12px' }}>{company.desc}</p>
                 {company.eu && <div style={{ marginBottom: '10px' }}><EUBadge programme={company.eu} color={company.color} /></div>}
                 <ExtLink href={company.url}>{company.name} website</ExtLink>
               </div>
@@ -289,7 +285,7 @@ export default function EuropeanAI() {
               <p style={{ color: '#ff6b35', fontSize: '1rem', margin: 0 }}>Europe&apos;s open-source AI revolution</p>
             </div>
           </div>
-          <p className="animate-on-scroll" style={{ fontSize: '1.15rem', color: '#a0a0b0', maxWidth: '800px', marginBottom: '15px' }}>
+          <p className="animate-on-scroll" style={{ fontSize: '1.15rem', color: '#c0c0d3', maxWidth: '800px', marginBottom: '15px' }}>
             While Silicon Valley builds walled gardens, Europe leads the open-source AI movement. French and European companies have created models that rival GPT-4 and platforms that host the world&apos;s AI community.
           </p>
 
@@ -299,7 +295,7 @@ export default function EuropeanAI() {
               <span style={{ fontSize: '1.3rem' }}>🇪🇺</span>
               <h4 style={{ color: '#4d79ff', margin: 0, fontSize: '1rem' }}>EU AI Infrastructure Investment</h4>
             </div>
-            <p style={{ fontSize: '0.9rem', color: '#a0a0b0', margin: '0 0 12px' }}>
+            <p style={{ fontSize: '0.9rem', color: '#c0c0d3', margin: '0 0 12px' }}>
               The EU is building <strong style={{ color: '#fff' }}>13 AI Factories</strong> through EuroHPC JU &mdash; GPU supercomputing centres for training European AI models. The <strong style={{ color: '#fff' }}>Digital Europe Programme</strong> deploys ~€700M for AI in 2026. <strong style={{ color: '#fff' }}>InvestAI</strong> mobilises €200B in public-private AI investment. In January 2026, the Council approved <strong style={{ color: '#fff' }}>AI Gigafactories</strong>.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -315,7 +311,7 @@ export default function EuropeanAI() {
           <div className="animate-on-scroll" style={{ marginBottom: '35px', padding: '30px', background: 'linear-gradient(145deg, rgba(255,107,53,0.1), rgba(255,107,53,0.02))', borderRadius: '16px', border: '1px solid rgba(255,107,53,0.3)', position: 'relative' }}>
             <div style={{ position: 'absolute', top: '12px', right: '15px', background: 'rgba(255,107,53,0.2)', border: '1px solid rgba(255,107,53,0.4)', borderRadius: '6px', padding: '3px 10px', fontSize: '0.7rem', fontFamily: 'JetBrains Mono, monospace', color: '#ff6b35', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Paris 🇫🇷</div>
             <h3 style={{ fontSize: '1.6rem', color: '#ff6b35', marginBottom: '10px' }}>Mistral AI &mdash; Europe&apos;s Frontier Lab</h3>
-            <p style={{ fontSize: '1rem', color: '#a0a0b0', marginBottom: '20px', maxWidth: '750px' }}>
+            <p style={{ fontSize: '1rem', color: '#c0c0d3', marginBottom: '20px', maxWidth: '750px' }}>
               Founded in 2023 by ex-Google DeepMind and Meta researchers, Mistral has become <strong style={{ color: '#fff' }}>Europe&apos;s most valuable AI startup</strong>. Their models compete head-to-head with OpenAI and Anthropic. In March 2026, Mistral raised €722M to build its first European AI cluster with 13,800 NVIDIA GPUs near Paris.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '12px', marginBottom: '15px' }}>
@@ -327,7 +323,7 @@ export default function EuropeanAI() {
               ].map((item, i) => (
                 <div key={i} style={{ padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '10px', textAlign: 'center' }}>
                   <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1.3rem', color: item.color, fontWeight: 700 }}>{item.stat}</div>
-                  <div style={{ fontSize: '0.78rem', color: '#888', marginTop: '4px' }}>{item.label}</div>
+                  <div style={{ fontSize: '0.78rem', color: '#a0a0b0', marginTop: '4px' }}>{item.label}</div>
                 </div>
               ))}
             </div>
@@ -347,7 +343,7 @@ export default function EuropeanAI() {
           <div className="animate-on-scroll" style={{ marginBottom: '35px', padding: '30px', background: 'linear-gradient(145deg, rgba(255,213,0,0.08), rgba(255,213,0,0.02))', borderRadius: '16px', border: '1px solid rgba(255,213,0,0.25)', position: 'relative' }}>
             <div style={{ position: 'absolute', top: '12px', right: '15px', background: 'rgba(255,213,0,0.15)', border: '1px solid rgba(255,213,0,0.3)', borderRadius: '6px', padding: '3px 10px', fontSize: '0.7rem', fontFamily: 'JetBrains Mono, monospace', color: '#ffd700', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Paris 🇫🇷 / New York</div>
             <h3 style={{ fontSize: '1.6rem', color: '#ffd700', marginBottom: '10px' }}>Hugging Face &mdash; The GitHub of AI</h3>
-            <p style={{ fontSize: '1rem', color: '#a0a0b0', marginBottom: '20px', maxWidth: '750px' }}>
+            <p style={{ fontSize: '1rem', color: '#c0c0d3', marginBottom: '20px', maxWidth: '750px' }}>
               Co-founded by French entrepreneur <strong style={{ color: '#fff' }}>Cl&eacute;ment Delangue</strong>, Hugging Face is the <strong style={{ color: '#fff' }}>world&apos;s largest open-source AI platform</strong>. Over 1 million models, 250,000 datasets, and 300,000 demo applications. It&apos;s where the global AI community builds, shares, and deploys.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '12px', marginBottom: '15px' }}>
@@ -359,7 +355,7 @@ export default function EuropeanAI() {
               ].map((item, i) => (
                 <div key={i} style={{ padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '10px', textAlign: 'center' }}>
                   <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1.3rem', color: item.color, fontWeight: 700 }}>{item.stat}</div>
-                  <div style={{ fontSize: '0.78rem', color: '#888', marginTop: '4px' }}>{item.label}</div>
+                  <div style={{ fontSize: '0.78rem', color: '#a0a0b0', marginTop: '4px' }}>{item.label}</div>
                 </div>
               ))}
             </div>
@@ -379,7 +375,7 @@ export default function EuropeanAI() {
                   <h4 style={{ color: company.color, fontSize: '1.1rem', margin: 0 }}>{company.name}</h4>
                   <span style={{ fontSize: '1.2rem' }}>{company.country}</span>
                 </div>
-                <p style={{ fontSize: '0.9rem', color: '#888', margin: '0 0 12px' }}>{company.desc}</p>
+                <p style={{ fontSize: '0.9rem', color: '#a0a0b0', margin: '0 0 12px' }}>{company.desc}</p>
                 {company.eu && <div style={{ marginBottom: '10px' }}><EUBadge programme={company.eu} color={company.color} /></div>}
                 <ExtLink href={company.url}>{company.name}</ExtLink>
               </div>
@@ -403,7 +399,7 @@ export default function EuropeanAI() {
           <div className="animate-on-scroll" style={{ marginBottom: '35px', padding: '30px', background: 'linear-gradient(145deg, rgba(241,91,181,0.1), rgba(241,91,181,0.02))', borderRadius: '16px', border: '1px solid rgba(241,91,181,0.3)', position: 'relative' }}>
             <div style={{ position: 'absolute', top: '12px', right: '15px', background: 'rgba(241,91,181,0.2)', border: '1px solid rgba(241,91,181,0.4)', borderRadius: '6px', padding: '3px 10px', fontSize: '0.7rem', fontFamily: 'JetBrains Mono, monospace', color: '#f15bb5', textTransform: 'uppercase', letterSpacing: '1.5px' }}>London 🇬🇧 &middot; Polish-Ukrainian founders</div>
             <h3 style={{ fontSize: '1.6rem', color: '#f15bb5', marginBottom: '10px' }}>ElevenLabs &mdash; The Voice of AI</h3>
-            <p style={{ fontSize: '1rem', color: '#a0a0b0', marginBottom: '20px', maxWidth: '750px' }}>
+            <p style={{ fontSize: '1rem', color: '#c0c0d3', marginBottom: '20px', maxWidth: '750px' }}>
               Founded by <strong style={{ color: '#fff' }}>Mati Staniszewski</strong> (Polish) and <strong style={{ color: '#fff' }}>Piotr D&#261;bkowski</strong> (Polish-Ukrainian), ElevenLabs is the <strong style={{ color: '#fff' }}>world leader in AI voice synthesis</strong>. From a 2023 startup to $11B in under three years &mdash; one of the fastest-growing AI companies in history.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '12px', marginBottom: '15px' }}>
@@ -415,7 +411,7 @@ export default function EuropeanAI() {
               ].map((item, i) => (
                 <div key={i} style={{ padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '10px', textAlign: 'center' }}>
                   <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1.3rem', color: item.color, fontWeight: 700 }}>{item.stat}</div>
-                  <div style={{ fontSize: '0.78rem', color: '#888', marginTop: '4px' }}>{item.label}</div>
+                  <div style={{ fontSize: '0.78rem', color: '#a0a0b0', marginTop: '4px' }}>{item.label}</div>
                 </div>
               ))}
             </div>
@@ -434,7 +430,7 @@ export default function EuropeanAI() {
                   <h4 style={{ color: company.color, fontSize: '1.1rem', margin: 0 }}>{company.name}</h4>
                   <span style={{ fontSize: '1.2rem' }}>{company.country}</span>
                 </div>
-                <p style={{ fontSize: '0.9rem', color: '#888', margin: '0 0 8px' }}>{company.desc}</p>
+                <p style={{ fontSize: '0.9rem', color: '#a0a0b0', margin: '0 0 8px' }}>{company.desc}</p>
                 <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.78rem', color: company.color, display: 'block', marginBottom: '10px' }}>{company.stat}</span>
                 <ExtLink href={company.url}>{company.name}</ExtLink>
               </div>
@@ -453,7 +449,7 @@ export default function EuropeanAI() {
               <p style={{ color: '#00f5d4', fontSize: '1rem', margin: 0 }}>Where European engineering meets AI</p>
             </div>
           </div>
-          <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#a0a0b0', maxWidth: '800px', marginBottom: '40px' }}>
+          <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#c0c0d3', maxWidth: '800px', marginBottom: '40px' }}>
             Europe&apos;s industrial heritage gives it a natural advantage in robotics. German precision engineering, Scandinavian automation expertise, and AI-native startups are creating the next generation of intelligent machines.
           </p>
 
@@ -471,7 +467,7 @@ export default function EuropeanAI() {
                   <h4 style={{ color: company.color, fontSize: '1.15rem', margin: 0 }}>{company.name}</h4>
                   <span style={{ fontSize: '1.3rem' }}>{company.country}</span>
                 </div>
-                <p style={{ fontSize: '0.9rem', color: '#888', margin: '0 0 12px' }}>{company.desc}</p>
+                <p style={{ fontSize: '0.9rem', color: '#a0a0b0', margin: '0 0 12px' }}>{company.desc}</p>
                 {company.eu && <div style={{ marginBottom: '10px' }}><EUBadge programme={company.eu} color={company.color} /></div>}
                 <ExtLink href={company.url}>{company.name}</ExtLink>
               </div>
@@ -490,7 +486,7 @@ export default function EuropeanAI() {
               <p style={{ color: '#ff3b30', fontSize: '1rem', margin: 0 }}>From missile shields to autonomous systems</p>
             </div>
           </div>
-          <p className="animate-on-scroll" style={{ fontSize: '1.15rem', color: '#a0a0b0', maxWidth: '800px', marginBottom: '15px' }}>
+          <p className="animate-on-scroll" style={{ fontSize: '1.15rem', color: '#c0c0d3', maxWidth: '800px', marginBottom: '15px' }}>
             AI is at the core of a new generation of European missile shields, autonomous vehicles, collaborative weapons, and battlefield intelligence. The European Defence Fund deploys €1B+ annually for defence R&amp;D including AI.
           </p>
 
@@ -500,7 +496,7 @@ export default function EuropeanAI() {
               <span style={{ fontSize: '1.3rem' }}>🇪🇺</span>
               <h4 style={{ color: '#4d79ff', margin: 0, fontSize: '1rem' }}>European Defence Fund (EDF)</h4>
             </div>
-            <p style={{ fontSize: '0.9rem', color: '#a0a0b0', margin: '0 0 12px' }}>
+            <p style={{ fontSize: '0.9rem', color: '#c0c0d3', margin: '0 0 12px' }}>
               The EDF launched a <strong style={{ color: '#fff' }}>€1B call for proposals in 2026</strong> covering AI, autonomous systems, hypersonic defence, and future combat systems. From AI to quantum, the fund shapes the future of EU defence technologies. 2026 flagships include <strong style={{ color: '#fff' }}>hypersonic defence and the future European main battle tank</strong>.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '10px' }}>
@@ -514,7 +510,7 @@ export default function EuropeanAI() {
           <div className="animate-on-scroll" style={{ marginBottom: '35px', padding: '30px', background: 'linear-gradient(145deg, rgba(255,59,48,0.1), rgba(255,59,48,0.02))', borderRadius: '16px', border: '1px solid rgba(255,59,48,0.3)', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '12px', right: '15px', background: 'rgba(255,59,48,0.2)', border: '1px solid rgba(255,59,48,0.4)', borderRadius: '6px', padding: '3px 10px', fontSize: '0.7rem', fontFamily: 'JetBrains Mono, monospace', color: '#ff3b30', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Italy 🇮🇹</div>
             <h3 style={{ fontSize: '1.6rem', color: '#ff3b30', marginBottom: '10px' }}>Leonardo &mdash; Michelangelo Dome</h3>
-            <p style={{ fontSize: '1rem', color: '#a0a0b0', marginBottom: '20px', maxWidth: '800px' }}>
+            <p style={{ fontSize: '1rem', color: '#c0c0d3', marginBottom: '20px', maxWidth: '800px' }}>
               Unveiled in November 2025, the <strong style={{ color: '#fff' }}>Michelangelo Dome</strong> is an AI-powered multi-domain integrated defence architecture &mdash; Europe&apos;s answer to Israel&apos;s Iron Dome. It fuses satellite, radar, electronic warfare, and cyber data into a single AI-driven shield. Now being tested in Ukraine.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px', marginBottom: '15px' }}>
@@ -527,7 +523,7 @@ export default function EuropeanAI() {
                 <div key={i} style={{ padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '10px' }}>
                   <div style={{ fontSize: '1.3rem', marginBottom: '6px' }}>{item.icon}</div>
                   <h5 style={{ fontSize: '0.9rem', color: '#ff3b30', marginBottom: '4px' }}>{item.title}</h5>
-                  <p style={{ fontSize: '0.78rem', color: '#888', margin: 0 }}>{item.desc}</p>
+                  <p style={{ fontSize: '0.78rem', color: '#a0a0b0', margin: 0 }}>{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -542,7 +538,7 @@ export default function EuropeanAI() {
           <div className="animate-on-scroll" style={{ marginBottom: '35px', padding: '30px', background: 'linear-gradient(145deg, rgba(155,93,229,0.08), rgba(155,93,229,0.02))', borderRadius: '16px', border: '1px solid rgba(155,93,229,0.25)', position: 'relative' }}>
             <div style={{ position: 'absolute', top: '12px', right: '15px', background: 'rgba(155,93,229,0.2)', border: '1px solid rgba(155,93,229,0.4)', borderRadius: '6px', padding: '3px 10px', fontSize: '0.7rem', fontFamily: 'JetBrains Mono, monospace', color: '#9b5de5', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Germany 🇩🇪</div>
             <h3 style={{ fontSize: '1.5rem', color: '#9b5de5', marginBottom: '10px' }}>Rheinmetall &mdash; Autonomous Combat Systems</h3>
-            <p style={{ fontSize: '1rem', color: '#a0a0b0', marginBottom: '15px', maxWidth: '750px' }}>
+            <p style={{ fontSize: '1rem', color: '#c0c0d3', marginBottom: '15px', maxWidth: '750px' }}>
               Germany&apos;s largest defence company has <strong style={{ color: '#fff' }}>Centres of Excellence for Autonomous Mobility</strong>. AI systems span unmanned ground vehicles, the CT-025 crewless turret, and a partnership with <strong style={{ color: '#fff' }}>Anduril</strong> to build autonomous military drones for European forces.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
@@ -566,7 +562,7 @@ export default function EuropeanAI() {
                   <h4 style={{ color: company.color, fontSize: '1.1rem', margin: 0 }}>{company.name}</h4>
                   <span style={{ fontSize: '1rem', letterSpacing: '2px' }}>{company.countries}</span>
                 </div>
-                <p style={{ fontSize: '0.88rem', color: '#888', margin: '0 0 12px' }}>{company.desc}</p>
+                <p style={{ fontSize: '0.88rem', color: '#a0a0b0', margin: '0 0 12px' }}>{company.desc}</p>
                 {company.eu && <div style={{ marginBottom: '10px' }}><EUBadge programme={company.eu} color={company.color} /></div>}
                 <ExtLink href={company.url}>{company.name}</ExtLink>
               </div>
@@ -586,19 +582,6 @@ export default function EuropeanAI() {
             </div>
           </div>
 
-          {/* BROMO Merger */}
-          <div className="animate-on-scroll" style={{ marginBottom: '35px', padding: '30px', background: 'linear-gradient(145deg, rgba(77,121,255,0.1), rgba(77,121,255,0.02))', borderRadius: '16px', border: '1px solid rgba(77,121,255,0.3)', position: 'relative' }}>
-            <div style={{ position: 'absolute', top: '12px', right: '15px', background: 'rgba(77,121,255,0.2)', border: '1px solid rgba(77,121,255,0.4)', borderRadius: '6px', padding: '3px 10px', fontSize: '0.7rem', fontFamily: 'JetBrains Mono, monospace', color: '#4d79ff', textTransform: 'uppercase', letterSpacing: '1.5px' }}>🇫🇷🇮🇹🇩🇪 Joint Venture</div>
-            <h3 style={{ fontSize: '1.5rem', color: '#4d79ff', marginBottom: '10px' }}>BROMO &mdash; Europe&apos;s Space Super-Company</h3>
-            <p style={{ fontSize: '1rem', color: '#a0a0b0', marginBottom: '15px', maxWidth: '750px' }}>
-              In October 2025, <strong style={{ color: '#fff' }}>Airbus, Thales, and Leonardo</strong> signed an MoU to merge space divisions into a European champion &mdash; codenamed <strong style={{ color: '#fff' }}>BROMO</strong>. AI-powered satellite constellations for civilian and defence applications.
-            </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
-              <EUBadge programme="EU Space Programme" color="#4d79ff" />
-              <EUBadge programme="ESA co-funded missions" color="#00f5d4" />
-            </div>
-            <ExtLink href="https://www.airbus.com/en/newsroom/press-releases/2025-10-airbus-leonardo-and-thales-sign-memorandum-of-understanding-to">BROMO announcement</ExtLink>
-          </div>
 
           <div className="animate-on-scroll" style={{ marginBottom: '30px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
             {[
@@ -608,7 +591,7 @@ export default function EuropeanAI() {
             ].map((project, i) => (
               <div key={i} style={{ padding: '25px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: `1px solid ${project.color}25` }}>
                 <h4 style={{ color: project.color, fontSize: '1.1rem', marginBottom: '12px' }}>{project.name}</h4>
-                <p style={{ fontSize: '0.88rem', color: '#888', margin: '0 0 12px' }}>{project.desc}</p>
+                <p style={{ fontSize: '0.88rem', color: '#a0a0b0', margin: '0 0 12px' }}>{project.desc}</p>
                 {project.eu && <div style={{ marginBottom: '10px' }}><EUBadge programme={project.eu} color={project.color} /></div>}
                 <ExtLink href={project.url}>{project.name}</ExtLink>
               </div>
@@ -617,8 +600,8 @@ export default function EuropeanAI() {
 
           <div className="animate-on-scroll" style={{ padding: '25px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)' }}>
             <h4 style={{ fontSize: '1.1rem', color: '#ff6b35', marginBottom: '12px' }}>Space-Defence Convergence</h4>
-            <p style={{ fontSize: '0.95rem', color: '#a0a0b0', margin: '0 0 10px' }}>
-              Leonardo&apos;s Michelangelo Dome integrates a space layer for missile tracking. The BROMO merger includes defence satellite capabilities. Europe is building an AI-powered sovereign space surveillance network connecting civilian Earth observation with military threat detection.
+            <p style={{ fontSize: '0.95rem', color: '#c0c0d3', margin: '0 0 10px' }}>
+              Leonardo&apos;s Michelangelo Dome integrates a space layer for missile tracking. Europe is building an AI-powered sovereign space surveillance network connecting civilian Earth observation with military threat detection.
             </p>
             <EUBadge programme="EU Space Surveillance & Tracking (SST)" color="#ff6b35" />
           </div>
@@ -655,11 +638,11 @@ export default function EuropeanAI() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
                   <div>
                     <h4 style={{ fontSize: '1.1rem', color: person.color, marginBottom: '4px' }}>{person.name}</h4>
-                    <p style={{ fontSize: '0.82rem', color: '#a0a0b0', margin: 0, fontWeight: 500 }}>{person.role}</p>
+                    <p style={{ fontSize: '0.82rem', color: '#c0c0d3', margin: 0, fontWeight: 500 }}>{person.role}</p>
                   </div>
                   <span style={{ fontSize: '1.1rem' }}>{person.origin}</span>
                 </div>
-                <p style={{ fontSize: '0.85rem', color: '#888', margin: '12px 0 10px' }}>{person.desc}</p>
+                <p style={{ fontSize: '0.85rem', color: '#a0a0b0', margin: '12px 0 10px' }}>{person.desc}</p>
                 <ExtLink href={person.url}>{person.name}</ExtLink>
               </div>
             ))}
@@ -677,7 +660,7 @@ export default function EuropeanAI() {
               <p style={{ color: '#0057b7', fontSize: '1rem', margin: 0 }}>Where AI meets the battlefield &mdash; and beyond</p>
             </div>
           </div>
-          <p className="animate-on-scroll" style={{ fontSize: '1.15rem', color: '#a0a0b0', maxWidth: '800px', marginBottom: '20px' }}>
+          <p className="animate-on-scroll" style={{ fontSize: '1.15rem', color: '#c0c0d3', maxWidth: '800px', marginBottom: '20px' }}>
             Ukraine&apos;s war has created the world&apos;s most advanced real-world AI testing ground. Ukrainian tech companies innovate at a pace no peacetime R&amp;D lab could match.
           </p>
 
@@ -692,11 +675,11 @@ export default function EuropeanAI() {
               ].map((item, i) => (
                 <div key={i} style={{ padding: '18px', background: 'rgba(0,0,0,0.3)', borderRadius: '10px', textAlign: 'center' }}>
                   <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1.3rem', color: item.color, fontWeight: 700 }}>{item.stat}</div>
-                  <div style={{ fontSize: '0.78rem', color: '#888', marginTop: '4px' }}>{item.label}</div>
+                  <div style={{ fontSize: '0.78rem', color: '#a0a0b0', marginTop: '4px' }}>{item.label}</div>
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: '0.95rem', color: '#a0a0b0', margin: '0 0 12px' }}>
+            <p style={{ fontSize: '0.95rem', color: '#c0c0d3', margin: '0 0 12px' }}>
               Ukraine aims to build <strong style={{ color: '#fff' }}>7 million drones in 2026</strong> &mdash; 70 times more than the US. In March 2026, Ukraine became the first country to <strong style={{ color: '#fff' }}>open battlefield AI data to allies</strong>.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
@@ -714,7 +697,7 @@ export default function EuropeanAI() {
             ].map((company, i) => (
               <div key={i} style={{ padding: '25px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', border: `1px solid ${company.color}30` }}>
                 <h4 style={{ color: company.color, fontSize: '1.1rem', marginBottom: '10px' }}>{company.name}</h4>
-                <p style={{ fontSize: '0.88rem', color: '#888', margin: '0 0 12px' }}>{company.desc}</p>
+                <p style={{ fontSize: '0.88rem', color: '#a0a0b0', margin: '0 0 12px' }}>{company.desc}</p>
                 <ExtLink href={company.url}>{company.name}</ExtLink>
               </div>
             ))}
@@ -726,7 +709,7 @@ export default function EuropeanAI() {
       <section id="future" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: 'rgba(10,10,15,0.92)', textAlign: 'center' }}>
         <div className="section-content" style={{ maxWidth: '900px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Europe&apos;s AI Future</h2>
-          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', margin: '0 auto 40px' }}>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#c0c0d3', maxWidth: '700px', margin: '0 auto 40px' }}>
             Europe will never be another Silicon Valley &mdash; and it shouldn&apos;t try to be. Its strengths are sovereign infrastructure, regulatory leadership, industrial heritage, defence integration, and the open-source ethos.
           </p>
 
@@ -742,7 +725,7 @@ export default function EuropeanAI() {
               <div key={i} className="animate-on-scroll" style={{ padding: '25px', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: `1px solid ${item.color}20` }}>
                 <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{item.icon}</div>
                 <h4 style={{ fontSize: '1.1rem', color: item.color, marginBottom: '8px' }}>{item.title}</h4>
-                <p style={{ fontSize: '0.9rem', color: '#888', margin: '0 0 10px' }}>{item.desc}</p>
+                <p style={{ fontSize: '0.9rem', color: '#a0a0b0', margin: '0 0 10px' }}>{item.desc}</p>
                 <EUBadge programme={item.eu} color={item.color} />
               </div>
             ))}
@@ -758,7 +741,7 @@ export default function EuropeanAI() {
 
       {/* FOOTER */}
       <footer style={{ padding: '60px 5%', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', background: 'rgba(5,5,10,0.92)' }}>
-        <p className="animate-on-scroll" style={{ fontSize: '1rem', color: '#a0a0b0', margin: '0 0 20px' }}>European Leaders in AI &middot; A guide to Europe&apos;s AI ecosystem</p>
+        <p className="animate-on-scroll" style={{ fontSize: '1rem', color: '#c0c0d3', margin: '0 0 20px' }}>European Leaders in AI &middot; A guide to Europe&apos;s AI ecosystem</p>
         <div className="animate-on-scroll" style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center', maxWidth: '600px', margin: '0 auto 30px' }}>
           <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: 'linear-gradient(135deg, rgba(0,245,212,0.15) 0%, rgba(155,93,229,0.1) 100%)', border: '1px solid rgba(0,245,212,0.3)', borderRadius: '10px', color: '#00f5d4', textDecoration: 'none', fontSize: '0.9rem' }}>
             ← LLM History
@@ -767,7 +750,7 @@ export default function EuropeanAI() {
             🇪🇺 AI Tools for EC Staff →
           </Link>
         </div>
-        <p className="animate-on-scroll" style={{ color: '#555', fontSize: '0.85rem', maxWidth: '600px', margin: '0 auto' }}>
+        <p className="animate-on-scroll" style={{ color: '#7a7a7a', fontSize: '0.85rem', maxWidth: '600px', margin: '0 auto' }}>
           Information compiled from public sources. Not an official publication. Data as of early 2026.
         </p>
       </footer>
@@ -812,7 +795,7 @@ export default function EuropeanAI() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
             <div style={{ background: 'rgba(255,215,0,0.1)', border: '1px solid rgba(255,215,0,0.3)', borderRadius: '12px', padding: '20px', textAlign: 'center' }}>
               <div style={{ fontSize: '2rem', fontWeight: 700, color: '#ffd700', fontFamily: 'JetBrains Mono, monospace' }}>{analytics.totalVisitors}</div>
-              <div style={{ fontSize: '0.8rem', color: '#888', marginTop: '5px' }}>Total Visitors</div>
+              <div style={{ fontSize: '0.8rem', color: '#a0a0b0', marginTop: '5px' }}>Total Visitors</div>
             </div>
             {analytics.sections.slice(0, 4).map((section) => {
               const maxTime = Math.max(...analytics.sections.map(s => s.timeSpent), 1);
@@ -826,7 +809,7 @@ export default function EuropeanAI() {
                   <div style={{ height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '3px', overflow: 'hidden' }}>
                     <div style={{ height: '100%', width: `${percentage}%`, background: '#ffd700', borderRadius: '3px' }} />
                   </div>
-                  <div style={{ fontSize: '0.7rem', color: '#555', marginTop: '5px' }}>{section.visits} visits</div>
+                  <div style={{ fontSize: '0.7rem', color: '#7a7a7a', marginTop: '5px' }}>{section.visits} visits</div>
                 </div>
               );
             })}

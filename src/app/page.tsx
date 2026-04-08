@@ -7,8 +7,8 @@ import Link from 'next/link';
 
 export default function Home() {
   const [showAnalytics, setShowAnalytics] = useState(false);
-  const sectionIds = ['intro', 'dream', 'embeddings', 'transformer', 'transformer-game', 'bridge', 'pioneers', 'token-game', 'sand', 'agents', 'programming', 'present', 'future'];
-  const sectionLabels = ['Intro', 'The Dream', 'Word Vectors', 'Transformer', 'Transformer Game', 'Bridge', 'Pioneers', 'Token Game', 'Thinking Sand', 'Agents', 'Genius Coder', 'Present', 'Future'];
+  const sectionIds = ['intro', 'dream', 'embeddings', 'transformer', 'transformer-game', 'bridge', 'pioneers', 'token-game', 'sand', 'agents', 'programming', 'present', 'glasswing', 'future'];
+  const sectionLabels = ['Intro', 'The Dream', 'Word Vectors', 'Transformer', 'Transformer Game', 'Bridge', 'Pioneers', 'Token Game', 'Thinking Sand', 'Agents', 'Genius Coder', 'Present', 'Project Glasswing', 'Future'];
   const { analytics } = usePageAnalytics(sectionIds, sectionLabels, 'home');
   const hasWindow = typeof window !== 'undefined';
   
@@ -88,9 +88,9 @@ export default function Home() {
       { sentence: "After eating, the ___ died", options: ["person", "fish", "restaurant", "happy"], correct: 1, explanation: "Classic Winograd schema! 'The fish' makes sense — it ate the food, then died." },
       { sentence: "I regret to inform you that your ___ has been approved", options: ["application", "rejection", "complaint", "problem"], correct: 0, explanation: "Only 'application' collocates naturally with 'approved'." },
       { sentence: "The trophy would not fit in the suitcase because ___", options: ["it was too big", "it was too small", "it was shiny", "it was heavy"], correct: 0, explanation: "The trophy is too big for the suitcase — another Winograd schema!" },
-      { sentence: "Scientists have discovered that ___ is the key to longevity", options: ["exercise", "sleep", "happiness", "all of the above"], correct: 3, explanation: "All three factors contribute to longevity." },
+      { sentence: "The Turing test is a method for determining whether or not a computer is capable of ___ like a human.", options: ["thinking", "calculating", "processing", "learning"], correct: 0, explanation: " 'Thinking' — the core concept of Turing's original 'Imitation Game' proposal." },
       { sentence: "The artist painted a picture of the ___ at sunset", options: ["ocean", "keyboard", "telephone", "algorithm"], correct: 0, explanation: "Only 'ocean' creates a coherent scene with 'sunset'." },
-      { sentence: "She put the milk in the ___ to keep it cold", options: ["freezer", "oven", "drawer", "lamp"], correct: 0, explanation: "You keep milk cold in the freezer!" },
+      { sentence: "She put the milk in the ___ to keep it cold", options: ["fridge", "oven", "drawer", "lamp"], correct: 0, explanation: "You keep milk chilled in the fridge, not the freezer!" },
       { sentence: "The programmer wrote code that fixed the bug in ___", options: ["production", "imagination", "dreams", "stories"], correct: 0, explanation: "Code runs in production systems — not dreams." }
     ];
 
@@ -266,8 +266,8 @@ export default function Home() {
               { token: 'and', prob: 8, color: '#9b5de5' },
               { token: ',', prob: 6, color: '#f15bb5' },
               { token: 'so', prob: 4, color: '#fee440' },
-              { token: 'but', prob: 3, color: '#a0a0b0' },
-              { token: '...', prob: 5, color: '#666' },
+              { token: 'but', prob: 3, color: '#c0c0d3' },
+              { token: '...', prob: 5, color: '#7a7a7a' },
             ];
             return '<div style="display:flex;flex-direction:column;gap:8px;max-width:400px;margin:0 auto">' +
               '<div style="font-family:JetBrains Mono,monospace;font-size:0.75rem;color:#666;margin-bottom:5px;text-align:center">Next token probability distribution:</div>' +
@@ -472,13 +472,13 @@ export default function Home() {
       {/* INTRO */}
       <section id="intro" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', overflow: 'hidden', background: 'linear-gradient(180deg, rgba(10,10,15,0.92) 0%, rgba(18,18,26,0.92) 100%)' }}>
         <div className="section-content animate-scale visible" style={{ textAlign: 'center' }}>
-          <p className="animate-on-scroll visible delay-1" style={{ fontSize: '1.4rem', color: '#a0a0b0', marginBottom: '40px' }}>A Journey Through</p>
+          <p className="animate-on-scroll visible delay-1" style={{ fontSize: '1.4rem', color: '#c0c0d3', marginBottom: '40px' }}>A Journey Through</p>
           <h1 className="animate-on-scroll visible delay-2" style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '30px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
             From Translation Machines<br />to <span style={{ color: '#00f5d4' }}>Thinking Sand</span>
           </h1>
-          <p className="animate-on-scroll visible delay-3" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '600px', margin: '0 auto' }}>The remarkable story of how machines learned to understand, reason, and perhaps even think.</p>
+          <p className="animate-on-scroll visible delay-3" style={{ fontSize: '1.2rem', color: '#c0c0d3', maxWidth: '600px', margin: '0 auto' }}>The remarkable story of how machines learned to understand, reason, and perhaps even think.</p>
         </div>
-        <div className="animate-on-scroll visible delay-5" style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', color: '#a0a0b0', fontSize: '14px', animation: 'bounce 2s infinite' }}>
+        <div className="animate-on-scroll visible delay-5" style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', color: '#c0c0d3', fontSize: '14px', animation: 'bounce 2s infinite' }}>
           <span>Scroll to explore</span>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00f5d4" strokeWidth="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
         </div>
@@ -488,7 +488,7 @@ export default function Home() {
       <section id="dream" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px', position: 'relative' }}>The Dream of Machines That Speak</h2>
-          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>It all started with a simple question: <em>Can computers translate between languages?</em> From this humble beginning, an entire revolution would emerge.</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#c0c0d3', maxWidth: '700px', marginBottom: '20px' }}>It all started with a simple question: <em>Can computers translate between languages?</em> From this humble beginning, an entire revolution would emerge.</p>
           
           <div style={{ position: 'relative', paddingLeft: '40px' }}>
             <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '2px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)' }}></div>
@@ -503,7 +503,7 @@ export default function Home() {
                 <div style={{ position: 'absolute', left: '-46px', top: '30px', width: '14px', height: '14px', borderRadius: '50%', background: '#00f5d4', boxShadow: '0 0 20px #00f5d4' }}></div>
                 <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', color: '#f15bb5', marginBottom: '8px', display: 'block' }}>{item.year}</span>
                 <h4 style={{ fontSize: '1.3rem', marginBottom: '10px' }}>{item.title}</h4>
-                <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>{item.desc}</p>
+                <p style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -514,9 +514,9 @@ export default function Home() {
               <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></div>
               <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27ca40' }}></div>
             </div>
-            <div style={{ color: '#a0a0b0', marginBottom: '8px' }}>&gt; ELIZA: How do you do. Please tell me your problem.</div>
-            <div style={{ color: '#a0a0b0', marginBottom: '8px' }}>&gt; USER: My cat is sad</div>
-            <div style={{ color: '#a0a0b0' }}>&gt; ELIZA: Tell me more about your <span style={{ color: '#00f5d4' }}>cat</span></div>
+            <div style={{ color: '#c0c0d3', marginBottom: '8px' }}>&gt; ELIZA: How do you do. Please tell me your problem.</div>
+            <div style={{ color: '#c0c0d3', marginBottom: '8px' }}>&gt; USER: My cat is sad</div>
+            <div style={{ color: '#c0c0d3' }}>&gt; ELIZA: Tell me more about your <span style={{ color: '#00f5d4' }}>cat</span></div>
           </div>
 
           <a href="https://en.wikipedia.org/wiki/ELIZA" target="_blank" rel="noopener noreferrer" className="animate-on-scroll" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '20px' }}>
@@ -530,20 +530,20 @@ export default function Home() {
       <section id="transformer" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(18,18,26,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Attention Is All You Need</h2>
-          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>In June 2017, a paper from Google Brain changed everything. The Transformer architecture abandoned recurrence entirely. Instead, it used &quot;attention&quot; — letting every word look at every other word simultaneously.</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#c0c0d3', maxWidth: '700px', marginBottom: '20px' }}>In June 2017, a paper from Google Brain changed everything. The Transformer architecture abandoned recurrence entirely. Instead, it used &quot;attention&quot; — letting every word look at every other word simultaneously.</p>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginTop: '40px' }}>
             <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(0,245,212,0.1), rgba(0,245,212,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(0,245,212,0.2)' }}>
               <h4 style={{ fontSize: '1.3rem', marginBottom: '15px', color: '#00f5d4' }}>The Key Innovation</h4>
-              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>Self-attention: each token looks at all other tokens to understand context. &quot;The&quot; knows it&apos;s connected to &quot;animal&quot; and &quot;crossed.&quot;</p>
+              <p style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>Self-attention: each token looks at all other tokens to understand context. &quot;The&quot; knows it&apos;s connected to &quot;animal&quot; and &quot;crossed.&quot;</p>
             </div>
             <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(155,93,229,0.1), rgba(155,93,229,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(155,93,229,0.2)' }}>
               <h4 style={{ fontSize: '1.3rem', marginBottom: '15px', color: '#9b5de5' }}>Parallel Processing</h4>
-              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>Unlike RNNs, Transformers process entire sequences at once. Training became 100x faster. Scale became possible.</p>
+              <p style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>Unlike RNNs, Transformers process entire sequences at once. Training became 100x faster. Scale became possible.</p>
             </div>
             <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(241,91,181,0.1), rgba(241,91,181,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(241,91,181,0.2)' }}>
               <h4 style={{ fontSize: '1.3rem', marginBottom: '15px', color: '#f15bb5' }}>Long-range Dependencies</h4>
-              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>The first word can directly influence the last word. No information decay through time steps.</p>
+              <p style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>The first word can directly influence the last word. No information decay through time steps.</p>
             </div>
           </div>
 
@@ -554,7 +554,7 @@ export default function Home() {
                 <span key={i} style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', padding: '8px 12px', background: 'rgba(155,93,229,0.2)', borderRadius: '6px', color: '#fff' }}>{word}</span>
               ))}
             </div>
-            <p style={{ fontSize: '0.9rem', color: '#a0a0b0', marginTop: '15px', textAlign: 'center' }}>Every word attends to every other word. &quot;it&quot; strongly attends to &quot;animal&quot; and &quot;tired&quot;.</p>
+            <p style={{ fontSize: '0.9rem', color: '#c0c0d3', marginTop: '15px', textAlign: 'center' }}>Every word attends to every other word. &quot;it&quot; strongly attends to &quot;animal&quot; and &quot;tired&quot;.</p>
           </div>
 
           <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" className="animate-on-scroll" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(155, 93, 229, 0.2)', border: '1px solid rgba(155, 93, 229, 0.3)', borderRadius: '8px', color: '#9b5de5', textDecoration: 'none', fontSize: '0.9rem', marginTop: '25px' }}>
@@ -568,7 +568,7 @@ export default function Home() {
       <section id="transformer-game" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, rgba(18,18,26,0.92) 0%, rgba(10,10,15,0.92) 100%)' }}>
         <div className="section-content" style={{ maxWidth: '1100px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)', fontWeight: 600, marginBottom: '10px', textAlign: 'center' }}>Build a Transformer — Step by Step</h2>
-          <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#a0a0b0', textAlign: 'center', maxWidth: '650px', margin: '0 auto 40px' }}>Walk through each step of how a Transformer processes language. Click through the stages to see what happens inside.</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#c0c0d3', textAlign: 'center', maxWidth: '650px', margin: '0 auto 40px' }}>Walk through each step of how a Transformer processes language. Click through the stages to see what happens inside.</p>
 
           <div id="tg-container" style={{ position: 'relative' }}>
             {/* Step indicator */}
@@ -585,7 +585,7 @@ export default function Home() {
             <div id="tg-stage" style={{ background: 'rgba(0,0,0,0.3)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.08)', padding: '35px', minHeight: '400px', position: 'relative', overflow: 'hidden' }}>
               {/* Input sentence */}
               <div style={{ marginBottom: '20px' }}>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', color: '#666', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Input sentence</span>
+                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', color: '#7a7a7a', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Input sentence</span>
               </div>
               <div id="tg-sentence" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '30px', justifyContent: 'center' }}>
                 {['The', 'cat', 'sat', 'on', 'the', 'warm', 'mat', 'because', 'it', 'was', 'tired'].map((word, i) => (
@@ -597,7 +597,7 @@ export default function Home() {
               <div id="tg-viz" style={{ minHeight: '220px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
                 <div id="tg-explanation" style={{ textAlign: 'center', maxWidth: '600px' }}>
                   <h4 id="tg-title" style={{ fontSize: '1.2rem', color: '#00f5d4', marginBottom: '12px' }}>Step 1: Tokenization</h4>
-                  <p id="tg-desc" style={{ fontSize: '0.95rem', color: '#a0a0b0', marginBottom: '15px' }}>
+                  <p id="tg-desc" style={{ fontSize: '0.95rem', color: '#c0c0d3', marginBottom: '15px' }}>
                     First, the sentence is broken into tokens. Each word (or subword) becomes a discrete unit the model can process. Think of it like chopping a sentence into puzzle pieces.
                   </p>
                   <div id="tg-visual" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center', marginBottom: '15px' }}>
@@ -605,14 +605,14 @@ export default function Home() {
                       <span key={i} style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.75rem', padding: '5px 10px', background: 'rgba(0,245,212,0.1)', border: '1px solid rgba(0,245,212,0.3)', borderRadius: '6px', color: '#00f5d4' }}>{tok}</span>
                     ))}
                   </div>
-                  <p id="tg-detail" style={{ fontSize: '0.82rem', color: '#666', fontStyle: 'italic' }}>Notice: &quot;the&quot; always maps to token 1996 — the same word gets the same ID every time.</p>
+                  <p id="tg-detail" style={{ fontSize: '0.82rem', color: '#7a7a7a', fontStyle: 'italic' }}>Notice: &quot;the&quot; always maps to token 1996 — the same word gets the same ID every time.</p>
                 </div>
               </div>
             </div>
 
             {/* Navigation */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginTop: '25px' }}>
-              <button id="tg-prev" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '0.95rem', fontWeight: 500, padding: '12px 30px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '10px', color: '#666', cursor: 'pointer', transition: 'all 0.3s ease' }}>← Previous</button>
+              <button id="tg-prev" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '0.95rem', fontWeight: 500, padding: '12px 30px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '10px', color: '#7a7a7a', cursor: 'pointer', transition: 'all 0.3s ease' }}>← Previous</button>
               <button id="tg-next" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '0.95rem', fontWeight: 600, padding: '12px 30px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', border: 'none', borderRadius: '10px', color: '#0a0a0f', cursor: 'pointer', transition: 'all 0.3s ease' }}>Next Step →</button>
             </div>
           </div>
@@ -629,7 +629,7 @@ export default function Home() {
               <span style={{ fontSize: '2rem', flexShrink: 0 }}>🔄</span>
               <div>
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#00f5d4' }}>From Translation to Prediction</h4>
-                <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>What if instead of translating between languages, you predict the next word in the same language? That&apos;s all GPT does — sophisticated autocomplete. But with enough data and compute, prediction becomes understanding.</p>
+                <p style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>What if instead of translating between languages, you predict the next word in the same language? That&apos;s all GPT does — sophisticated autocomplete. But with enough data and compute, prediction becomes understanding.</p>
               </div>
             </div>
             
@@ -637,7 +637,7 @@ export default function Home() {
               <span style={{ fontSize: '2rem', flexShrink: 0 }}>📈</span>
               <div>
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#9b5de5' }}>Scale Changes Everything</h4>
-                <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>GPT-1 (2018): 117M parameters. GPT-2 (2019): 1.5B. GPT-3 (2020): 175B. With scale came emergent abilities — the model started doing things it wasn&apos;t explicitly trained to do.</p>
+                <p style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>GPT-1 (2018): 117M parameters. GPT-2 (2019): 1.5B. GPT-3 (2020): 175B. With scale came emergent abilities — the model started doing things it wasn&apos;t explicitly trained to do.</p>
               </div>
             </div>
             
@@ -645,7 +645,7 @@ export default function Home() {
               <span style={{ fontSize: '2rem', flexShrink: 0 }}>🧠</span>
               <div>
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#f15bb5' }}>Emergent Reasoning</h4>
-                <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>At sufficient scale, predicting the next token requires understanding context, causality, and intent. The model learns to reason step-by-step, even though it was never taught to. Chain-of-thought prompting emerged naturally.</p>
+                <p style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>At sufficient scale, predicting the next token requires understanding context, causality, and intent. The model learns to reason step-by-step, even though it was never taught to. Chain-of-thought prompting emerged naturally.</p>
               </div>
             </div>
             
@@ -653,14 +653,14 @@ export default function Home() {
               <span style={{ fontSize: '2rem', flexShrink: 0 }}>⚡</span>
               <div>
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#fee440' }}>Thinking Emerges</h4>
-                <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>The leap from translator to thinker wasn&apos;t programmed — it emerged. Billions of parameters organizing themselves to minimize prediction error created something that looks remarkably like understanding. We still don&apos;t fully understand why it works.</p>
+                <p style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>The leap from translator to thinker wasn&apos;t programmed — it emerged. Billions of parameters organizing themselves to minimize prediction error created something that looks remarkably like understanding. We still don&apos;t fully understand why it works.</p>
               </div>
             </div>
           </div>
 
           <div className="animate-on-scroll" style={{ marginTop: '50px', padding: '30px', background: 'linear-gradient(145deg, rgba(155,93,229,0.15), rgba(0,245,212,0.05))', borderRadius: '16px', border: '1px solid rgba(155,93,229,0.3)' }}>
             <p style={{ fontSize: '1.3rem', color: '#fff', fontStyle: 'italic', margin: 0 }}>&quot;We present a new simple network architecture, the Transformer, based solely on attention mechanisms...&quot;</p>
-            <p style={{ fontSize: '0.9rem', color: '#a0a0b0', marginTop: '15px' }}>— Vaswani et al., 2017</p>
+            <p style={{ fontSize: '0.9rem', color: '#c0c0d3', marginTop: '15px' }}>— Vaswani et al., 2017</p>
           </div>
         </div>
       </section>
@@ -669,26 +669,26 @@ export default function Home() {
       <section id="pioneers" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, rgba(18,18,26,0.92) 0%, rgba(10,10,15,0.92) 100%)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '15px' }}>The Minds Behind the Revolution</h2>
-          <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>This transformation wasn&apos;t accidental. It was driven by brilliant humans — many of them women — who dared to imagine machines that could think.</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#c0c0d3', maxWidth: '700px', marginBottom: '40px' }}>This transformation wasn&apos;t accidental. It was driven by brilliant humans — many of them women — who dared to imagine machines that could think.</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px', marginTop: '30px' }}>
             {[
-              { name: 'Fei-Fei Li', img: '/images/pioneers/fei-fei-li.jpg', role: 'Computer Vision Pioneer', contribution: 'Led ImageNet, proving that large-scale data drives deep learning breakthroughs.', color: '#00f5d4' },
-              { name: 'Yoshua Bengio', img: '/images/pioneers/yoshua-bengio.jpg', role: 'Deep Learning Godfather', contribution: 'Co-winner of Turing Award 2018. Pioneered recurrent networks and attention mechanisms.', color: '#9b5de5' },
-              { name: 'Andrej Karpathy', img: '/images/pioneers/andrej-karpathy.png', role: 'Deep Learning Educator', contribution: 'Created Stanford\'s CNN course. Made AI education accessible to millions.', color: '#f15bb5' },
-              { name: 'Frances Haugen', img: '/images/pioneers/frances-haugen.jpg', role: 'AI Transparency Advocate', contribution: 'Exposed Meta\'s AI practices. Champions responsible AI development.', color: '#fee440' },
-              { name: 'Demis Hassabis', img: '/images/pioneers/demis-hassabis.jpg', role: 'DeepMind Founder', contribution: 'Combined neuroscience, AI, and games. Created AlphaFold solving protein folding.', color: '#00f5d4' },
-              { name: 'Timnit Gebru', img: '/images/pioneers/timnit-gebru.jpg', role: 'AI Ethics Pioneer', contribution: 'Founded DAIR Institute. Advocated for diversity and accountability in AI.', color: '#9b5de5' },
-              { name: 'Shakir Mohamed', img: '/images/pioneers/shakir-mohamed.jpg', role: 'DeepMind Research Lead', contribution: 'Led Responsible AI at DeepMind. Pioneering work in African AI and fairness.', color: '#f15bb5' },
-              { name: 'Daphne Koller', img: '/images/pioneers/daphne-koller.jpg', role: 'Online Education Pioneer', contribution: 'Co-founded Coursera. Brought AI education to millions worldwide.', color: '#fee440' }
+              { name: 'Geoffrey Hinton', img: '/images/pioneers/geoffrey-hinton.png', role: 'The Godfather of AI', contribution: 'Pioneered backpropagation and deep learning; foundational to modern neural networks.', color: '#00f5d4' },
+              { name: 'Yann LeCun', img: '/images/pioneers/yann-lecun.png', role: 'Meta Chief AI Scientist', contribution: 'Invented Convolutional Neural Networks (LeNet), the basis for modern computer vision.', color: '#9b5de5' },
+              { name: 'Yoshua Bengio', img: '/images/pioneers/yoshua-bengio.jpg', role: 'Deep Learning Pioneer', contribution: 'Co-winner of Turing Award. Research in neural architecture and sequence learning.', color: '#f15bb5' },
+              { name: 'Fei-Fei Li', img: '/images/pioneers/fei-fei-li.jpg', role: 'Vision & Data Pioneer', contribution: 'Created ImageNet, the dataset that sparked the current deep learning revolution.', color: '#fee440' },
+              { name: 'Ilya Sutskever', img: '/images/pioneers/ilya-sutskever.png', role: 'OpenAI Co-founder', contribution: 'Architect of AlexNet and GPT; fundamental to the rapid scaling of LLMs.', color: '#00f5d4' },
+              { name: 'Ashish Vaswani', img: '/images/pioneers/ashish-vaswani.png', role: 'Transformer Inventor', contribution: 'Lead author of "Attention Is All You Need", inventing the Transformer architecture.', color: '#9b5de5' },
+              { name: 'Demis Hassabis', img: '/images/pioneers/demis-hassabis.jpg', role: 'Google DeepMind CEO', contribution: 'Pioneered reinforcement learning and AI-driven scientific discovery (AlphaFold).', color: '#f15bb5' },
+              { name: 'Andrej Karpathy', img: '/images/pioneers/andrej-karpathy.png', role: 'AI Architect & Educator', contribution: 'OpenAI co-founder, Tesla AI lead, and the premier educator of the LLM era.', color: '#fee440' }
             ].map((person, i) => (
               <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '25px', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'center', transition: 'all 0.3s ease' }}>
                 <div style={{ width: '100px', height: '100px', borderRadius: '50%', margin: '0 auto 20px', overflow: 'hidden', border: '3px solid ' + person.color, boxShadow: '0 0 30px ' + person.color + '40' }}>
                   <Image src={person.img} alt={person.name} width={100} height={100} style={{ objectFit: 'cover' }} />
                 </div>
                 <h4 style={{ fontSize: '1.1rem', marginBottom: '5px', color: person.color }}>{person.name}</h4>
-                <p style={{ fontSize: '0.85rem', color: '#a0a0b0', marginBottom: '10px', fontWeight: 500 }}>{person.role}</p>
-                <p style={{ fontSize: '0.85rem', color: '#888', margin: 0 }}>{person.contribution}</p>
+                <p style={{ fontSize: '0.85rem', color: '#c0c0d3', marginBottom: '10px', fontWeight: 500 }}>{person.role}</p>
+                <p style={{ fontSize: '0.85rem', color: '#a3a3a3', margin: 0 }}>{person.contribution}</p>
               </div>
             ))}
           </div>
@@ -696,8 +696,8 @@ export default function Home() {
           <div className="animate-on-scroll" style={{ marginTop: '50px', padding: '30px', background: 'linear-gradient(145deg, rgba(0,245,212,0.1), rgba(155,93,229,0.05))', borderRadius: '16px', border: '1px solid rgba(0,245,212,0.2)' }}>
             <h4 style={{ fontSize: '1.1rem', marginBottom: '15px', color: '#00f5d4' }}>Honorable Mentions</h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
-              {['Geoffrey Hinton', 'Yann LeCun', 'Ilya Sutskever', 'Sam Altman', 'Dario Amodei', 'Jensen Huang', 'Cynthia Dwork', 'David Ha', 'Shannon', 'Turing'].map((name, i) => (
-                <span key={i} style={{ padding: '6px 14px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px', fontSize: '0.85rem', color: '#a0a0b0' }}>{name}</span>
+              {['Alan Turing', 'Claude Shannon', 'Frank Rosenblatt', 'Jürgen Schmidhuber', 'Sepp Hochreiter', 'Noam Shazeer', 'Mira Murati', 'Sam Altman', 'Dario Amodei', 'Jensen Huang'].map((name, i) => (
+                <span key={i} style={{ padding: '6px 14px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px', fontSize: '0.85rem', color: '#c0c0d3' }}>{name}</span>
               ))}
             </div>
           </div>
@@ -708,7 +708,7 @@ export default function Home() {
       <section id="token-game" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '800px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Token Game</h2>
-          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>This is what LLMs do — predict the next token. They&apos;re sophisticated autocomplete engines. Try it yourself:</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#c0c0d3', maxWidth: '700px', marginBottom: '20px' }}>This is what LLMs do — predict the next token. They&apos;re sophisticated autocomplete engines. Try it yourself:</p>
 
           <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, #1a1a24, #12121a)', borderRadius: '20px', padding: '40px', border: '1px solid rgba(255,255,255,0.1)', marginTop: '30px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
@@ -727,7 +727,7 @@ export default function Home() {
             </div>
             
             <div id="gameResult" style={{ textAlign: 'center', marginTop: '25px', padding: '20px', borderRadius: '12px', display: 'none' }}>
-              <p id="resultText" style={{ fontSize: '1rem', margin: '0 auto', color: '#a0a0b0' }}></p>
+              <p id="resultText" style={{ fontSize: '1rem', margin: '0 auto', color: '#c0c0d3' }}></p>
               <button id="nextBtn" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '1rem', fontWeight: 500, padding: '15px 40px', background: 'linear-gradient(135deg, #00f5d4 0%, #9b5de5 100%)', border: 'none', borderRadius: '10px', color: '#0a0a0f', cursor: 'pointer', marginTop: '20px', transition: 'all 0.3s ease' }}>Next Question</button>
             </div>
           </div>
@@ -741,7 +741,7 @@ export default function Home() {
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Thinking Sand</h2>
           <h3 className="animate-on-scroll" style={{ fontSize: '1.5rem', fontWeight: 500, color: '#00f5d4', marginBottom: '15px' }}>175 billion parameters. Silicon as substrate.</h3>
-          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '20px' }}>Inside every modern LLM are billions of numerical values — &quot;weights&quot; — arranged in matrices. Together, they form a computational substrate that processes meaning. Grains of sand that learned to think.</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#c0c0d3', maxWidth: '700px', marginBottom: '20px' }}>Inside every modern LLM are billions of numerical values — &quot;weights&quot; — arranged in matrices. Together, they form a computational substrate that processes meaning. Grains of sand that learned to think.</p>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginTop: '40px' }}>
             {[
@@ -752,7 +752,7 @@ export default function Home() {
               <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)', transition: 'all 0.4s ease' }}>
                 <div style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{card.icon}</div>
                 <h4 style={{ fontSize: '1.3rem', marginBottom: '12px' }}>{card.title}</h4>
-                <p style={{ fontSize: '1rem', margin: 0, color: '#a0a0b0' }}>{card.desc}</p>
+                <p style={{ fontSize: '1rem', margin: 0, color: '#c0c0d3' }}>{card.desc}</p>
               </div>
             ))}
           </div>
@@ -768,7 +768,7 @@ export default function Home() {
       <section id="agents" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>Agents in the Machine</h2>
-          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>LLMs alone are just text predictors. But give them tools, memory, and the ability to act iteratively — and they become something new: AI agents that can explore, plan, and execute.</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#c0c0d3', maxWidth: '700px', marginBottom: '40px' }}>LLMs alone are just text predictors. But give them tools, memory, and the ability to act iteratively — and they become something new: AI agents that can explore, plan, and execute.</p>
 
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', marginBottom: '40px' }}>
             {[
@@ -781,7 +781,7 @@ export default function Home() {
                 <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '1.5rem', color: '#9b5de5', fontWeight: 700 }}>{item.step}</span>
                 <div>
                   <strong>{item.title}</strong>
-                  <p style={{ margin: 0, fontSize: '1rem', color: '#a0a0b0' }}>{item.desc}</p>
+                  <p style={{ margin: 0, fontSize: '1rem', color: '#c0c0d3' }}>{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -794,7 +794,7 @@ export default function Home() {
             ].map((card, i) => (
               <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <h4 style={{ fontSize: '1.3rem', marginBottom: '12px' }}>{card.title}</h4>
-                <p style={{ fontSize: '1rem', margin: 0, color: '#a0a0b0' }}>{card.desc}</p>
+                <p style={{ fontSize: '1rem', margin: 0, color: '#c0c0d3' }}>{card.desc}</p>
               </div>
             ))}
           </div>
@@ -810,22 +810,22 @@ export default function Home() {
       <section id="programming" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, rgba(10,10,15,0.92) 0%, rgba(26,26,37,0.92) 100%)' }}>
         <div className="section-content" style={{ maxWidth: '1100px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Genius Programmer</h2>
-          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '800px', marginBottom: '30px' }}>Perhaps the most profound demonstration of LLM capability: AI has become a world-class programmer. Code is just another language — and these machines have learned to speak it fluently.</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#c0c0d3', maxWidth: '800px', marginBottom: '30px' }}>Perhaps the most profound demonstration of LLM capability: AI has become a world-class programmer. Code is just another language — and these machines have learned to speak it fluently.</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px', marginTop: '40px' }}>
             <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(0,245,212,0.08), rgba(0,245,212,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(0,245,212,0.2)' }}>
               <h4 style={{ fontSize: '1.2rem', marginBottom: '15px', color: '#00f5d4' }}>💻 One of Humanity&apos;s Most Complex Activities</h4>
-              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>Programming requires mastering syntax, semantics, algorithms, data structures, architecture, debugging, and abstract reasoning. It demands precision, creativity, and deep logical thought.</p>
+              <p style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>Programming requires mastering syntax, semantics, algorithms, data structures, architecture, debugging, and abstract reasoning. It demands precision, creativity, and deep logical thought.</p>
             </div>
             
             <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(155,93,229,0.08), rgba(155,93,229,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(155,93,229,0.2)' }}>
               <h4 style={{ fontSize: '1.2rem', marginBottom: '15px', color: '#9b5de5' }}>🧠 Surpassing Human Experts</h4>
-              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>AI systems now score in the 99th percentile on programming competitions. They debug complex systems, optimize algorithms, and architect entire applications — often better than humans who spent decades mastering the craft.</p>
+              <p style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>AI systems now score in the 99th percentile on programming competitions. They debug complex systems, optimize algorithms, and architect entire applications — often better than humans who spent decades mastering the craft.</p>
             </div>
             
             <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(241,91,181,0.08), rgba(241,91,181,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(241,91,181,0.2)' }}>
               <h4 style={{ fontSize: '1.2rem', marginBottom: '15px', color: '#f15bb5' }}>⚡ Exponential Acceleration</h4>
-              <p style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>The rate of software improvement is no longer linear — it&apos;s exponential. AI writes code in seconds that would take humans days or weeks. The feedback loop is closing. AI writes AI.</p>
+              <p style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>The rate of software improvement is no longer linear — it&apos;s exponential. AI writes code in seconds that would take humans days or weeks. The feedback loop is closing. AI writes AI.</p>
             </div>
           </div>
 
@@ -834,17 +834,17 @@ export default function Home() {
             <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '15px', fontFamily: 'JetBrains Mono, monospace' }}>
               {[
                 { text: 'AI Writes Code', color: '#00f5d4' },
-                { text: '→', color: '#666' },
+                { text: '→', color: '#7a7a7a' },
                 { text: 'Code Improves AI', color: '#9b5de5' },
-                { text: '→', color: '#666' },
+                { text: '→', color: '#7a7a7a' },
                 { text: 'Better AI Writes Better Code', color: '#f15bb5' },
-                { text: '→', color: '#666' },
+                { text: '→', color: '#7a7a7a' },
                 { text: 'Repeat', color: '#fee440' }
               ].map((item, i) => (
                 <span key={i} style={{ color: item.color, fontSize: '1rem', padding: '8px 12px', background: `${item.color}15`, borderRadius: '8px' }}>{item.text}</span>
               ))}
             </div>
-            <p style={{ fontSize: '1rem', color: '#a0a0b0', marginTop: '20px', textAlign: 'center' }}>We&apos;re witnessing a recursive improvement loop — software building better software building better software. The singularity isn&apos;t science fiction anymore. It&apos;s happening in GitHub repos right now.</p>
+            <p style={{ fontSize: '1rem', color: '#c0c0d3', marginTop: '20px', textAlign: 'center' }}>We&apos;re witnessing a recursive improvement loop — software building better software building better software. The singularity isn&apos;t science fiction anymore. It&apos;s happening in GitHub repos right now.</p>
           </div>
 
           <div className="animate-on-scroll" style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '30px' }}>
@@ -865,7 +865,7 @@ export default function Home() {
       <section id="present" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(18,18,26,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '1200px', width: '100%' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>The Present & The Frontier</h2>
-          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', marginBottom: '40px' }}>We&apos;re living through an extraordinary moment. AI capabilities are advancing at a pace we&apos;ve never seen before.</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#c0c0d3', maxWidth: '700px', marginBottom: '40px' }}>We&apos;re living through an extraordinary moment. AI capabilities are advancing at a pace we&apos;ve never seen before.</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginTop: '40px' }}>
             {[
@@ -876,7 +876,7 @@ export default function Home() {
             ].map((company, i) => (
               <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)' }}>
                 <h4 style={{ fontSize: '1.3rem', marginBottom: '12px', color: company.color }}>{company.name}</h4>
-                <p style={{ fontSize: '1rem', margin: 0, color: '#a0a0b0' }}>{company.desc}</p>
+                <p style={{ fontSize: '1rem', margin: 0, color: '#c0c0d3' }}>{company.desc}</p>
                 <a href={company.link} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: `${company.color}33`, border: `1px solid ${company.color}50`, borderRadius: '8px', color: company.color, textDecoration: 'none', fontSize: '0.85rem', marginTop: '15px' }}>
                   {company.name === 'Meta & Open Source' ? 'GitHub →' : company.name + ' →'}
                 </a>
@@ -886,11 +886,86 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PROJECT GLASSWING & OPUS MYTHOS */}
+      <section id="glasswing" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'linear-gradient(180deg, rgba(18,18,26,0.95) 0%, rgba(10,10,15,0.95) 100%)' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '100%', pointerEvents: 'none', background: 'radial-gradient(circle at 50% 50%, rgba(0,245,212,0.05) 0%, transparent 70%)' }} />
+        <div className="section-content" style={{ maxWidth: '1200px', width: '100%', position: 'relative', zIndex: 1 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }} className="animate-on-scroll">
+            <div style={{ width: '40px', height: '2px', background: '#00f5d4' }} />
+            <span style={{ color: '#00f5d4', fontWeight: 600, letterSpacing: '2px', fontSize: '0.9rem', textTransform: 'uppercase' }}>Emerging News: April 2026</span>
+          </div>
+          
+          <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 700, marginBottom: '30px', background: 'linear-gradient(90deg, #fff 0%, #00f5d4 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Project Glasswing</h2>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div className="animate-left">
+              <p style={{ fontSize: '1.4rem', lineHeight: 1.5, color: '#fff', marginBottom: '25px', fontWeight: 500 }}>
+                AI has emerged as the ultimate cybersecurity architect, evolving so rapidly that open-source models now systematically overpace proprietary frontier benchmarks every six months.
+              </p>
+              <p style={{ fontSize: '1.05rem', color: '#c0c0d3', marginBottom: '30px', lineHeight: 1.7 }}>
+                Traditional defense has always been a step behind. Project Glasswing changes the equation by deploying frontier AI models to proactively hunt for vulnerabilities in the world&apos;s most critical software—from OS kernels to web browsers—and patching them before they can even be identified by human actors.
+              </p>
+              
+              <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '25px', marginBottom: '30px' }}>
+                <h4 style={{ color: '#00f5d4', marginBottom: '15px', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  The Mythos Tier
+                </h4>
+                <p style={{ fontSize: '0.95rem', color: '#a3a3a3', margin: 0 }}>
+                  Powered by <strong>Claude Mythos Preview</strong>, an unreleased frontier model representing a significant step-change beyond the Opus tier. Mythos is designed specifically for complex automated reasoning, high-stakes coding, and resilient defensive cybersecurity.
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', gap: '15px' }}>
+                <div style={{ padding: '10px 20px', background: 'rgba(0,245,212,0.1)', border: '1px solid rgba(0,245,212,0.3)', borderRadius: '8px', color: '#00f5d4', fontSize: '0.9rem', fontWeight: 600 }}>$100M Commitment</div>
+                <div style={{ padding: '10px 20px', background: 'rgba(155,93,229,0.1)', border: '1px solid rgba(155,93,229,0.3)', borderRadius: '8px', color: '#9b5de5', fontSize: '0.9rem', fontWeight: 600 }}>40+ Global Partners</div>
+              </div>
+            </div>
+
+            <div className="animate-right" style={{ position: 'relative' }}>
+              <div style={{ background: 'rgba(13,13,20,0.8)', border: '1px solid rgba(0,245,212,0.4)', borderRadius: '20px', padding: '40px', boxShadow: '0 0 50px rgba(0,245,212,0.1)', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, width: '4px', height: '100%', background: 'linear-gradient(to bottom, transparent, #00f5d4, transparent)' }} />
+                
+                <h4 style={{ fontFamily: 'JetBrains Mono, monospace', color: '#00f5d4', fontSize: '0.85rem', marginBottom: '25px', letterSpacing: '2px' }}>VULNERABILITY SCAN ACTIVE</h4>
+                
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                  {[
+                    { id: 'OS-0921', status: 'PATCHED', label: 'Kernel Buffer Overflow', glow: '#00f5d4' },
+                    { id: 'WEB-4412', status: 'PATCHED', label: 'Zero-Day RCE Discovery', glow: '#00f5d4' },
+                    { id: 'CRYPTO-112', status: 'SCANNING', label: 'Auth Bypass Analysis', glow: '#fee440' }
+                  ].map((log, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '15px', background: 'rgba(255,255,255,0.02)', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                      <div>
+                        <div style={{ fontSize: '0.7rem', color: '#7a7a7a', fontFamily: 'JetBrains Mono, monospace' }}>{log.id}</div>
+                        <div style={{ fontSize: '0.9rem', color: '#ccc', fontWeight: 500 }}>{log.label}</div>
+                      </div>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 700, color: log.glow, fontFamily: 'JetBrains Mono, monospace', padding: '4px 8px', background: `${log.glow}15`, borderRadius: '4px', border: `1px solid ${log.glow}30` }}>
+                        {log.status}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ marginTop: '30px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                  <p style={{ fontSize: '0.85rem', color: '#7a7a7a', marginBottom: '10px' }}>&quot;Defenders now have a durable advantage.&quot;</p>
+                  <div style={{ height: '4px', width: '100%', background: 'rgba(255,255,255,0.05)', borderRadius: '2px', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', width: '82%', background: 'linear-gradient(90deg, #00f5d4, #9b5de5)', borderRadius: '2px' }} />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Background decorative elements */}
+              <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '100px', height: '100px', background: 'radial-gradient(circle, rgba(155,93,229,0.2) 0%, transparent 70%)', zIndex: -1 }} />
+              <div style={{ position: 'absolute', bottom: '-30px', left: '-40px', width: '150px', height: '150px', background: 'radial-gradient(circle, rgba(0,245,212,0.15) 0%, transparent 70%)', zIndex: -1 }} />
+            </div>
+          </div>
+        </div>
+      </section>
       {/* THE FUTURE */}
       <section id="future" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', position: 'relative', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '900px', width: '100%', textAlign: 'center' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 600, marginBottom: '25px' }}>What Comes Next?</h2>
-          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#a0a0b0', maxWidth: '700px', margin: '0 auto 40px' }}>The story of AI is far from over. What happens when systems become more capable? More autonomous? More integrated into our lives?</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1.2rem', color: '#c0c0d3', maxWidth: '700px', margin: '0 auto 40px' }}>The story of AI is far from over. What happens when systems become more capable? More autonomous? More integrated into our lives?</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginBottom: '60px' }}>
             {[
@@ -901,7 +976,7 @@ export default function Home() {
               <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'left' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '15px' }}>{card.icon}</div>
                 <h4 style={{ fontSize: '1.2rem', marginBottom: '10px' }}>{card.title}</h4>
-                <p style={{ fontSize: '1rem', margin: 0, color: '#a0a0b0' }}>{card.desc}</p>
+                <p style={{ fontSize: '1rem', margin: 0, color: '#c0c0d3' }}>{card.desc}</p>
               </div>
             ))}
           </div>
@@ -925,7 +1000,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer style={{ padding: '80px 5%', textAlign: 'center', background: 'linear-gradient(180deg, rgba(18,18,26,0.92) 0%, rgba(10,10,15,0.92) 100%)' }}>
         <h2 className="animate-on-scroll" style={{ fontSize: '2rem', marginBottom: '40px', fontWeight: 600 }}>The Journey Continues</h2>
-        <p className="animate-on-scroll" style={{ maxWidth: '600px', margin: '0 auto 30px', color: '#a0a0b0' }}>From mechanical translation to silicon thought — and whatever comes next. The story of AI is ultimately the story of human ambition.</p>
+        <p className="animate-on-scroll" style={{ maxWidth: '600px', margin: '0 auto 30px', color: '#c0c0d3' }}>From mechanical translation to silicon thought — and whatever comes next. The story of AI is ultimately the story of human ambition.</p>
         
         <div className="animate-on-scroll" style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center', maxWidth: '800px', margin: '0 auto 40px' }}>
           {[
@@ -940,10 +1015,10 @@ export default function Home() {
           ))}
         </div>
         
-        <p className="animate-on-scroll" style={{ color: '#a0a0b0', fontSize: '0.9rem', marginBottom: '30px' }}>An interactive journey through LLM history. Created with curiosity and admiration for the researchers who made it possible.</p>
+        <p className="animate-on-scroll" style={{ color: '#c0c0d3', fontSize: '0.9rem', marginBottom: '30px' }}>An interactive journey through LLM history. Created with curiosity and admiration for the researchers who made it possible.</p>
 
         <div className="animate-on-scroll" style={{ marginTop: '10px', paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-          <p style={{ color: '#666', fontSize: '0.85rem', marginBottom: '15px' }}>Also on this site</p>
+          <p style={{ color: '#7a7a7a', fontSize: '0.85rem', marginBottom: '15px' }}>Also on this site</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
             <a href="/ec-ai-tools" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 28px', background: 'linear-gradient(135deg, rgba(0,51,153,0.3) 0%, rgba(255,204,0,0.1) 100%)', border: '1px solid rgba(0,51,153,0.4)', borderRadius: '12px', color: '#6699ff', textDecoration: 'none', fontSize: '1rem', transition: 'all 0.3s ease' }}>
               <span style={{ fontSize: '1.3rem' }}>🇪🇺</span>
@@ -1112,7 +1187,7 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
             <div style={{ background: 'rgba(0,245,212,0.1)', border: '1px solid rgba(0,245,212,0.3)', borderRadius: '12px', padding: '20px', textAlign: 'center' }}>
               <div style={{ fontSize: '2rem', fontWeight: 700, color: '#00f5d4', fontFamily: 'JetBrains Mono, monospace' }}>{analytics.totalVisitors}</div>
-              <div style={{ fontSize: '0.8rem', color: '#888', marginTop: '5px' }}>Total Visitors</div>
+              <div style={{ fontSize: '0.8rem', color: '#a3a3a3', marginTop: '5px' }}>Total Visitors</div>
             </div>
             {analytics.sections.slice(0, 4).map((section) => {
               const maxTime = Math.max(...analytics.sections.map(s => s.timeSpent), 1);

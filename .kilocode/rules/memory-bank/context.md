@@ -25,12 +25,14 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 | `.kilocode/` | AI context & recipes | ✅ Ready |
 
 ## Current Focus
+The project is focused on high-impact AI narrative storytelling. We have recently integrated **Project Glasswing** and **Opus Mythos** to highlight AI's role in proactive cybersecurity. We have also refined the typography for better legibility and cleaned up the European AI Leaders page.
 
-The template is ready. Next steps depend on user requirements:
-
-1. What type of application to build
-2. What features are needed
-3. Design/branding preferences
+## Recent Changes
+- Integrated **Project Glasswing** section with an automated vulnerability scan UI.
+- Rewrote the narrative to emphasize the **6-month overpacing cycle** where open-source models systematically surpass frontier benchmarks.
+- Removed the "Europe · UK · Ukraine" badge and the **BROMO merger** box from European Leaders.
+- Lightened the **base text gray** by 20% across all pages to improve readability on dark backgrounds.
+- Added AI-generated portraits for the Pioneers section.
 
 ## Quick Start Guide
 
@@ -85,3 +87,4 @@ export async function GET() {
 | Date | Changes |
 |------|---------|
 | Initial | Template created with base setup |
+| 2026-04-07 | Repository cloned and dependencies installed using bun |

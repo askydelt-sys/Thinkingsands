@@ -168,16 +168,16 @@ export default function ECAITools() {
           <h1 className="animate-on-scroll visible delay-2" style={{ fontSize: 'clamp(2.5rem, 7vw, 4.5rem)', fontWeight: 700, lineHeight: 1.1, marginBottom: '30px', background: 'linear-gradient(135deg, #4d79ff 0%, #FFCC00 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
             AI Tools for<br />Commission Staff
           </h1>
-          <p className="animate-on-scroll visible delay-3" style={{ fontSize: '1.25rem', color: '#a0a0b8', maxWidth: '650px', margin: '0 auto 40px' }}>
+          <p className="animate-on-scroll visible delay-3" style={{ fontSize: '1.25rem', color: '#c0c0dc', maxWidth: '650px', margin: '0 auto 40px' }}>
             Your practical guide to the European Commission&apos;s growing suite of secure, EU-built AI tools — from ChatGPT-style assistants to document intelligence and speech transcription.
           </p>
           <div className="animate-on-scroll visible delay-4" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
             {['🔒 Secure & EU-hosted', '🌍 All 24 EU languages', '✅ GDPR compliant', '🆓 Free for EC staff'].map((badge, i) => (
-              <span key={i} style={{ padding: '6px 16px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', fontSize: '0.85rem', color: '#a0a0b8' }}>{badge}</span>
+              <span key={i} style={{ padding: '6px 16px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', fontSize: '0.85rem', color: '#c0c0dc' }}>{badge}</span>
             ))}
           </div>
         </div>
-        <div className="animate-on-scroll visible delay-5" style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', color: '#a0a0b0', fontSize: '14px', animation: 'bounce 2s infinite' }}>
+        <div className="animate-on-scroll visible delay-5" style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', color: '#c0c0d3', fontSize: '14px', animation: 'bounce 2s infinite' }}>
           <span>Scroll to explore</span>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFCC00" strokeWidth="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
         </div>
@@ -194,7 +194,7 @@ export default function ECAITools() {
             </div>
           </div>
 
-          <p className="animate-on-scroll" style={{ fontSize: '1.15rem', color: '#a0a0b0', maxWidth: '750px', marginBottom: '40px' }}>
+          <p className="animate-on-scroll" style={{ fontSize: '1.15rem', color: '#c0c0d3', maxWidth: '750px', marginBottom: '40px' }}>
             GPT@EC is the Commission&apos;s own large language model assistant. Unlike using external tools like ChatGPT or Copilot, your prompts and documents <strong style={{ color: '#fff' }}>never leave Commission servers</strong>. Built on top of GPT@JRC (the Joint Research Centre&apos;s earlier pilot), it supports multiple LLMs — each suited to different sensitivity levels.
           </p>
 
@@ -205,7 +205,7 @@ export default function ECAITools() {
               <span style={{ fontSize: '1.5rem' }}>🔐</span>
               <h4 style={{ color: '#ff3b30', margin: 0, fontSize: '1.1rem' }}>Works with Sensitive Non-Classified (SNC) documents</h4>
             </div>
-            <p style={{ fontSize: '0.92rem', color: '#a0a0b0', margin: '0 0 15px', maxWidth: '700px' }}>
+            <p style={{ fontSize: '0.92rem', color: '#c0c0d3', margin: '0 0 15px', maxWidth: '700px' }}>
               GPT@EC is the <strong style={{ color: '#fff' }}>only EC AI tool approved for processing SNC-marked information</strong>. It is hosted on the Commission&apos;s own data centre and offers multiple LLMs matched to different sensitivity levels. Staff can select the appropriate model depending on whether they are working with public, Commission-internal or SNC documents.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px' }}>
@@ -216,11 +216,11 @@ export default function ECAITools() {
               ].map((tier, i) => (
                 <div key={i} style={{ padding: '12px 15px', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', borderLeft: `3px solid ${tier.color}` }}>
                   <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem', color: tier.color, marginBottom: '4px', fontWeight: 600 }}>{tier.level}</div>
-                  <p style={{ fontSize: '0.8rem', color: '#888', margin: 0 }}>{tier.desc}</p>
+                  <p style={{ fontSize: '0.8rem', color: '#a3a3a3', margin: 0 }}>{tier.desc}</p>
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: '0.78rem', color: '#666', marginTop: '12px', fontStyle: 'italic', margin: '12px 0 0' }}>
+            <p style={{ fontSize: '0.78rem', color: '#7a7a7a', marginTop: '12px', fontStyle: 'italic', margin: '12px 0 0' }}>
               Note: External tools (ChatGPT, Copilot, Gemini, etc.) must <strong style={{ color: '#999' }}>never</strong> be used with any non-public Commission information — including SNC. The EC&apos;s 2023 Guidelines for Staff on Generative AI explicitly prohibit this.
             </p>
           </div>
@@ -235,7 +235,7 @@ export default function ECAITools() {
               <div key={i} className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))', borderRadius: '16px', padding: '28px', border: `1px solid ${card.color}30` }}>
                 <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{card.icon}</div>
                 <h4 style={{ fontSize: '1.1rem', marginBottom: '10px', color: card.color }}>{card.title}</h4>
-                <p style={{ fontSize: '0.9rem', color: '#a0a0b0', margin: 0 }}>{card.desc}</p>
+                <p style={{ fontSize: '0.9rem', color: '#c0c0d3', margin: 0 }}>{card.desc}</p>
               </div>
             ))}
           </div>
@@ -246,12 +246,12 @@ export default function ECAITools() {
               <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></div>
               <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></div>
               <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27ca40' }}></div>
-              <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem', color: '#666', marginLeft: '8px' }}>GPT@EC · Example prompt</span>
+              <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem', color: '#7a7a7a', marginLeft: '8px' }}>GPT@EC · Example prompt</span>
             </div>
             <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', color: '#FFCC00', marginBottom: '10px' }}>You:</p>
-            <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', color: '#a0a0b0', marginBottom: '15px' }}>&quot;Summarise the key obligations for operators of high-risk AI systems under the EU AI Act in 5 bullet points, in plain language suitable for a non-legal audience.&quot;</p>
+            <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', color: '#c0c0d3', marginBottom: '15px' }}>&quot;Summarise the key obligations for operators of high-risk AI systems under the EU AI Act in 5 bullet points, in plain language suitable for a non-legal audience.&quot;</p>
             <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.9rem', color: '#4d79ff', marginBottom: '10px' }}>GPT@EC:</p>
-            <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.85rem', color: '#888', lineHeight: 1.7 }}>
+            <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.85rem', color: '#a3a3a3', lineHeight: 1.7 }}>
               • Conduct a conformity assessment before deployment...<br />
               • Register the AI system in the EU database...<br />
               • Maintain technical documentation and logs...<br />
@@ -279,7 +279,7 @@ export default function ECAITools() {
               <p style={{ color: '#FFCC00', fontSize: '1rem', margin: 0 }}>language-tools.ec.europa.eu · DG Translation · free with EU Login</p>
             </div>
           </div>
-          <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#a0a0b0', maxWidth: '750px', marginBottom: '40px' }}>
+          <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#c0c0d3', maxWidth: '750px', marginBottom: '40px' }}>
             The EU&apos;s multilingual AI toolkit — built on decades of professional translation expertise. All tools work in all 24 EU official languages and several others. Your data is never used to train commercial models.
           </p>
 
@@ -372,12 +372,12 @@ export default function ECAITools() {
                 <div style={{ flex: 1, minWidth: '250px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px', flexWrap: 'wrap' }}>
                     <h4 style={{ fontSize: '1.15rem', color: tool.color, margin: 0 }}>{tool.name}</h4>
-                    <span style={{ fontSize: '0.8rem', color: '#666' }}>— {tool.tagline}</span>
+                    <span style={{ fontSize: '0.8rem', color: '#7a7a7a' }}>— {tool.tagline}</span>
                   </div>
-                  <p style={{ fontSize: '0.9rem', color: '#a0a0b0', margin: '0 0 10px' }}>{tool.desc}</p>
+                  <p style={{ fontSize: '0.9rem', color: '#c0c0d3', margin: '0 0 10px' }}>{tool.desc}</p>
                   <div style={{ padding: '10px 15px', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', borderLeft: `3px solid ${tool.color}` }}>
-                    <span style={{ fontSize: '0.75rem', color: '#666', display: 'block', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '1px' }}>Example use</span>
-                    <p style={{ fontSize: '0.85rem', color: '#888', margin: 0, fontStyle: 'italic' }}>{tool.example}</p>
+                    <span style={{ fontSize: '0.75rem', color: '#7a7a7a', display: 'block', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '1px' }}>Example use</span>
+                    <p style={{ fontSize: '0.85rem', color: '#a3a3a3', margin: 0, fontStyle: 'italic' }}>{tool.example}</p>
                   </div>
                 </div>
                 <a href={tool.url} target="_blank" rel="noopener noreferrer" style={{ flexShrink: 0, padding: '8px 16px', background: `${tool.color}20`, border: `1px solid ${tool.color}40`, borderRadius: '8px', color: tool.color, textDecoration: 'none', fontSize: '0.85rem', whiteSpace: 'nowrap' }}>
@@ -410,7 +410,7 @@ export default function ECAITools() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
             <div className="animate-on-scroll" style={{ background: 'linear-gradient(145deg, rgba(255,107,107,0.08), rgba(255,107,107,0.02))', borderRadius: '16px', padding: '30px', border: '1px solid rgba(255,107,107,0.2)' }}>
               <h4 style={{ color: '#ff6b6b', marginBottom: '15px', fontSize: '1.1rem' }}>What it does</h4>
-              <ul style={{ color: '#a0a0b0', fontSize: '0.95rem', lineHeight: 1.8, paddingLeft: '20px', margin: 0 }}>
+              <ul style={{ color: '#c0c0d3', fontSize: '0.95rem', lineHeight: 1.8, paddingLeft: '20px', margin: 0 }}>
                 <li>Upload audio or video recordings</li>
                 <li>Get full text transcriptions</li>
                 <li>Generate subtitle files (.srt)</li>
@@ -429,7 +429,7 @@ export default function ECAITools() {
                 ].map((uc, i) => (
                   <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
                     <span style={{ color: '#4d79ff', flexShrink: 0, marginTop: '2px' }}>▸</span>
-                    <span style={{ fontSize: '0.9rem', color: '#a0a0b0' }}>{uc}</span>
+                    <span style={{ fontSize: '0.9rem', color: '#c0c0d3' }}>{uc}</span>
                   </div>
                 ))}
               </div>
@@ -522,9 +522,9 @@ export default function ECAITools() {
                   </div>
                   <span style={{ fontSize: '0.75rem', padding: '3px 10px', background: `${tool.color}15`, borderRadius: '10px', color: tool.color }}>{tool.access}</span>
                 </div>
-                <p style={{ fontSize: '0.88rem', color: '#a0a0b0', marginBottom: '12px' }}>{tool.desc}</p>
+                <p style={{ fontSize: '0.88rem', color: '#c0c0d3', marginBottom: '12px' }}>{tool.desc}</p>
                 <div style={{ padding: '8px 12px', background: 'rgba(0,0,0,0.3)', borderRadius: '6px', borderLeft: `2px solid ${tool.color}`, marginBottom: '12px' }}>
-                  <p style={{ fontSize: '0.82rem', color: '#777', margin: 0, fontStyle: 'italic' }}>{tool.example}</p>
+                  <p style={{ fontSize: '0.82rem', color: '#8c8c8c', margin: 0, fontStyle: 'italic' }}>{tool.example}</p>
                 </div>
                 <a href={tool.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.82rem', color: tool.color, textDecoration: 'none' }}>Open →</a>
               </div>
@@ -576,8 +576,8 @@ export default function ECAITools() {
                   <span style={{ fontSize: '1.5rem' }}>{tool.icon}</span>
                   <h4 style={{ color: tool.color, margin: 0 }}>{tool.name}</h4>
                 </div>
-                <p style={{ fontSize: '0.9rem', color: '#a0a0b0', marginBottom: '15px' }}>{tool.desc}</p>
-                <ul style={{ paddingLeft: '18px', margin: '0 0 15px', color: '#777', fontSize: '0.85rem', lineHeight: 1.8 }}>
+                <p style={{ fontSize: '0.9rem', color: '#c0c0d3', marginBottom: '15px' }}>{tool.desc}</p>
+                <ul style={{ paddingLeft: '18px', margin: '0 0 15px', color: '#8c8c8c', fontSize: '0.85rem', lineHeight: 1.8 }}>
                   {tool.tips.map((t, j) => <li key={j}>{t}</li>)}
                 </ul>
                 <a href={tool.url} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: `${tool.color}15`, border: `1px solid ${tool.color}30`, borderRadius: '8px', color: tool.color, textDecoration: 'none', fontSize: '0.85rem' }}>
@@ -631,7 +631,7 @@ export default function ECAITools() {
               <div key={i} className="animate-on-scroll" style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '16px', padding: '25px', border: `1px solid ${item.color}20` }}>
                 <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '2rem', color: `${item.color}40`, fontWeight: 700, marginBottom: '10px' }}>{item.step}</div>
                 <h4 style={{ color: item.color, marginBottom: '10px', fontSize: '1.05rem' }}>{item.title}</h4>
-                <p style={{ fontSize: '0.88rem', color: '#a0a0b0', marginBottom: '15px' }}>{item.desc}</p>
+                <p style={{ fontSize: '0.88rem', color: '#c0c0d3', marginBottom: '15px' }}>{item.desc}</p>
                 <a href={item.link.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.85rem', color: item.color, textDecoration: 'none' }}>{item.link.text} →</a>
               </div>
             ))}
@@ -643,7 +643,7 @@ export default function ECAITools() {
       <section id="tips" style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 5%', background: 'rgba(10,10,15,0.92)' }}>
         <div className="section-content" style={{ maxWidth: '900px', width: '100%', textAlign: 'center' }}>
           <h2 className="animate-on-scroll" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 600, marginBottom: '15px' }}>Tips for Responsible Use</h2>
-          <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#a0a0b0', marginBottom: '40px' }}>The Commission&apos;s AI@EC Communication sets out the principles. Here&apos;s what matters in practice.</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1.1rem', color: '#c0c0d3', marginBottom: '40px' }}>The Commission&apos;s AI@EC Communication sets out the principles. Here&apos;s what matters in practice.</p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', textAlign: 'left', marginBottom: '50px' }}>
             {[
@@ -657,7 +657,7 @@ export default function ECAITools() {
               <div key={i} className="animate-on-scroll" style={{ padding: '20px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', border: `1px solid ${tip.color}20` }}>
                 <div style={{ fontSize: '1.5rem', marginBottom: '10px' }}>{tip.icon}</div>
                 <h4 style={{ color: tip.color, fontSize: '0.95rem', marginBottom: '8px' }}>{tip.title}</h4>
-                <p style={{ fontSize: '0.85rem', color: '#888', margin: 0 }}>{tip.desc}</p>
+                <p style={{ fontSize: '0.85rem', color: '#a3a3a3', margin: 0 }}>{tip.desc}</p>
               </div>
             ))}
           </div>
@@ -666,7 +666,7 @@ export default function ECAITools() {
             <p style={{ fontSize: '1.1rem', color: '#fff', fontStyle: 'italic', margin: '0 0 10px' }}>
               &quot;We want Commission staff to benefit from all the possibilities that AI has to offer, but we need to give them the tools and guidance to do it safely.&quot;
             </p>
-            <p style={{ fontSize: '0.85rem', color: '#a0a0b0', margin: 0 }}>— Veronica Gaffey, Director-General for Digital Services (DIGIT), October 2024</p>
+            <p style={{ fontSize: '0.85rem', color: '#c0c0d3', margin: 0 }}>— Veronica Gaffey, Director-General for Digital Services (DIGIT), October 2024</p>
           </div>
 
           <div className="animate-on-scroll" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
@@ -688,9 +688,9 @@ export default function ECAITools() {
       <footer style={{ padding: '60px 5%', textAlign: 'center', background: 'linear-gradient(180deg, rgba(18,18,26,0.92) 0%, rgba(10,10,15,0.92) 100%)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px', marginBottom: '20px' }}>
           <span style={{ fontSize: '2rem' }}>🇪🇺</span>
-          <p className="animate-on-scroll" style={{ fontSize: '1rem', color: '#a0a0b0', margin: 0 }}>European Commission AI Tools Guide · Not an official Commission publication</p>
+          <p className="animate-on-scroll" style={{ fontSize: '1rem', color: '#c0c0d3', margin: 0 }}>European Commission AI Tools Guide · Not an official Commission publication</p>
         </div>
-        <p className="animate-on-scroll" style={{ color: '#555', fontSize: '0.85rem', maxWidth: '600px', margin: '0 auto 25px' }}>
+        <p className="animate-on-scroll" style={{ color: '#7a7a7a', fontSize: '0.85rem', maxWidth: '600px', margin: '0 auto 25px' }}>
           Information compiled from official EC sources. Always check the Commission intranet (MyIntraComm) and your DG&apos;s IT guidelines for the most current access and usage policies.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
@@ -741,7 +741,7 @@ export default function ECAITools() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
             <div style={{ background: 'rgba(255,204,0,0.1)', border: '1px solid rgba(255,204,0,0.3)', borderRadius: '12px', padding: '20px', textAlign: 'center' }}>
               <div style={{ fontSize: '2rem', fontWeight: 700, color: '#FFCC00', fontFamily: 'JetBrains Mono, monospace' }}>{analytics.totalVisitors}</div>
-              <div style={{ fontSize: '0.8rem', color: '#888', marginTop: '5px' }}>Total Visitors</div>
+              <div style={{ fontSize: '0.8rem', color: '#a3a3a3', marginTop: '5px' }}>Total Visitors</div>
             </div>
             {analytics.sections.slice(0, 4).map((section) => {
               const maxTime = Math.max(...analytics.sections.map(s => s.timeSpent), 1);
@@ -755,7 +755,7 @@ export default function ECAITools() {
                   <div style={{ height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '3px', overflow: 'hidden' }}>
                     <div style={{ height: '100%', width: `${percentage}%`, background: '#FFCC00', borderRadius: '3px' }} />
                   </div>
-                  <div style={{ fontSize: '0.7rem', color: '#555', marginTop: '5px' }}>{section.visits} visits</div>
+                  <div style={{ fontSize: '0.7rem', color: '#7a7a7a', marginTop: '5px' }}>{section.visits} visits</div>
                 </div>
               );
             })}
